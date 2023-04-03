@@ -47,3 +47,5 @@ module Backend
       secure: Rails.env.production?
   end
 end
+
+config.railties_order =[:all, :main_app]
