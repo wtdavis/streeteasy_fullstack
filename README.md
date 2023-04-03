@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+await fetch('api/session', {method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({username: 'Demoman', password: 'password'})}).then(res=>res.json())

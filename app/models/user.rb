@@ -19,6 +19,18 @@ class User < ApplicationRecord
     validates :password, allow_nil: true, length: {in: 6..100}
     before_validation :ensure_session_token
 
+    has_many :listings,
+    class_name: 'Listing',
+    foreign_key: :lister_id
+
+    has_many :favorites,
+    class_name: 'Favorite',
+    foreign_key: :user_id
+
+    has_many :favorited_listings,
+    through: :favorites,
+    source: :listing_id
+
 
     def self.find_by_credentials(credential, password)
 

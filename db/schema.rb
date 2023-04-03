@@ -10,9 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_131812) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_192558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "buildings", force: :cascade do |t|
+    t.string "location", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_buildings_on_name"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_favorites_on_listing_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "location", null: false
+    t.string "address", null: false
+    t.text "description"
+    t.bigint "lister_id", null: false
+    t.bigint "building_id"
+    t.string "type", null: false
+    t.bigint "price", null: false
+    t.bigint "num_bedrooms", null: false
+    t.bigint "num_baths", null: false
+    t.string "borough", null: false
+    t.index ["location"], name: "index_listings_on_location", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -25,4 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_131812) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "favorites", "listings"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "listings", "buildings"
+  add_foreign_key "listings", "users", column: "lister_id"
 end
