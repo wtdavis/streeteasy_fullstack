@@ -1,11 +1,10 @@
-import csrfFetch from "./csrf"
+import csrfFetch, { storeCSRFToken } from "./csrf"
 
 const SET_CURRENT_USER = 'session/setCurrentUser'
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser'
 
 
-export const login = (user) => async (dispatch) => {
-    const {credential, password} = user;
+export const login = ({credential, password}) => async (dispatch) => {
     const res = await csrfFetch('api/session', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -15,15 +14,36 @@ export const login = (user) => async (dispatch) => {
         })
     } )
     const data = await res.json()
-    dispatch(setCurrentUser(data.user))
+    if (res.ok){
+    storeCurrentUser(data.user)
+    dispatch(setCurrentUser(data.user))}
 }
 
 export const logout = () => async (dispatch) => {
     const res = await csrfFetch('api/session', {
         method: 'DELETE'
     })
-    if (res.ok){
-    dispatch(removeCurrentUser())}
+    storeCurrentUser(null)
+    dispatch(removeCurrentUser())
+}
+
+export const signup = ({username, email, password}) => async (dispatch) => {
+    const res = await csrfFetch('api/users', {
+        method: 'POST',
+         headers: {'Content-Type': 'application/json'}, 
+         body: JSON.stringify({
+                username: username, 
+                email: email,
+                password: password
+            })
+    })
+    const data = await res.json()
+
+    if (res.ok) {
+        storeCurrentUser(data.user)
+        dispatch(setCurrentUser(data.user))
+    }
+    return res
 }
 
 const setCurrentUser = (user) => {
@@ -38,7 +58,7 @@ const removeCurrentUser = () => {
     }
 }
 
-const initialState = {user: null}
+const initialState = {user: JSON.parse(sessionStorage.getItem("currentUser"))}
 
 const sessionReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -59,7 +79,13 @@ const storeCurrentUser = (user) => {
     }
 }
 
-const restoreSession = () => async (dispatch) => {
-   
+export const restoreSession = () => async (dispatch) => {
+   const res = await csrfFetch('/api/session')
+   storeCSRFToken(res)
+   const data = await res.json()
+   storeCurrentUser(data.user)
+   dispatch(setCurrentUser(data.user))
+    return res
 }
+
 export default sessionReducer

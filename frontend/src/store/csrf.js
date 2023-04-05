@@ -24,11 +24,11 @@ export function storeCSRFToken(response) {
     }
 }
 
-export async function restoreCSRF() {
-    const response = await fetch('api/session');
-    storeCSRFToken(response);
-    return response
-}
+// export async function restoreCSRF() {
+//     const response = await fetch('/api/session');
+//     storeCSRFToken(response);
+//     return response
+// }
 
 export default csrfFetch
 

@@ -1,0 +1,51 @@
+#banner {
+    /* border: 1px solid blue; */
+    background-color: rgb(2, 2, 90);
+    display: block;
+    justify-content: space-between;
+    min-height: 70px;
+    position: fixed;
+    width: 110%;
+    margin-top: -7px
+}
+
+#logo-div {
+    width: 50%
+}
+
+#loginsignup {
+    margin-right: 30%;
+    float: right;
+
+    top: -20px;
+    position: relative;
+}
+
+#loginsignup:hover {
+    color: lightblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#logo {
+    margin-left: 30%
+}
+
+#navbar {
+    /* max-height: 50%; */
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 100%;
+}
+.navbutton {
+    margin: 10px
+}
+#navcontainer {
+    margin-left: 30%;
+    width: 100%
+}
+#navbar .navbutton:hover {
+    color: lightblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
