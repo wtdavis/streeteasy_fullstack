@@ -17,6 +17,7 @@ export const login = ({credential, password}) => async (dispatch) => {
     if (res.ok){
     storeCurrentUser(data.user)
     dispatch(setCurrentUser(data.user))}
+    return res
 }
 
 export const logout = () => async (dispatch) => {

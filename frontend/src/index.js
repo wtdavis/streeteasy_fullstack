@@ -8,6 +8,7 @@ import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session'
 import * as modalActions from './store/modal'
+import './index.css'
 const store = configureStore()
 
 if (process.env.NODE_ENV !== 'production') {
@@ -37,7 +38,8 @@ ReactDOM.render(
 );
 }
 
-store.dispatch(modalActions.removeModal());
+store.dispatch(modalActions.removeCredentialModal());
+store.dispatch(modalActions.removePasswordModal())
 
 if (  sessionStorage.getItem("currentUser") === null ||
   sessionStorage.getItem('X-CSRF-Token') === null ) 

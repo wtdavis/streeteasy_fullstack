@@ -2,9 +2,9 @@ import './navigation.css'
 
 const ProfileButton = () => {
     return(
-    <div id="logo" style={{color: "grey", fontSize: "20px" }}>
+    <div id="logo" style={{color: "white", fontSize: "20px" }}>
         <i className="fa-solid fa-trash-can"/>
-        EliteEasy
+        <p>EliteEasy</p>
         </div> )
 }
 

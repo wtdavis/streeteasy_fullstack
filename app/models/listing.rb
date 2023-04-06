@@ -28,4 +28,6 @@ class Listing < ApplicationRecord
     has_many :user_favorites,
     through: :favorites,
     source: :user
+
+    has_many_attached :photos
 end

@@ -1,0 +1,50 @@
+p {margin: 0}
+
+/* #modalcontainer {
+    width: 200px;
+    height: 400px;
+    display: block;
+    position: relative
+} */
+
+/* .loginmodal{
+    position: relative;
+    top: 50%;
+} */
+
+.loginmodal {
+    position: fixed;
+    top: 160px;
+    left: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 250px;
+    background-color: rgb(29, 29, 30);
+    align-items: center;
+    justify-content:space-evenly;
+    padding: 10px;
+    z-index: 100;
+}
+
+.formsubmit {
+    cursor: pointer;
+    border: 1px lightgray solid;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: rgb(40, 40, 241);
+}
+
+.modalprompt {
+    font-size: larger;
+    position: relative
+}
+
+.modalflavor {
+    font-size: smaller;
+    /* margin-bottom: 10%; */
+    /* position: absolute; */
+    
+    
+}

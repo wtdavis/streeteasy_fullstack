@@ -1,0 +1,15 @@
+.splashsection {
+    height: 300px;
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #splashsub1 {
+    
+} */
+
+#splashsub2 {
+    background-color: blueviolet;
+}

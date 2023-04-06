@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux"
+import DropDown from "./DropDown"
+import * as modalActions from '../../store/modal'
 function NavBar () {
+    const dispatch = useDispatch()
     return (
-        <div id="navbar">
+        <div id="navbar" onClick={() => dispatch(modalActions.removeModals())}>
             <div id="buy" className="navbutton">
                 Buy
             </div>
@@ -12,6 +16,7 @@ function NavBar () {
             </div>
             <div id="buildings" className="navbutton">
                 Buildings
+            <DropDown/>
             </div>
         </div>
     )
