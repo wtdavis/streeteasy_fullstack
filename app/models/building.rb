@@ -15,7 +15,8 @@ class Building < ApplicationRecord
 
     has_many :listings,
     class_name: 'Listing',
-    foreign_key: :building_id
+    foreign_key: :building_id,
+    primary_key: :id
 
     
 end

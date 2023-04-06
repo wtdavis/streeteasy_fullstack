@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import './navigation.css'
 
 function LoginSignupButton () {
+    
     const dispatch = useDispatch()
     // const sessionUser = useSelector(state => state.session.user)
         return (

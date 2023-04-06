@@ -11,5 +11,26 @@
 } */
 
 #splashsub2 {
-    background-color: blueviolet;
+    background-color: rgb(35, 14, 218);
+}
+
+.splashtile {
+    display: block;
+    position: relative;
+    width: 19%;
+    height: 80%;
+    background-color: green;
+    margin: 10px
+}
+
+.splashtilebutton {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    background-color: blue; 
+}
+
+.splashtilefooter {
+
 }

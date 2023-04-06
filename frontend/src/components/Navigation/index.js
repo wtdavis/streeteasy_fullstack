@@ -7,31 +7,21 @@ import LoginSignupButton from "./LoginSignupButton.js";
 import NavBar from "./NavBar";
 import DropDown from "./DropDown";
 import LoginSignupPage from "../LoginSignupPage";
+import LogoutButton from "./LogoutButton";
+import AccountDropdown from "./AccountDropdown";
 
 function Navigation () {
     const sessionUser = useSelector(state => state.session.user)
-    const dispatch = useDispatch()
 return (
     <div id="header">
-
-        <div id="banner">
-            
-                <ProfileButton/>
-                <LoginSignupButton/>
-            
-
-            {sessionUser&& 
-            <div onClick={(e) => {
-                dispatch(sessionActions.logout())
-            }}>
-                Logout
-            </div>}
-        </div>
-
+            <LoginSignupPage/>
+        <div id="banner">            
+            <ProfileButton/>
+            {!sessionUser && <LoginSignupButton/>}
+            {sessionUser&& <AccountDropdown/>}
+            </div>
         <div id="navcontainer">
             <NavBar/>
-            {/* <DropDown/> */}
-            
         </div>
         
     </div>
@@ -43,5 +33,3 @@ return (
 
 export default Navigation
 
-{/* <NavLink to="/login">Login</NavLink>
-<NavLink to="/signup">Signup</NavLink> */}

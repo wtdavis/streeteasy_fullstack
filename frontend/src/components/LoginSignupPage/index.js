@@ -4,6 +4,7 @@
 // import * as modalActions from '../../store/modal'
 // import { useDispatch } from 'react-redux'
 import LoginSignupModal from './LoginSignupModal'
+import './loginsignup.css'
 
 function LoginSignupPage () {
     // const dispatch = useDispatch()

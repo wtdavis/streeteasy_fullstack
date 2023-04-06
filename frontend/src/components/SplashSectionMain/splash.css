@@ -1,0 +1,105 @@
+#splashmain {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 520px;
+    background-image: url("https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/assets/homeHero-a74195949baefe336eec1d180ec64942.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(33, 59, 79);
+}
+
+#housingrightsbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    background-color: darkblue;
+    text-decoration: none;
+}
+
+#housingrightsmsg {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+#motto {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    font-weight:lighter;
+}
+
+.splashsection {
+    height: 300px;
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#splashsub1 {
+    background-color: rgb(47, 46, 46);
+}
+
+#splashsub2 {
+    background-color: rgb(58, 43, 226);
+}
+
+.splashtile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    width: 22%;
+    height: 250px;
+    background-color: rgb(11, 11, 11);
+    margin: 10px;
+    border-top: 2px rgb(11, 140, 215) solid
+}
+
+.splashtiletitle {
+    font-size: 25px;
+    /* padding-top: 10px; */
+    margin-top:20px;
+    margin-bottom: 5px;
+    /* padding-bottom: 10px; */
+}
+
+.splashtiletext {
+    font-weight: lighter;
+    padding-top: 10px;
+    padding: 10px
+    
+    
+
+}
+.splashtilebutton {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    border: 1px solid whitesmoke;
+    width: 35%;
+    height: 40%;
+    /* margin: auto; */
+    background-color: rgb(25, 146, 239); 
+}
+
+.splashtilefooter {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:35%;
+    bottom: 0;
+    background-color: rgb(6, 68, 78); 
+}

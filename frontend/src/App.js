@@ -8,27 +8,34 @@ import './index.css'
 import LoginSignupModal from "./components/LoginSignupPage/LoginSignupModal";
 import SplashSectionMain from "./components/SplashSectionMain";
 import SplashSubSections from "./components/SplashSubSections";
+import SplashPage from "./components/SplashSectionMain";
 
 function App() {
   return (
     <div id="main">
-    <Navigation/>  
-    
-    {/* <p id="motto">If you have to ask, you can't afford it :)</p> */}
-    <LoginSignupPage/>
-    <SplashSectionMain/>
-    <SplashSubSections/>
+      <Navigation/>  
+      <Switch>
+        <Route path="/">
+          <SplashPage/>
+        </Route>
+        <Route path="/rent">
+          {/* <RentShow/> */}
+        </Route>
+      </Switch>
+    {/* <LoginSignupPage/> */}
+    {/* <SplashSectionMain/>
+    <SplashSubSections/> */}
     </div>
   );
 }
 
 export default App;
 
-    // <Switch>
-    //   <Route path="/login">
-    //     <LoginFormPage/>
-    //   </Route>
-    //   <Route path="/signup">
-    //     <SignupFormPage/>
-    //   </Route>
-    // </Switch>
+      // <Switch>
+      //   <Route path="/login">
+      //     <LoginFormPage/>
+      //   </Route>
+      //   <Route path="/signup">
+      //     <SignupFormPage/>
+      //   </Route>
+      // </Switch>
