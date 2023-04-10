@@ -9,17 +9,21 @@ import LoginSignupModal from "./components/LoginSignupPage/LoginSignupModal";
 import SplashSectionMain from "./components/SplashSectionMain";
 import SplashSubSections from "./components/SplashSubSections";
 import SplashPage from "./components/SplashSectionMain";
+import ListingsIndex from "./components/Listings";
 
 function App() {
   return (
     <div id="main">
       <Navigation/>  
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <SplashPage/>
         </Route>
-        <Route path="/rent">
+        {/* <Route path="/rent"> */}
           {/* <RentShow/> */}
+        {/* </Route> */}
+        <Route path="/listings">
+          <ListingsIndex/>
         </Route>
       </Switch>
     {/* <LoginSignupPage/> */}

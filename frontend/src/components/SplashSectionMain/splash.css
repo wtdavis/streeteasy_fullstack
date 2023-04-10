@@ -4,11 +4,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0;
     height: 520px;
     background-image: url("https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/assets/homeHero-a74195949baefe336eec1d180ec64942.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(33, 59, 79);
+}
+
+#spacer {
+    width: 100%;
+    height: 70px
 }
 
 #housingrightsbar {
@@ -35,7 +41,8 @@
 }
 
 .splashsection {
-    height: 300px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: teal;
     display: flex;
     justify-content: center;
@@ -76,10 +83,8 @@
     font-weight: lighter;
     padding-top: 10px;
     padding: 10px
-    
-    
-
 }
+
 .splashtilebutton {
     position: absolute;
     display: flex;
@@ -102,4 +107,68 @@
     height:35%;
     bottom: 0;
     background-color: rgb(6, 68, 78); 
+}
+
+#splashsub2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(7, 45, 63);
+}
+#minitileheader{
+    font-size: 40px;
+    padding: 10px;
+    padding-top: 0
+}
+
+#minitilesubheader {
+    font-size: 20px;
+}
+#minitiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%
+}
+.minitile {
+    height: 200px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    /* border: 1px solid black; */
+    background-repeat: no-repeat;
+}
+
+.minitileimage {
+    height: 75px;
+    /* width: 40%; */
+    display: inline-block;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+#minitile1{
+    /* background-image: url("https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/components/SignInRegisterSection/assets/questionsSupportIcon-c57b86de435018961ba2a3b6f73375f1.svg"); */
+}
+
+.minitiletext {
+    display: inline-block
+}
+
+#minitilebutton {
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    border: 1px solid whitesmoke;
+    /* height: 50px; */
+    /* margin: auto; */
+    background-color: rgb(25, 146, 239);
+}
+#minitilebuttontext {
+    padding: 13px 30px 13px 30px 
 }

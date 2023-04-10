@@ -12,9 +12,7 @@ function SplashSubSection1 () {
                 <SplashTileSell/>
 
             </div>
-            <div id="housingrightsbar">
-                <a href="https://youtu.be/dQw4w9WgXcQ" id="housingrightsmsg">This bar is just a test :/</a>
-            </div>
+            
         </>
     )
 }

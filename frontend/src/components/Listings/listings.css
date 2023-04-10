@@ -1,0 +1,23 @@
+.listingTile {
+    height: 300px;
+    width: 20%;
+    border: solid white 2px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.listingTileInfo {
+    padding: 5px;
+    background-color: lightgrey;
+    text-align: center;
+    margin: 5px;
+}
+
+.listingTileImage {
+    max-height: 80px;
+    justify-content: center;
+    margin: auto;
+}

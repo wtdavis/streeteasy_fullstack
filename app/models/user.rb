@@ -21,15 +21,18 @@ class User < ApplicationRecord
 
     has_many :listings,
     class_name: 'Listing',
-    foreign_key: :lister_id
+    foreign_key: :lister_id,
+    dependent: :destroy
 
     has_many :favorites,
     class_name: 'Favorite',
-    foreign_key: :user_id
+    foreign_key: :user_id, 
+    dependent: :destroy
 
     has_many :favorited_listings,
     through: :favorites,
-    source: :listing_id
+    source: :listing,
+    dependent: :destroy
 
 
     def self.find_by_credentials(credential, password)

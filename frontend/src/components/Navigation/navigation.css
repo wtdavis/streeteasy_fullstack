@@ -11,6 +11,8 @@
     padding: 0px;
     border: 0px;
     z-index: 99;
+    top: 0;
+    left: 0
 }
 
 #logo {

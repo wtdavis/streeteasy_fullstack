@@ -7,6 +7,7 @@ class Api::SessionsController < ApplicationController
       render 'api/users/show'
     else
       render json:{user: nil}
+      return nil
     end
   end
 

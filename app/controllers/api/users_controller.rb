@@ -11,6 +11,22 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    # @user = current_user
+    # debugger
+    if params[:id].to_i == current_user.id
+      @user = @current_user
+      render 'api/users/show'
+    else
+      render json: ["Unauthorized"], status: :unauthorized
+    end
+  end
+
+  # def show
+  #   @user = User.find_by(id: params[:id])
+  #   render 'api/users/show'
+  # end
+
 private
 
   def user_params
