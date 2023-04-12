@@ -17,7 +17,7 @@ class Building < ApplicationRecord
     class_name: 'Listing',
     foreign_key: :building_id,
     primary_key: :id,
-    depedent: :destroy
+    dependent: :destroy
 
     
 end

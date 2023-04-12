@@ -1,0 +1,5 @@
+json.extract! building,
+                :id, 
+                :location,
+                :address, 
+                :borough, 

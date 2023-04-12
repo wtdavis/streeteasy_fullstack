@@ -10,17 +10,17 @@ import LoginSignupPage from "../LoginSignupPage";
 import LogoutButton from "./LogoutButton";
 import AccountDropdown from "./AccountDropdown";
 
-function Navigation () {
+function Navigation (navClass) {
     const sessionUser = useSelector(state => state.session.user)
 return (
-    <div id="header">
+    <div id="header" className={navClass}>
             <LoginSignupPage/>
         <div id="banner">            
             <ProfileButton/>
             {!sessionUser && <LoginSignupButton/>}
             {sessionUser&& <AccountDropdown/>}
             </div>
-        <div id="navcontainer">
+        <div id="navcontainer" className={navClass}>
             <NavBar/>
         </div>
         

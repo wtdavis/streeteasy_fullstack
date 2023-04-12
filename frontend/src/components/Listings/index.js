@@ -6,19 +6,24 @@ import { useDispatch, useSelector } from "react-redux"
 import listingsReducer from "../../store/listings"
 import * as listingsActions from "../../store/listings"
 import './listings.css'
+import { Route, useParams } from "react-router-dom"
 function ListingsIndex () {
-    const dispatch = useDispatch()
-    const listings = useSelector(state => Object.values(state.listings))
+    const {listingId} = useParams()
+    // const dispatch = useDispatch()
+    // const listings = useSelector(state => Object.values(state.listings))
     // console.log(listings)
-    useEffect( ()=> {dispatch(listingsActions.fetchListings())}, [dispatch])
+    // useEffect( ()=> {dispatch(listingsActions.fetchListings())}, [dispatch])
     // dispatch(listingsActions.fetchListings())
     // debugger
+    
     return (
-        <div>
+        <div id="listingsindex">
             <div id="spacer"></div>
-            <ul>
-                {listings.map((listing) => (<ListingTile key={listing.id} listing={listing}/>))}
-            </ul>
+            
+            <div id="listingsdiv">
+                 <ListingList/>
+            </div>   
+                     
         </div>
     )
 

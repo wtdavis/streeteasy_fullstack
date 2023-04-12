@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:create, :show]
-    resources :listings, only: [:create, :destroy, :show, :index]
+    resources :buildings, only: [:index]
+    resources :users, only: [:create, :show, :destroy]
+    resources :listings, only: [:create, :destroy, :show, :index, :update]
     resource :session, only: [:show, :create, :destroy]
   end
-  post 'api/test', to: 'application#test'
+  get 'api/user/find/:credential', to: 'application#find'
   
   get '*path', to: 'static_pages#frontend_index'
 end

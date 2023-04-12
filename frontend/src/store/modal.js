@@ -4,6 +4,8 @@ const ADD_CREDENTIAL_MODAL = 'modal/addCredentialModal'
 const REMOVE_CREDENTIAL_MODAL = 'modal/removeCredentialModal'
 const ADD_PASSWORD_MODAL = 'modal/addPasswordModal'
 const REMOVE_PASSWORD_MODAL = 'modal/removePasswordModal'
+const ADD_SIGNUP_MODAL = 'modal/addSignupModal'
+const REMOVE_SIGNUP_MODAL = 'modal/removeSignupModal'
 
 export const addCredentialModal = () => {
     return {
@@ -30,6 +32,18 @@ export const removePasswordModal = () => {
         type: REMOVE_PASSWORD_MODAL
     }
 }
+export const addSignupModal = () => {
+    return {
+        type: ADD_SIGNUP_MODAL,
+        payload: 'signup'
+    }
+}
+
+export const removeSignupModal = () => {
+    return {
+        type: REMOVE_SIGNUP_MODAL
+    }
+}
 
 const initialState = {}
 
@@ -42,7 +56,11 @@ const modalReducer = (state = initialState, action) => {
         case ADD_PASSWORD_MODAL:
             return {...state, password: true};
         case REMOVE_PASSWORD_MODAL:
-            return {...state, password: false}
+            return {...state, password: false};
+        case ADD_SIGNUP_MODAL:
+            return {...state, signup: true};
+        case REMOVE_SIGNUP_MODAL:
+            return {...state, signup: false}
             default: 
             return state
     }
@@ -51,7 +69,9 @@ const modalReducer = (state = initialState, action) => {
 export const removeModals = () => async (dispatch) => {
    return(
     dispatch(removeCredentialModal()),
-    dispatch(removePasswordModal()))
+    dispatch(removePasswordModal()),
+    dispatch(removeSignupModal())
+   )
 }
 
 export default modalReducer

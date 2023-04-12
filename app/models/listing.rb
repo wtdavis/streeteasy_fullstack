@@ -15,7 +15,7 @@
 #  borough      :string           not null
 #
 class Listing < ApplicationRecord
-    validates :lister_id, :price, :location, :address, :num_baths, :num_bedrooms, :borough, :unit, presence: true
+    validates :lister_id, :price,  :address, :num_baths, :num_bedrooms, :borough, :unit, presence: true
     validates :rental, inclusion: {in: [true, false]}
 
     belongs_to :user,

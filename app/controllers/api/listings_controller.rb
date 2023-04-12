@@ -8,7 +8,8 @@ class Api::ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find_by(id: params[:id])
+    @listing = Listing.find(params[:id])
+    # puts params
     render 'api/listings/show'
   end
 
@@ -23,8 +24,16 @@ class Api::ListingsController < ApplicationController
     end
   end
 
-  def destroy
+  def update
+    @listing = Listing.find(params[:id])
+    @listing.update!(listing_params)
+    # debugger
+    render 'api/listings/show'
+  end
 
+  def destroy
+    @listing = Listing.find(params[:listingId])
+    @listing.destroy!
   end
 
   private
@@ -34,7 +43,8 @@ class Api::ListingsController < ApplicationController
                                     :location, 
                                     :address, 
                                     :description, 
-                                    :list_id, :price, 
+                                    :lister_id, 
+                                    :price, 
                                     :num_bedrooms, 
                                     :num_baths, 
                                     :borough, 

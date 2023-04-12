@@ -17,26 +17,119 @@ ApplicationRecord.transaction do
     puts 'Creating Users...'
 
     User.create!(
-        username: "Demoman",
         email: "demo@demo.com",
         password: "password"
     )
 
-    10.times do 
-        User.create!({
-            username: Faker::Internet.unique.username(specifier: 6),
-            email: Faker::Internet.unique.email,
-            password: 'password'
-        })
-    end
+    User.create!([
+    {
+        email: "monster@monster.com",
+        password: "password"
+        },
+        {
+        email: "john@johnson.com",
+        password: "password"
+    },
+    {
+        email: "theaterl0ver@president.com",
+        password: "password"
+    },
+    {
+        email: "didntdie@stillalive.com",
+        password: "password"
+    },
+    {
+        email: "memelord@thelegend.com",
+        password: "password"
+    },
+    {
+        email: "trickledown@terrible.com",
+        password: "password"
+    },
+    {
+        email: "human@email.com",
+        password: "password"
+    },
+    {
+        email: "lawntrimmings@autumn.com",
+        password: "password"
+    },
+    {
+        email: "sweetdreams@goodnight.com",
+        password: "password"
+    },
+    {
+        email: "jetersucks@boston.com",
+        password: "password"
+    },
+    {
+        email: "attorney@law.com",
+        password: "password"
+    }
+    ])
+
+    Building.destroy_all
+
+    ApplicationRecord.connection.reset_pk_sequence!('buildings')
+
+    Building.create!([{
+        location: "70.004, -101.33",
+        address: "1 Street st, Manahattan, NY 10000",
+        name: "The Regency",
+        description: "Gold walls, gold toilets, gold everything. Doorman is a pile of money."
+    },
+    {
+        location: "71.440, -100.3",
+        address: "500 Park Avenue, Manhattan, NY 10021",
+        name: "The Royale",
+        description: "100 stories of pure capitalist greed."
+    },
+    {
+        location: "81.01, -99.99",
+        address: "420 Baker st, Bronx, NY 14201",
+        name: "Baker's Tower",
+        description: "Its always 420 somewhere."
+    },
+    {
+        location: "80.0101, -75.01",
+        address: "71 President st, Brooklyn, NY 11215",
+        name: "The Reinhardt",
+        description: "A luxury home for people who hate Manhattan."
+    },
+    {
+        location: "81.8181, -81.8181",
+        address: "11 Prospect place, Brooklyn, NY 11111",
+        name: "The Building building",
+        description: "This is technically a building."
+    },
+    {
+        location: "75.0, -75.0",
+        address: "99 Ocean Parkway, Queens NY 14223",
+        name: "The Average",
+        description: "A place to live when you are a person."
+    },
+    {
+        location: "75.0, -100.0",
+        address: "19 Avenue D, Manhattan, NY 10101",
+        name: "The Residences",
+        description: "four walls and a roof."
+    }
+    ])
+    # 10.times do 
+    #     User.create!({
+    #         email: Faker::Internet.unique.email,
+    #         password: 'password'
+    #     })
+    # end
 
     puts "done"
 
     Listing.destroy_all
     puts "listings destroyed, creating..."
 
+    ApplicationRecord.connection.reset_pk_sequence!('listings')
+
     Listing.create!([{
-        id: 1,
         location: "70.0055, -101.112",
         address: "43 decatur str, Brooklyn, Ny 11213",
         description: "A nice place with 70 dogs in residence",
@@ -51,7 +144,6 @@ ApplicationRecord.transaction do
 
     },
     {
-        id: 2,
         location: "70.0055, -101.112",
         address: "43 decatur str, Brooklyn, Ny 11213",
         unit: "4c",
@@ -66,7 +158,6 @@ ApplicationRecord.transaction do
 
     },
     {
-        id: 3,
         location: "75.0055, -104.112",
         address: "101 Park Avenue",
         description: "A cardboard box full of dust and bones",
@@ -81,19 +172,56 @@ ApplicationRecord.transaction do
 
     },
     {
-        id: 4,
         location: "70.0055, -101.112",
         address: "43 decatur str, Brooklyn, Ny 11213",
         description: "A literal closet",
         lister_id: 2,
         building_id: 2,
         unit: "0B",
-        rental: true,
+        rental: false,
         price: 20000,
         num_bedrooms: 3,
         num_baths: 1,
         borough: "manhattan"
-
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "43 decatur str, Brooklyn, Ny 11213",
+        description: "A literal closet",
+        lister_id: 2,
+        building_id: 2,
+        unit: "0B",
+        rental: false,
+        price: 20000,
+        num_bedrooms: 3,
+        num_baths: 1,
+        borough: "manhattan"
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "43 decatur str, Brooklyn, Ny 11213",
+        description: "A literal closet",
+        lister_id: 2,
+        building_id: 2,
+        unit: "0B",
+        rental: false,
+        price: 20000,
+        num_bedrooms: 3,
+        num_baths: 1,
+        borough: "manhattan"
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "43 decatur str, Brooklyn, Ny 11213",
+        description: "A literal closet",
+        lister_id: 2,
+        building_id: 2,
+        unit: "0B",
+        rental: false,
+        price: 20000,
+        num_bedrooms: 3,
+        num_baths: 1,
+        borough: "manhattan"
     }
     ])
 

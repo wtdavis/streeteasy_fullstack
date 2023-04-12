@@ -28,14 +28,12 @@ export const logout = () => async (dispatch) => {
     dispatch(removeCurrentUser())
 }
 
-export const signup = ({username, email, password}) => async (dispatch) => {
-    const res = await csrfFetch('api/users', {
+export const signup = ({credential, password}) => async (dispatch) => {
+    const res = await csrfFetch('/api/users', {
         method: 'POST',
-         headers: {'Content-Type': 'application/json'}, 
          body: JSON.stringify({
-                username: username, 
-                email: email,
-                password: password
+             password: password,
+             email: credential
             })
     })
     const data = await res.json()
@@ -53,7 +51,7 @@ const setCurrentUser = (user) => {
     payload: user}
 }
 
-const removeCurrentUser = () => {
+export const removeCurrentUser = () => {
     return {
         type: REMOVE_CURRENT_USER
     }

@@ -38,19 +38,28 @@ class ApplicationController < ActionController::API
         end
     end
 
-    def test 
-        if params.has_key?(:login)
-            login!(User.first)
-        elsif params.has_key?(:logout)
-            logout!
-        end
-
-        if current_user
-            render json: {user: current_user.slice('id', 'username', 'email', 'session_token')}
+    def find
+        @user = User.find_by(email: params[:credential])
+        if @user
+          render json: {user_exists: true}
         else
-            render json: ['no current user']
+          render json: {user_exists: false}
         end
-    end
+        return nil
+      end
+    # def test 
+    #     if params.has_key?(:login)
+    #         login!(User.first)
+    #     elsif params.has_key?(:logout)
+    #         logout!
+    #     end
+
+    #     if current_user
+    #         render json: {user: current_user.slice('id', 'username', 'email', 'session_token')}
+    #     else
+    #         render json: ['no current user']
+    #     end
+    # end
 
     private
 
