@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Link, Redirect, useParams } from "react-router-dom"
 import * as listingsActions from "../../store/listings"
 import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
@@ -32,6 +32,11 @@ function ListingShow () {
     }
     }
 
+    const handleDelete = () => {
+        dispatch(listingsActions.deleteListing(listing.id));
+        
+    }
+
     
 
 // debugger
@@ -47,13 +52,12 @@ if (listing) {
     }
     let listingUpdate;
     if (currentUser && currentUser.id === listing.listerId) {
-        listingUpdate = <div className="deletelistingbutton" id="listingshowupdate" onClick={handleFormDisplay}> Update Listing </div>
+        listingUpdate = <div className="listinginfobutton" id="listingshowupdate" onClick={handleFormDisplay}> Update Listing </div>
     }
     
     let listingDelete;
     if (currentUser && currentUser.id === listing.listerId) {  
-        listingDelete = <div className="deletelistingbutton" id="listingshowdelete" > Delete Listing </div>
-        
+        listingDelete = <Link to="/listings" className="listinginfobutton" id="listingshowdelete" onClick={handleDelete}> Delete Listing </Link>
     }
     // debugger
     return (
@@ -64,23 +68,32 @@ if (listing) {
 
                     <div id="listingsplash">
                         <img id="listingShowImage" src={listing.photoUrl}></img>
-                        <div id="listingShowDescription">
-                            <p id="listingShowDescriptionHeader">About this Listing:</p>
-                            <p id="listingShowDescriptionText"> {listing.description}</p>
+                        <div id="listingShowDescription" >
+                            <p className="listinginfoheader listinginfoitem" id="listingShowDescriptionHeader">About this Listing:</p>
+                            <p className="listinginfoitem" id="listingShowDescriptionText"> {listing.description}</p>
                             {listing.doorman&& <p id="listingdoorman" className="listingamenity">{listing.doorman}</p>}
                         </div>
                     
                     </div>
 
                     <div id="listinginfo">
-                        <p className="listinginfoitem" id="listingaddress">{listing.address}, {listing.unit}</p>
+                        <p className="listinginfoheader listinginfoitem" id="listingaddress">{listing.address}</p>
+                        <p className="listinginfoitem" id="listingshowunit">Unit {listing.unit}</p>
+
                         <p className="listinginfoitem" id="listingborough">{listing.borough}</p>
+
+                        <div  id="listingshowtyperow" >
                         <p className="listinginfoitem" id="listingprice"> ${listing.price}</p>
                         {type}
-                        <p className="listinginfoitem" id="listingbeds"> {listing.numBedrooms} Bedroom</p>
-                        <p className="listinginfoitem" id="listingbaths"> {listing.numBaths} Bath</p>
+                        </div>
+
+                        <div id="listingshowbedbathrow" className="listinginfoitem">
+                        <p className="listinginfoitem" id="listingshowbeds"> {listing.numBedrooms} Bedrooms</p>
+                        <p className="listinginfoitem" id="listingshowbaths"> {listing.numBaths} Baths</p>
+                        </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingUpdate} </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingDelete} </div>
+
                     </div>
             </div>
 

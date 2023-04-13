@@ -131,8 +131,8 @@ ApplicationRecord.transaction do
 
     Listing.create!([{
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        description: "A nice place with 70 dogs in residence",
+        address: "43 decatur str",
+        description: "With over 400 dogs-in-residence, this apartment is crowded but cozy. Boasts wall-to-wall shag carpet and views of the international space station. Perfect for any young billionaire's first second apartment",
         lister_id: 1,
         building_id: 1,
         unit: "4d",
@@ -140,21 +140,21 @@ ApplicationRecord.transaction do
         price: 10000,
         num_bedrooms: 1,
         num_baths: 1,
-        borough: "brooklyn"
+        borough: "Brooklyn"
 
     },
     {
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        unit: "4c",
-        description: "A nice place with 69  dogs in residence",
+        address: "400 Mercer st",
+        unit: "41z",
+        description: "An experimental design by renowned architect Mnier Roiuaru, this apartment is ",
         lister_id: 1,
         building_id: 1,
         rental: :true,
         price: 10000,
         num_bedrooms: 1,
         num_baths: 1,
-        borough: "brooklyn"
+        borough: "Brooklyn"
 
     },
     {

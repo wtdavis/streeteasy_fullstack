@@ -15,6 +15,7 @@ class Api::ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    # debugger
     if @listing.save!
       render 'api/listings/show'
     else
@@ -32,14 +33,14 @@ class Api::ListingsController < ApplicationController
   end
 
   def destroy
-    @listing = Listing.find(params[:listingId])
+    @listing = Listing.find(params[:id])
     @listing.destroy!
   end
 
   private
 
   def listing_params
-    debugger
+    # debugger
     params.require(:listing).permit(
                                     :location, 
                                     :address, 

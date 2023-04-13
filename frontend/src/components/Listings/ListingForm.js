@@ -60,15 +60,15 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         e.preventDefault();
         // debugger
         const formData = new FormData();
-        // formData.append("photo", photoFile)
+        formData.append('listing[photo]', photoFile)
         formData.append('listing[address]', address)
         formData.append('listing[location]', location)
-        formData.append('listing[num_bedrooms]', numBeds)
-        formData.append('listing[building_id]', 1)
-        formData.append('listing[num_baths]', numBaths)
+        formData.append('listing[numBedrooms]', numBeds)
+        formData.append('listing[buildingId]', 1)
+        formData.append('listing[numBaths]', numBaths)
         formData.append('listing[unit]', unit)
         formData.append('listing[description]', description)
-        formData.append('listing[lister_id]', listerId)
+        formData.append('listing[listerId]', listerId)
         formData.append('listing[price]', price)
         formData.append('listing[borough]', borough)
         formData.append('listing[rental]', rental)
@@ -98,13 +98,16 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
     }
 
     
-        
+        const handleHide = () => {
+            setListingForm("listingformhidden")
+        }
         
 
     return (
         <div className={formClass} id="listingformpage">
             
             <form id="listingform" onSubmit={handleSubmit}>
+                <div className="listingformclosebutton" onClick={handleHide}>X</div>
                 <p className="listingformheader"> Listing Information: </p>
 
                 <p className="listingformsubheader"> Street Address: </p>
@@ -114,10 +117,10 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                 <input required className="listingforminput" placeholder="Unit" type="text" value={unit} onChange={(e) => setUnit(e.target.value)}/>
 
                 <p className="listingformsubheader"> Number of Bedrooms: </p>
-                <input required className="listingforminput" placeholder="Number of Bedrooms" type="number" value={numBeds} onChange={(e) => setNumBeds(e.target.value)}/>
+                <input required className="listingforminput" min="0" placeholder="Number of Bedrooms" type="number" value={numBeds} onChange={(e) => setNumBeds(e.target.value)}/>
 
                 <p className="listingformsubheader"> Number of Baths: </p>
-                <input required className="listingforminput" placeholder="Number of Baths" type="number" value={numBaths} onChange={(e) => setNumBaths(e.target.value)}/>
+                <input required className="listingforminput" min="0" placeholder="Number of Baths" type="number" value={numBaths} onChange={(e) => setNumBaths(e.target.value)}/>
 
                 <p className="listingformsubheader"> Describe your Listing: </p>
                 <textarea required className="listingforminput" placeholder="Listing Description" type="textarea" value={description} onChange={(e) => setDescription(e.target.value)}/>
