@@ -5,7 +5,7 @@ const REMOVE_CURRENT_USER = 'session/removeCurrentUser'
 
 
 export const login = ({credential, password}) => async (dispatch) => {
-    const res = await csrfFetch('api/session', {
+    const res = await csrfFetch('/api/session', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -14,14 +14,15 @@ export const login = ({credential, password}) => async (dispatch) => {
         })
     } )
     const data = await res.json()
-    if (res.ok){
+    // if (res.ok){
     storeCurrentUser(data.user)
-    dispatch(setCurrentUser(data.user))}
+    dispatch(setCurrentUser(data.user))
+    // }
     return res
 }
 
 export const logout = () => async (dispatch) => {
-    const res = await csrfFetch('api/session', {
+    const res = await csrfFetch('/api/session', {
         method: 'DELETE'
     })
     storeCurrentUser(null)

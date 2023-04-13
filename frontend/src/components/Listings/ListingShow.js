@@ -18,6 +18,11 @@ function ListingShow () {
     let listing = useSelector(state => state.listings[listingId])
 
     
+    useEffect(() => {
+        dispatch(listingsActions.fetchListings())
+    }, [dispatch] 
+    )
+
     
     const handleFormDisplay = () => {
         if (listingForm === "listingformhidden")
@@ -27,12 +32,7 @@ function ListingShow () {
     }
     }
 
-
-    useEffect(() => {
-        dispatch(listingsActions.fetchListings())
-    }, [dispatch, listing] 
-    )
-
+    
 
 // debugger
 
@@ -63,7 +63,7 @@ if (listing) {
                 <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
 
                     <div id="listingsplash">
-                        <img id="listingShowImage" src="https://photos.zillowstatic.com/fp/37215c41f108aa243aa2e16eec756a5a-se_large_800_400.webp"></img>
+                        <img id="listingShowImage" src={listing.photoUrl}></img>
                         <div id="listingShowDescription">
                             <p id="listingShowDescriptionHeader">About this Listing:</p>
                             <p id="listingShowDescriptionText"> {listing.description}</p>

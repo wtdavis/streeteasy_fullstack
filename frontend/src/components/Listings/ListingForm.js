@@ -24,9 +24,12 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
     const [price, setPrice] = useState(0)
     const [borough, setBorough] = useState("")
     const [rental, setRental] = useState(null)
+    const [photoFile, setPhotoFile] = useState(null)
+
     
     useEffect(() => {
         if (listing){
+            setPhotoFile(listing.photoUrl)
             setAddress(listing.address);
             setLocation(listing.location);
             setNumBeds(listing.numBeds);
@@ -48,27 +51,51 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         }
     }, [dispatch, updateStatus])
 
+    const handlePhotoFile = ({currentTarget} ) => {
+        const file = currentTarget.files[0];
+        setPhotoFile(file)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = {
-                address: address,
-                location: "0,0",
-                numBedrooms: numBeds,
-                buildingId: 1,
-                numBaths: numBaths,
-                unit: unit,
-                description: description,
-                listerId: listerId,
-                price: price,
-                borough: borough,
-                rental: rental
-                }
+        // debugger
+        const formData = new FormData();
+        // formData.append("photo", photoFile)
+        formData.append('listing[address]', address)
+        formData.append('listing[location]', location)
+        formData.append('listing[num_bedrooms]', numBeds)
+        formData.append('listing[building_id]', 1)
+        formData.append('listing[num_baths]', numBaths)
+        formData.append('listing[unit]', unit)
+        formData.append('listing[description]', description)
+        formData.append('listing[lister_id]', listerId)
+        formData.append('listing[price]', price)
+        formData.append('listing[borough]', borough)
+        formData.append('listing[rental]', rental)
+
+
+        console.log(formData)
+        //  const formData = {
+        //         address: address,
+        //         location: "0,0",
+        //         numBedrooms: numBeds,
+        //         buildingId: 1,
+        //         numBaths: numBaths,
+        //         unit: unit,
+        //         description: description,
+        //         listerId: listerId,
+        //         price: price,
+        //         borough: borough,
+        //         rental: rental
+        //         }
+        
         if (update) {
         dispatch(listingsActions.updateListing(listing.id, formData))
         } else {
         dispatch(listingsActions.createListing(formData))
         }
-        setListingForm("listingformhidden")}
+        setListingForm("listingformhidden")
+    }
 
     
         
@@ -114,6 +141,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     <option value={true}>For Rent</option>
                     <option value={false}>For Sale</option>
                 </select>
+                <input id="photoupload" className="listingforminput"  type="file" onChange={handlePhotoFile} />
                 <input id="listingformsubmitbutton" className="listingforminput" type="submit" value={updateStatus} />
             </form>
 

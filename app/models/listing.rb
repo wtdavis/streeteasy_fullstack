@@ -32,6 +32,6 @@ class Listing < ApplicationRecord
     through: :favorites,
     source: :user
 
-    has_many_attached :photos, 
+    has_one_attached :photo, 
     dependent: :destroy
 end

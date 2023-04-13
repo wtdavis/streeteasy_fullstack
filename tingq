@@ -1,0 +1,13 @@
+=> [32m#<Listing:0x00007f35517ed5c8[0m
+ id: [1;36mnil[0m,
+ location: [31m[1;31m"[0m[31m0,0[1;31m"[0m[31m[0m,
+ address: [31m[1;31m"[0m[31m1234[1;31m"[0m[31m[0m,
+ description: [31m[1;31m"[0m[31mmynewlisting[1;31m"[0m[31m[0m,
+ lister_id: [1;36mnil[0m,
+ price: [1;34m4000[0m,
+ num_bedrooms: [1;34m3[0m,
+ num_baths: [1;34m3[0m,
+ borough: [1;36mnil[0m,
+ rental: [1;36mnil[0m,
+ building_id: [1;36mnil[0m,
+ unit: [1;36mnil[0m[32m>[0m

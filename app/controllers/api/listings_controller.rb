@@ -1,5 +1,5 @@
 class Api::ListingsController < ApplicationController
-  wrap_parameters include: Listing.attribute_names + [:photos]
+  wrap_parameters include: Listing.attribute_names + [:photo]
 
   def index
     # @listings = Listing.find_by(params[:filter])
@@ -39,6 +39,7 @@ class Api::ListingsController < ApplicationController
   private
 
   def listing_params
+    debugger
     params.require(:listing).permit(
                                     :location, 
                                     :address, 
@@ -50,7 +51,8 @@ class Api::ListingsController < ApplicationController
                                     :borough, 
                                     :rental,
                                     :building_id, 
-                                    :unit
+                                    :unit,
+                                    :photo
                                     )
   end
 

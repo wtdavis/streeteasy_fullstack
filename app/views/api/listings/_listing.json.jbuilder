@@ -12,3 +12,10 @@ json.extract! listing,
                 :rental,
                 :building_id,
                 :unit
+
+if listing.photo.attached?
+    json.photo_url listing.photo.url 
+else
+    json.photo_url 'frontend/src/assets/thisphoto.png'
+end
+                  

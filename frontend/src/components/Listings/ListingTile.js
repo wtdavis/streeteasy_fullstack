@@ -1,9 +1,9 @@
 function ListingTile ({listing}) {
-    const {price, address, borough, numBeds, numBaths} = listing
+    const {price, address, borough, numBeds, numBaths, photoUrl} = listing
 // debugger
     return (
         <div className="listingTile">
-            <img className="listingTileImage" src="https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/assets/view-b942d5206a7ddccdda47b02233273259.png"></img>
+            <img className="listingTileImage" src={require('../../assets/penthousephoto.png')}></img>
 
             <div className="listingTileInfo">
                 <p className="listingTileAddress"> {address}</p>
