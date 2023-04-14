@@ -1,26 +1,16 @@
-# README
+## EliteEasy: a fullstack StreetEasy.com clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Introduction
+This project aims to faithfully re-create the StreetEasy site, made for searching and advertising property to rent or sell in New York City. StreetEasy has approachable styling and functionality; I chose to clone it to expand my skills while maintaining achievable goals, and because, having used the site and enjoyed my experience, I wanted to learn more about how to create something useable but simple. Technologies involved in this project include:
+ - Languages: HTML/CSS, Ruby, Javascript
+ - Frontend: React/Redux
+ - Backend: Ruby on Rails
+ - Database: PostgresQL
+ - Hosting: Render
+ - Services: AWS cloud storage
 
-Things you may want to cover:
+### User Profile
+The user profile of StreetEasy is designed to capture user preferences for property searches. This is mostly to proactively advertise new properties; because this advertising feature will not be part of my website, my user profiles remain minimal. I did, however, maintain the option to create new property listings through the user profile, while making the styling more approachable, and trimming information not relevant to my implementation:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-await fetch('api/session', {method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({username: 'Demoman', password: 'password'})}).then(res=>res.json())
