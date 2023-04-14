@@ -61,6 +61,7 @@ function UserShow () {
 
 ### Listing Index
 
+
 Browsing a variety of listings in one place creates a design challenge- an index of listings must balance displaying as many listing tiles and as much information about each as possible, while making each listing large enough to be readable, and while avoiding clutter and crowding. StreetEasy's approach is to listing tiles side-by-side, with a sidebar of additional information. I recreated this effect, including as a thumbnail the listing's attached photo:
 
 
@@ -72,9 +73,9 @@ Clicking on a listing tile takes the user to the listing's show page, where its 
 
 
 ### Listing Create
-
-- Users can create listings, once logged in, from their user profile. Any listing belonging to a user can also be updated or deleted from its show page:
  
+- Users can create listings, once logged in, from their user profile. Any listing belonging to a user can also be updated or deleted from its show page:
+ ![listing_create](https://user-images.githubusercontent.com/121977875/232139893-40761b0e-dc84-41eb-9b10-8fb88f47a774.png)
  ```js 
     function ListingForm ({listing, formClass, setListingForm, update}) {
     update ||= false
