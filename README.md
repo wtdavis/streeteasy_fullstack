@@ -14,29 +14,56 @@ This project aims to faithfully re-create the StreetEasy site, made for searchin
 
 The user profile of StreetEasy is designed to capture user preferences for property searches. This is mostly to proactively advertise new properties; because this advertising feature will not be part of my website, my user profiles remain minimal. I did, however, maintain the option to create new property listings through the user profile, while making the styling more approachable, and trimming information not relevant to my implementation:
 
-- 
+```js
+function UserShow () {
+    const [listingForm, setListingForm] = useState("listingformhidden")
+    const dispatch = useDispatch()
+    const currentUser = useSelector((state) => {return state.session.user})
+
+    const deleteUser = async () => {
+        let res = await csrfFetch(`api/users/${currentUser.id}`, {method: 'DELETE'})
+            dispatch(sessionActions.logout());
+            <Redirect to="/"/>
+    }
+
+    const handleFormDisplay = () => {
+        if (listingForm === "listingformhidden")
+        {setListingForm("listingformdisplay")
+    } else {
+        setListingForm("listingformhidden")
+        }
+
+    }
+
+    return (
+        <div id="userShowPage">
+            <div id="spacer"></div>
+            <div id="userShow">
+                <div className="usershowitem" id="useremail"> <p className="usershowitemheader">Your Current Email: </p> {currentUser.email} </div>
+                <div className="usershowitem" id="userfavorites">
+                    <p className="usershowitemheader"> Your Favorites: </p>
+                    
+                </div>
+                <div className="listingformtoggle usershowitem" onClick={handleFormDisplay}>
+                    <p> Rent or Sell your property! </p>
+                </div>
+                <Link to="/" className="usershowitem" id="deleteuserbutton" onClick={deleteUser}> <p>Delete User</p></Link>
+            </div>
+            <div className={listingForm}>
+                    <ListingForm update={false} setListingForm={setListingForm}/>
+            </div>
+        </div>
+
+    )
+}
+```
 - 
 
 ### Listing Index
 
 Browsing a variety of listings in one place creates a design challenge- an index of listings must balance displaying as many listing tiles and as much information about each as possible, while making each listing large enough to be readable, and while avoiding clutter and crowding. StreetEasy's approach is to listing tiles side-by-side, with a sidebar of additional information. I recreated this effect, including as a thumbnail the listing's attached photo:
 
-```js
-function ListingList () {
-    const dispatch = useDispatch()
-    const listings = useSelector(state => Object.values(state.listings))
-    useEffect( ()=> {dispatch(listingsActions.fetchListings())}, [dispatch])
-    return (
-        <div id="listinglist">
-        {listings.map((listing) => (<Link key={listing.id} className="listingtile" to={`listings/${listing.id}`}>
-        <ListingTile key={listing.id} listing={listing}/>
-        </Link>
-        ))}
-        </div>  
-    )
-}
-```
-- 
+
 
 ### Listing Show
 
