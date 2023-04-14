@@ -9,6 +9,7 @@ This project aims to faithfully re-create the StreetEasy site, made for searchin
  - Database: PostgresQL
  - Hosting: Render
  - Services: AWS cloud storage
+![splash](https://user-images.githubusercontent.com/121977875/232140305-bb6a8c90-90f0-4035-85e8-ad22f4d9211f.gif)
 
 ### User Profile
 
@@ -63,18 +64,20 @@ function UserShow () {
 
 
 Browsing a variety of listings in one place creates a design challenge- an index of listings must balance displaying as many listing tiles and as much information about each as possible, while making each listing large enough to be readable, and while avoiding clutter and crowding. StreetEasy's approach is to listing tiles side-by-side, with a sidebar of additional information. I recreated this effect, including as a thumbnail the listing's attached photo:
+![listing_index](https://user-images.githubusercontent.com/121977875/232140254-1ec079df-7731-4af0-9c4b-58a56af53f83.png)
 
 
 
 ### Listing Show
 
 Clicking on a listing tile takes the user to the listing's show page, where its image is expanded, and more information about the listing is displayed. Future functionality will include mutliple photos, photo scrolling, and additional listing details:
+![listing_show](https://user-images.githubusercontent.com/121977875/232140282-eae12e29-7f93-4e25-9ff5-181678452e14.png)
 
 
 
 ### Listing Create
  
-- Users can create listings, once logged in, from their user profile. Any listing belonging to a user can also be updated or deleted from its show page:
+Users can create listings, once logged in, from their user profile. Any listing belonging to a user can also be updated or deleted from its show page:
  ![listing_create](https://user-images.githubusercontent.com/121977875/232139893-40761b0e-dc84-41eb-9b10-8fb88f47a774.png)
  ```js 
     function ListingForm ({listing, formClass, setListingForm, update}) {
@@ -84,7 +87,7 @@ Clicking on a listing tile takes the user to the listing's show page, where its 
     const [updateStatus, setUpdateStatus] = useState("")
     const currentUser = useSelector( state => state.session.user)
     const [listerId, setListerId] = useState(null)
-    
+
     const [address, setAddress] = useState("")
     const [location, setLocation] = useState("1, 1")
     const [numBeds, setNumBeds] = useState(0)
@@ -185,4 +188,9 @@ Clicking on a listing tile takes the user to the listing's show page, where its 
     )
 }
 ```
+### Project Goals
+
+This project remains a work in progress. I plan to implement a search feature, which will allow more dynamic button behavior on the splash page; multiple photo uploads per listing, as well as photo scroll; Google Maps API inclusion, for embedded listing maps; and a favorites feature, which will include of favorited listings on a user's profile page. 
+
+Thank you for exploring this project!
 
