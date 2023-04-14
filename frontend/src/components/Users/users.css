@@ -10,7 +10,7 @@
     flex-direction: column;
     width: 50%;
     /* height: 500px; */
-    background-color: rgb(147, 147, 159);
+    background-color: rgb(76, 76, 80);
     padding: 20px;
     box-sizing: border-box;
 }
@@ -23,13 +23,13 @@
 margin-top: 300px;
 border: 2px solid red;
 text-decoration: none;
-color: whitesmoke;
+color: rgb(118, 113, 113);
 }
 
 .usershowitem {
     display: block;
     width: 200px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(40, 39, 39);
     padding-top: 10px
     /* background-color: rgb(199, 193, 184); */
     /* border: 1px solid  */
@@ -51,6 +51,6 @@ color: whitesmoke;
 
 .listingformtoggle {
     cursor: pointer;;
-    background-color: darkgrey;
+    background-color: rgb(65, 63, 63);
     vertical-align: center;
 }

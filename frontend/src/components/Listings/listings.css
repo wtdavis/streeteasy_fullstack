@@ -95,7 +95,7 @@
 
 #listingShowImage {
     display: block;
-    max-width: 100%;
+    width: 100%;
     max-height: 500px
 }
 
@@ -144,7 +144,7 @@
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
-    background-color: rgb(147, 147, 159);
+    background-color: rgb(83, 83, 85);
     /* border-bottom: 1px solid grey; */
 }
 
@@ -222,6 +222,8 @@
 
 #listingshowbeds {
     border-right: 1px solid grey;
+    border-left: 1px solid grey;
+    
     padding-right: 10px;
 }
 

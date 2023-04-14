@@ -42,11 +42,11 @@ export const fetchListings = () => async (dispatch) => {
 
 
 export const updateListing = (listingId, formData) => async (dispatch) => {
-    let snakeData = JSON.stringify(formData)
-    snakeData = snakify(snakeData)
+    // let snakeData = JSON.stringify(formData)
+    // snakeData = snakify(snakeData)
     let res = await csrfFetch(`/api/listings/${listingId}`, {
         method: 'PATCH',
-        body: snakeData
+        body: formData  
     })
     let data = await res.json()
      dispatch(addListing(data.listing))

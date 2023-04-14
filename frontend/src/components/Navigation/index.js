@@ -9,6 +9,7 @@ import DropDown from "./DropDown";
 import LoginSignupPage from "../LoginSignupPage";
 import LogoutButton from "./LogoutButton";
 import AccountDropdown from "./AccountDropdown";
+import SocialLinks from "./SocialLinks";
 
 function Navigation (navClass) {
     const sessionUser = useSelector(state => state.session.user)
@@ -19,6 +20,7 @@ return (
             <ProfileButton/>
             {!sessionUser && <LoginSignupButton/>}
             {sessionUser&& <AccountDropdown/>}
+            <SocialLinks/>
             </div>
         <div id="navcontainer" className={navClass}>
             <NavBar/>

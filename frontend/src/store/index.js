@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import modalReducer from './modal';
 import listingsReducer from './listings';
 import buildingsReducer from './buildings';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
 session: sessionReducer,
 // user: userReducer,
 modal: modalReducer,
-listings: listingsReducer
+listings: listingsReducer,
+search: searchReducer
 // buildings: buildingsReducer
 })
 

@@ -57,6 +57,11 @@
     background-color: rgb(58, 43, 226);
 }
 
+#splashsub3 {
+    background-color: rgb(111, 46, 5);
+    flex-direction: row;
+}
+
 .splashtile {
     display: flex;
     flex-direction: column;
@@ -171,4 +176,31 @@
 }
 #minitilebuttontext {
     padding: 13px 30px 13px 30px 
+}
+
+.splashtileimage {
+    width: 100%
+}
+
+.splashtilefootersmall {
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    position: relative;
+    top: -5px;
+    display: flex
+}
+
+.splashtilecheckbox {
+    margin-left: 20px;
+}
+
+.splashtilelarge {
+    display: block;
+    width: 25%;
+    margin: 10px
+}
+
+.footersmalltext {
+   margin: 15px 0px 0px 15px
 }

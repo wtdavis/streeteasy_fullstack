@@ -4,7 +4,7 @@ body, img, h1, h2, h3, h4, h5, h6, div, p, i, a {
     border: 0;
     text-decoration: none;
     list-style: none;
-    color: lightgrey
+    color: lightgrey;
 }
 
 #main {
@@ -16,7 +16,9 @@ body, img, h1, h2, h3, h4, h5, h6, div, p, i, a {
     /* background-color: black; */
     font-family: 'Source Sans Pro', sans-serif;
     display: block;
-    width: 100%
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+
 }
 
 

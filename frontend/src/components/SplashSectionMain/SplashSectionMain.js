@@ -7,7 +7,7 @@ function SplashSectionMain () {
                 <p id="motto">The rent is too damn low $$$</p>
             </div>
             <div id="housingrightsbar">
-                <a href="https://youtu.be/dQw4w9WgXcQ" id="housingrightsmsg">You have a right to fair housing</a>
+                <a href="https://youtu.be/dQw4w9WgXcQ" id="housingrightsmsg" target="_blank">You have a right to fair housing</a>
             </div>
         </>
     )

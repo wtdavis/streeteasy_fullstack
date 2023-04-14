@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api, defaults: {format: :json} do
+    get 'listings/search', do: "listings#search"
     resources :buildings, only: [:index]
     resources :users, only: [:create, :show, :destroy]
     resources :listings, only: [:create, :destroy, :show, :index, :update]

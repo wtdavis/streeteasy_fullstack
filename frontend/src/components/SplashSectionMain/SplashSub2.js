@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux"
+import * as modalActions from "../../store/modal"
 function SplashSubSection2 () {
+
+    const dispatch = useDispatch()
+
+    const handleSignup = () => {
+        dispatch(modalActions.addSignupModal())
+    }
+
     return(
          <>
             <div id="splashsub2" className="splashsection">
@@ -26,7 +35,7 @@ function SplashSubSection2 () {
                         <p className="minitiletext">Get the right home for you</p>
                     </div>
                 </div>
-            <div id="minitilebutton">
+            <div id="minitilebutton" onClick={handleSignup}>
                 <p id="minitilebuttontext">BUILD YOUR PROFILE</p>
             </div>
             </div>

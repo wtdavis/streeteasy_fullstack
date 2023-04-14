@@ -37,6 +37,11 @@ class Api::ListingsController < ApplicationController
     @listing.destroy!
   end
 
+
+  def search 
+    @listings = Listing.where("lower(description) LIKE ?", "%#{params[:q]}%")
+    render :search
+  end
   private
 
   def listing_params

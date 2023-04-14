@@ -15,6 +15,7 @@ import * as listingActions from "./store/listings"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ListingShow from "./components/Listings/ListingShow";
+import Search from "./components/SearchShowPage/SearchShowPage";
 function App() {
   
   // const 
@@ -28,7 +29,9 @@ function App() {
         <Route path="/profile">
           <UserShow/>
         </Route>
-        
+        <Route path="/search">
+          <Search/>
+        </Route>
         <Route exact path="/listings">
           <ListingsIndex/>
         </Route>

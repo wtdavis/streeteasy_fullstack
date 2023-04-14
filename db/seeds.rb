@@ -16,12 +16,10 @@ ApplicationRecord.transaction do
 
     puts 'Creating Users...'
 
-    User.create!(
-        email: "demo@demo.com",
-        password: "password"
-    )
-
+    
     User.create!([
+        {email: "demo@demo.com",
+        password: "password"},
     {
         email: "monster@monster.com",
         password: "password"
@@ -30,42 +28,7 @@ ApplicationRecord.transaction do
         email: "john@johnson.com",
         password: "password"
     },
-    {
-        email: "theaterl0ver@president.com",
-        password: "password"
-    },
-    {
-        email: "didntdie@stillalive.com",
-        password: "password"
-    },
-    {
-        email: "memelord@thelegend.com",
-        password: "password"
-    },
-    {
-        email: "trickledown@terrible.com",
-        password: "password"
-    },
-    {
-        email: "human@email.com",
-        password: "password"
-    },
-    {
-        email: "lawntrimmings@autumn.com",
-        password: "password"
-    },
-    {
-        email: "sweetdreams@goodnight.com",
-        password: "password"
-    },
-    {
-        email: "jetersucks@boston.com",
-        password: "password"
-    },
-    {
-        email: "attorney@law.com",
-        password: "password"
-    }
+
     ])
 
     Building.destroy_all
@@ -131,11 +94,11 @@ ApplicationRecord.transaction do
 
     Listing.create!([{
         location: "70.0055, -101.112",
-        address: "43 decatur str",
+        address: "451 Caton Avenue",
         description: "With over 400 dogs-in-residence, this apartment is crowded but cozy. Boasts wall-to-wall shag carpet and views of the international space station. Perfect for any young billionaire's first second apartment",
         lister_id: 1,
         building_id: 1,
-        unit: "4d",
+        unit: "4D",
         rental: :true,
         price: 10000,
         num_bedrooms: 1,
@@ -145,9 +108,9 @@ ApplicationRecord.transaction do
     },
     {
         location: "70.0055, -101.112",
-        address: "400 Mercer st",
-        unit: "41z",
-        description: "An experimental design by renowned architect Mnier Roiuaru, this apartment is ",
+        address: "9001 St Monet Lane",
+        unit: "41R",
+        description: "An experimental design by renowned architect Mnier Roiuaru, this apartment has no floor, and boasts a stunning amount of ghosts. Solid gold toilets compliment this historic luxury home.",
         lister_id: 1,
         building_id: 1,
         rental: :true,
@@ -160,69 +123,110 @@ ApplicationRecord.transaction do
     {
         location: "75.0055, -104.112",
         address: "101 Park Avenue",
-        description: "A cardboard box full of dust and bones",
-        lister_id: 2,
+        description: "A home that has borne historical figures such as Napolean Bonaparte, Abraham Lincoln, and Henry Kissinger, this billionaire playboy philanthropist style loft will have people saying, wow that person sucks.",
+        lister_id: 1,
         building_id: 2,
         rental: true,
-        unit: "1a",
-        price: 100000,
+        unit: "1A",
+        price: 10000000000000000,
         num_bedrooms: 45,
         num_baths: 1,
-        borough: "manhattan"
+        borough: "Manhattan"
 
     },
     {
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        description: "A literal closet",
+        address: "43 decatur st",
+        description: "A literal closet, full of old dust and bones. You still can't afford it, peasant!",
         lister_id: 2,
         building_id: 2,
         unit: "0B",
         rental: false,
-        price: 20000,
-        num_bedrooms: 3,
+        price: 90000000,
+        num_bedrooms: 1,
         num_baths: 1,
-        borough: "manhattan"
+        borough: "Manhattan"
     },
     {
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        description: "A literal closet",
+        address: "10 Billionaire Avenue",
+        description: "This is a clown car filled with creepy old marionettes. You won't get a wink of sleep! Just listed, so act fast!",
         lister_id: 2,
         building_id: 2,
-        unit: "0B",
+        unit: "404",
         rental: false,
-        price: 20000,
+        price: 257000000,
         num_bedrooms: 3,
-        num_baths: 1,
-        borough: "manhattan"
+        num_baths: 4,
+        borough: "Manhattan"
     },
     {
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        description: "A literal closet",
+        address: "3 Pearly Gates pl",
+        description: "This luxury flat may just be heaven on Earth. Oh snap this is actually heaven, heaven is real, hnnnnnngggg",
         lister_id: 2,
         building_id: 2,
-        unit: "0B",
-        rental: false,
-        price: 20000,
+        unit: "100000",
+        rental: true,
+        price: 25679000,
         num_bedrooms: 3,
         num_baths: 1,
-        borough: "manhattan"
+        borough: "Manhattan"
     },
     {
         location: "70.0055, -101.112",
-        address: "43 decatur str, Brooklyn, Ny 11213",
-        description: "A literal closet",
-        lister_id: 2,
+        address: "Central Park",
+        description: "This is literally just central park. Its for sale! Say goodbye to plebians, and hello to your little slice of depriving the public of essential resources.",
+        lister_id: 3,
         building_id: 2,
-        unit: "0B",
+        unit: "1",
         rental: false,
-        price: 20000,
+        price: 999999999999995,
         num_bedrooms: 3,
         num_baths: 1,
-        borough: "manhattan"
+        borough: "Manhattan"
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "99 Rector st",
+        description: "Ever wanted to live in a motor-oil reclamation system? Well, now you have no choice! This 55 gallon oil drum is home to several rats, but can be yours for only the listed price and both of your kidneys.",
+        lister_id: 3,
+        building_id: 2,
+        unit: "101",
+        rental: true,
+        price: 5555555,
+        num_bedrooms: 0,
+        num_baths: 0,
+        borough: "Bronx"
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "21 West Upper West Side West",
+        description: "Its the Wild Wild West Side, birthplace of democracy, breeding ground of unfettered capitalism. Enjoy scenic views of other, taller buildings from this hideously expensive hovel.",
+        lister_id: 3,
+        building_id: 2,
+        unit: "99Z",
+        rental: true,
+        price: 21500000,
+        num_bedrooms: 3,
+        num_baths: 1,
+        borough: "Manhattan"
+    },
+    {
+        location: "70.0055, -101.112",
+        address: "501 Browning St",
+        description: "Voted best seat in the city, this luxury public bathroom can be yours at a low cost thanks to the slow decline of the economy.",
+        lister_id: 3,
+        building_id: 2,
+        unit: "0Q",
+        rental: true,
+        price: 420690,
+        num_bedrooms: 1,
+        num_baths: 100,
+        borough: "Staten Island"
     }
+    
+    
     ])
 
     puts "created listings!"

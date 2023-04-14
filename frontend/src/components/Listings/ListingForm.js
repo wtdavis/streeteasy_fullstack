@@ -40,6 +40,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
             setPrice(listing.price);
             setBorough(listing.borough);
             setRental(listing.rental)
+            setPhotoFile(listing.photoUrl)
         }
         if (currentUser){
             setListerId(currentUser.id)
@@ -144,7 +145,9 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     <option value={true}>For Rent</option>
                     <option value={false}>For Sale</option>
                 </select>
+                <p className="listingformsubheader"> Upload a Photo: </p>
                 <input id="photoupload" className="listingforminput"  type="file" onChange={handlePhotoFile} />
+
                 <input id="listingformsubmitbutton" className="listingforminput" type="submit" value={updateStatus} />
             </form>
 
