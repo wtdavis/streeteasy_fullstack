@@ -6,6 +6,10 @@ const REMOVE_LISTING = "listings/removeListing"
 const SET_LISTINGS = "listings/setListings"
 const CLEAR_LISTINGS = "listings/clearListings"
 
+const ADD_LISTINGS_ERRORS = "listings/addListingsErrors"
+const CLEAR_LISTINGS_ERRORS = "listings/clearListingsErrors"
+const CLEAR_LISTINGS_ERROR = "listings/clearListingsError"
+
 export const addListing = (listing) => {
     return {
         type: ADD_LISTING,
@@ -29,6 +33,19 @@ export const setListings = (listings) => {
 export const clearListings = () => {
     return {
         type: CLEAR_LISTINGS,
+    }
+}
+
+export const addListingsErrors = (errors) => {
+    return {
+        type: ADD_LISTINGS_ERRORS,
+        payload: errors
+    }
+}
+
+export const clearListingsErrors = () => {
+    return {
+        type: CLEAR_LISTINGS_ERRORS
     }
 }
 
@@ -61,9 +78,15 @@ export const createListing = (formData) => async (dispatch) => {
         body: formData
     })
      let data = await res.json()
+        if (!data.errors){
+            dispatch(addListing(data))
+            return data
+        } else {
+            dispatch(addListingsErrors(data))
+            return data
+        } 
     
         // debugger
-        dispatch(addListing(data)) 
 }
 
 export const deleteListing = (listingId) => async (dispatch) => {
@@ -74,6 +97,21 @@ export const deleteListing = (listingId) => async (dispatch) => {
     dispatch(removeListing(listingId))
     
 }
+
+export const listingserrorsreducer = (initialState = {} , action) => {
+    switch (action.type) {
+        case ADD_LISTINGS_ERRORS:
+            return {...initialState, errors: {...action.payload} };
+        case CLEAR_LISTINGS_ERRORS:
+            return {...initialState, errors: {}};
+        case CLEAR_LISTINGS_ERROR:
+            let idx = initialState.errors.listings.indexOf(action.payload)
+            return {...initialState, errors: initialState.errors.listings.splice(action.payload, 1)}
+        default:
+            return initialState
+    }
+}
+
 
 const initialState = {}
 const listingsReducer = (state = initialState, action) => {

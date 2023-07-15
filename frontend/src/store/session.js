@@ -15,6 +15,7 @@ export const login = ({credential, password}) => async (dispatch) => {
     } )
     const data = await res.json()
     // if (res.ok){
+        // debugger
     storeCurrentUser(data.user)
     dispatch(setCurrentUser(data.user))
     // }

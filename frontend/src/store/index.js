@@ -5,13 +5,15 @@ import modalReducer from './modal';
 import listingsReducer from './listings';
 import buildingsReducer from './buildings';
 import searchReducer from './search';
+import errorsReducer from './errors';
 
 const rootReducer = combineReducers({
 session: sessionReducer,
 // user: userReducer,
 modal: modalReducer,
 listings: listingsReducer,
-search: searchReducer
+search: searchReducer,
+errors: errorsReducer
 // buildings: buildingsReducer
 })
 

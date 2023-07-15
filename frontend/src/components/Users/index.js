@@ -4,37 +4,29 @@ import { useDispatch } from "react-redux"
 import "./users.css"
 import csrfFetch from "../../store/csrf"
 import { Link, Redirect } from "react-router-dom"
-import { useEffect, useState } from "react"
 import ListingForm from "../Listings/ListingForm"
-import LogoutButton from "../Navigation/LogoutButton"
+import { useState } from "react"
 
 function UserShow () {
     const [listingForm, setListingForm] = useState("listingformhidden")
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => {return state.session.user})
-    // useEffect( () => {
-    //     if (!currentUser) {
-            
-    //     }
-    // }, [dispatch])
-    // useEffect( async () => {
-    // const session = await dispatch(sessionActions.restoreSession())}, [dispatch])
 
     const deleteUser = async () => {
         let res = await csrfFetch(`api/users/${currentUser.id}`, {method: 'DELETE'})
             dispatch(sessionActions.logout());
             <Redirect to="/"/>
-    
     }
+
     const handleFormDisplay = () => {
         if (listingForm === "listingformhidden")
         {setListingForm("listingformdisplay")
     } else {
         setListingForm("listingformhidden")
-    }
+        }
 
     }
-    // const favorites = currentUser.favorites
+
     return (
         <div id="userShowPage">
             <div id="spacer"></div>

@@ -15,11 +15,12 @@ class Api::ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    # debugger
-    if @listing.save!
+    
+    if @listing.save
       render 'api/listings/show'
     else
-      errors = @listing.errors.full_messages
+      errors = @listing.errors.messages
+      
       render json: {errors: errors}
       return nil
     end
@@ -28,7 +29,7 @@ class Api::ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
     @listing.update!(listing_params)
-    # debugger
+    
     render 'api/listings/show'
   end
 
@@ -45,7 +46,7 @@ class Api::ListingsController < ApplicationController
   private
 
   def listing_params
-    # debugger
+    
     params.require(:listing).permit(
                                     :location, 
                                     :address, 
