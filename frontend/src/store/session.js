@@ -14,6 +14,7 @@ export const login = ({credential, password}) => async (dispatch) => {
         })
     } )
     const data = await res.json()
+    // console.log(data)c
     // if (res.ok){
         // debugger
     storeCurrentUser(data.user)
@@ -82,8 +83,9 @@ const storeCurrentUser = (user) => {
 
 export const restoreSession = () => async (dispatch) => {
    const res = await csrfFetch('/api/session')
-   storeCSRFToken(res)
    const data = await res.json()
+//    const token = storeCSRFToken(res)
+//    console.log(token)
    storeCurrentUser(data.user)
    dispatch(setCurrentUser(data.user))
     return res

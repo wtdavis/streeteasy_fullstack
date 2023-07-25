@@ -101,9 +101,9 @@ export const deleteListing = (listingId) => async (dispatch) => {
 export const listingserrorsreducer = (initialState = {} , action) => {
     switch (action.type) {
         case ADD_LISTINGS_ERRORS:
-            return {...initialState, errors: {...action.payload} };
+            return {...initialState, ...action.payload };
         case CLEAR_LISTINGS_ERRORS:
-            return {...initialState, errors: {}};
+            return {};
         case CLEAR_LISTINGS_ERROR:
             let idx = initialState.errors.listings.indexOf(action.payload)
             return {...initialState, errors: initialState.errors.listings.splice(action.payload, 1)}
