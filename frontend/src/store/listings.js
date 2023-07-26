@@ -6,6 +6,10 @@ const REMOVE_LISTING = "listings/removeListing"
 const SET_LISTINGS = "listings/setListings"
 const CLEAR_LISTINGS = "listings/clearListings"
 
+const ADD_LISTINGS_ERRORS = "listings/addListingsErrors"
+const CLEAR_LISTINGS_ERRORS = "listings/clearListingsErrors"
+const CLEAR_LISTINGS_ERROR = "listings/clearListingsError"
+
 export const addListing = (listing) => {
     return {
         type: ADD_LISTING,
@@ -32,6 +36,27 @@ export const clearListings = () => {
     }
 }
 
+export const addListingsErrors = (errors) => {
+    return {
+        type: ADD_LISTINGS_ERRORS,
+        payload: errors
+    }
+}
+
+export const clearListingsErrors = () => {
+    return {
+        type: CLEAR_LISTINGS_ERRORS
+    }
+}
+
+export const clearListingsError = (error) => {
+    return {
+        type: CLEAR_LISTINGS_ERROR,
+        payload: error
+    }
+    
+}
+
 export const fetchListings = () => async (dispatch) => {
     let res = await csrfFetch('/api/listings')
     let data = await res.json()
@@ -49,21 +74,32 @@ export const updateListing = (listingId, formData) => async (dispatch) => {
         body: formData  
     })
     let data = await res.json()
-     dispatch(addListing(data.listing))
+
+    if (!data.errors){
+        dispatch(addListing(data))
+        return data
+    } else {
+        dispatch(addListingsErrors(data.errors))
+        return data
+    } 
 }
 
 export const createListing = (formData) => async (dispatch) => {
-    // let snakeData = JSON.stringify(formData)
-    // snakeData =  snakify(snakeData)
-    // debugger
     let res = await csrfFetch('/api/listings', {
         method: 'POST',
         body: formData
     })
-     let data = await res.json()
+    let data = await res.json()
     
-        // debugger
-        dispatch(addListing(data)) 
+
+    if (!data.errors){
+        dispatch(addListing(data))
+        return data
+    } else {
+        dispatch(addListingsErrors(data.errors))
+        return data
+    } 
+    
 }
 
 export const deleteListing = (listingId) => async (dispatch) => {
@@ -75,6 +111,22 @@ export const deleteListing = (listingId) => async (dispatch) => {
     
 }
 
+export const listingserrorsreducer = (initialState = {} , action) => {
+    switch (action.type) {
+        case ADD_LISTINGS_ERRORS:
+            return {...initialState, ...action.payload };
+        case CLEAR_LISTINGS_ERRORS:
+            return {};
+        case CLEAR_LISTINGS_ERROR:
+            let tmp = {...initialState}
+            delete tmp[action.payload]
+            return {...tmp}
+        default:
+            return initialState
+    }
+}
+
+
 const initialState = {}
 const listingsReducer = (state = initialState, action) => {
     
@@ -83,7 +135,6 @@ const listingsReducer = (state = initialState, action) => {
             const listing = action.payload
             return {...state, [listing.id]: listing};
             case SET_LISTINGS:
-            // debugger
             return action.payload;
         case REMOVE_LISTING:
             let newState = {...state}

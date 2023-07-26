@@ -38,14 +38,21 @@ ReactDOM.render(
   document.getElementById('root'))
 );
 }
-
 store.dispatch(modalActions.removeCredentialModal());
 store.dispatch(modalActions.removePasswordModal())
-store.dispatch(listingsActions.fetchListings())
+// store.dispatch(listingsActions.fetchListings())
 if (  sessionStorage.getItem("currentUser") === null ||
   sessionStorage.getItem('X-CSRF-Token') === null ) 
 {
-  store.dispatch(sessionActions.restoreSession()).then(renderApp)
+  store.dispatch(sessionActions.restoreSession()).then(res => {
+    renderApp()
+    // console.log(res)
+  })
 } else {
   renderApp()
+  // console.log("rendering")
 }
+
+// while (sessionStorage.getItem('X-CSRF-Token') === null) {
+//   sessionActions.restoreSession()
+// }

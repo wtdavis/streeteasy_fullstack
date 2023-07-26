@@ -3,6 +3,7 @@ class Api::SessionsController < ApplicationController
   before_action :require_logged_out, only: [:create]
 
   def show
+    # debugger
     if @current_user
       render 'api/users/show'
     else
@@ -23,7 +24,7 @@ class Api::SessionsController < ApplicationController
       password = params[:password]
     @user = User.find_by_credentials(credential, password)
     if @user
-      login!(@user)
+      login!(@user) 
       render 'api/users/show'
     else
       render json: {errors: ['Invalid Credentials']}, status: :unauthorized

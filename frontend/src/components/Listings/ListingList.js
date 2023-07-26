@@ -1,8 +1,6 @@
 import ListingTile from "./ListingTile"
-import ListingForm from "./ListingForm"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import listingsReducer from "../../store/listings"
 import * as listingsActions from "../../store/listings"
 import { Link } from "react-router-dom"
 import "./listings.css"
