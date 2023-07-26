@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import {useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import * as listingsActions from '../../store/listings'
 import { useDispatch } from "react-redux"
 import './listings.css'
@@ -8,7 +9,8 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
     listing ||= 
     update ||= false
     const dispatch = useDispatch()
-    
+    const history = useHistory()
+
     const [updateStatus, setUpdateStatus] = useState("")
     const currentUser = useSelector( state => state.session.user)
     const [listerId, setListerId] = useState(null)
@@ -23,7 +25,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
     const [borough, setBorough] = useState("")
     const [rental, setRental] = useState(null)
     const [photoFile, setPhotoFile] = useState(null)
-    const errors = useSelector(state => state.errors)
+    const errors = useSelector(state => state.errors.listings)
     
     useEffect(() => {
         if (listing){
@@ -54,7 +56,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         setPhotoFile(file)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         if (photoFile) {
@@ -74,13 +76,26 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         formData.append('listing[rental]', rental)
 
 
-        
+        dispatch(listingsActions.clearListingsErrors())
+
         if (update) {
-        dispatch(listingsActions.updateListing(listing.id, formData))
+        dispatch(listingsActions.updateListing(listing.id, formData)).then(res => {
+            if (!res.errors) {
+                handleHide()
+                history.push(`/listings/${res.listing.id}`)
+                }
+            }
+        )
         } else {
-        dispatch(listingsActions.createListing(formData))
+        dispatch(listingsActions.createListing(formData)).then(res => {
+            if (!res.errors) {
+                handleHide()
+                history.push(`/listings/${res.listing.id}`)
+                }
+            }
+        )   
         }
-        setListingForm("listingformhidden")
+
     }
 
     
@@ -88,6 +103,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
             setListingForm("listingformhidden")
         }
         
+
 
     return (
         <div className={formClass} id="listingformpage">
@@ -103,7 +119,8 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     placeholder="Address" 
                     type="text" 
                     value={address} 
-                    onChange={(e) => setAddress(e.target.value)}/>
+                    onChange={(e) => {setAddress(e.target.value); dispatch(listingsActions.clearListingsError("address"))}}/>
+                <p className="listingformerror">{errors.address} </p>
 
                 <p className="listingformsubheader"> Unit: </p>
 
@@ -112,7 +129,8 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     placeholder="Unit" 
                     type="text" 
                     value={unit} 
-                    onChange={(e) => setUnit(e.target.value)}/>
+                    onChange={(e) => {setUnit(e.target.value); dispatch(listingsActions.clearListingsError("unit"))}}/>
+                <p className="listingformerror">{errors.unit} </p>
 
                 <p className="listingformsubheader"> Number of Bedrooms: </p>
 
@@ -122,7 +140,8 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     placeholder="Number of Bedrooms" 
                     type="number" 
                     value={numBeds} 
-                    onChange={(e) => setNumBeds(e.target.value)}/>
+                    onChange={(e) => {setNumBeds(e.target.value); dispatch(listingsActions.clearListingsError("num_bedrooms"))}}/>
+                <p className="listingformerror">{errors.num_bedrooms} </p>
 
                 <p className="listingformsubheader"> Number of Baths: </p>
 
@@ -132,8 +151,9 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     placeholder="Number of Baths" 
                     type="number" 
                     value={numBaths} 
-                    onChange={(e) => setNumBaths(e.target.value)}/>
-
+                    onChange={(e) => {setNumBaths(e.target.value); dispatch(listingsActions.clearListingsError("num_baths"))}}/>
+                <p className="listingformerror">{errors.num_baths} </p>
+                
                 <p className="listingformsubheader"> Describe your Listing: </p>
 
                 <textarea 
@@ -141,7 +161,9 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     placeholder="Listing Description" 
                     type="textarea" 
                     value={description} 
-                    onChange={(e) => setDescription(e.target.value)}/>
+                    onChange={(e) => {setDescription(e.target.value); dispatch(listingsActions.clearListingsError("description"))}}/>
+                <p className="listingformerror">{errors.description} </p>
+
 
                 <p className="listingformsubheader"> Price: </p>
                 
@@ -152,7 +174,9 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     step="100"
                     min="500"
                     value={price} 
-                    onChange={(e) => setPrice(e.target.value)}/>
+                    onChange={(e) => {setPrice(e.target.value); dispatch(listingsActions.clearListingsError("price"))}}/>
+                <p className="listingformerror">{errors.price} </p>
+
 
                 <p className="listingformsubheader"> Borough: </p>
 
@@ -160,7 +184,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     className="listingforminput"
                     id="borough"
                     value={borough}
-                    onChange={((e) => setBorough(e.target.value))}>
+                    onChange={(e) => {setBorough(e.target.value); dispatch(listingsActions.clearListingsError("borough"))}}>
 
                     <option value="" disabled selected>Select a Borough</option>
                     <option value="Staten Island" >Staten Island</option>
@@ -169,18 +193,21 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     <option value="Bronx">Bronx</option>
                     <option value="Manhattan">Manhattan</option>
                 </select>
-
+                <p className="listingformerror">{errors.borough} </p>
+            
                 <p className="listingformsubheader"> Listing Type: </p>
 
                 <select 
                     className="listingforminput"
                     id="rental" value={rental}
-                    onChange={((e) => setRental(e.target.value))}>
+                    onChange={(e) => {setRental(e.target.value); dispatch(listingsActions.clearListingsError("rental"))}}>
 
                     <option value={null} disabled selected>Select a Listing Type</option>
                     <option value={true}>For Rent</option>
                     <option value={false}>For Sale</option>
                 </select>
+                <p className="listingformerror">{errors.rental} </p>
+
 
                 <p className="listingformsubheader"> Upload a Photo: </p>
 
@@ -189,17 +216,6 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     className="listingforminput"
                     type="file"
                     onChange={e => handlePhotoFile(e.target.value)} />
-
-
-                <p className="errorslist">Errors List</p>
-                    <ul> 
-
-
-                    {errors.length&& errors.map(error =>  (
-                        <li> {error} </li>)
-                    )}
-
-                    </ul>
 
                 <input
                     id="listingformsubmitbutton" 

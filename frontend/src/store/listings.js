@@ -49,6 +49,14 @@ export const clearListingsErrors = () => {
     }
 }
 
+export const clearListingsError = (error) => {
+    return {
+        type: CLEAR_LISTINGS_ERROR,
+        payload: error
+    }
+    
+}
+
 export const fetchListings = () => async (dispatch) => {
     let res = await csrfFetch('/api/listings')
     let data = await res.json()
@@ -66,27 +74,32 @@ export const updateListing = (listingId, formData) => async (dispatch) => {
         body: formData  
     })
     let data = await res.json()
-     dispatch(addListing(data.listing))
+
+    if (!data.errors){
+        dispatch(addListing(data))
+        return data
+    } else {
+        dispatch(addListingsErrors(data.errors))
+        return data
+    } 
 }
 
 export const createListing = (formData) => async (dispatch) => {
-    // let snakeData = JSON.stringify(formData)
-    // snakeData =  snakify(snakeData)
-    // debugger
     let res = await csrfFetch('/api/listings', {
         method: 'POST',
         body: formData
     })
-     let data = await res.json()
-        if (!data.errors){
-            dispatch(addListing(data))
-            return data
-        } else {
-            dispatch(addListingsErrors(data))
-            return data
-        } 
+    let data = await res.json()
     
-        // debugger
+
+    if (!data.errors){
+        dispatch(addListing(data))
+        return data
+    } else {
+        dispatch(addListingsErrors(data.errors))
+        return data
+    } 
+    
 }
 
 export const deleteListing = (listingId) => async (dispatch) => {
@@ -105,8 +118,9 @@ export const listingserrorsreducer = (initialState = {} , action) => {
         case CLEAR_LISTINGS_ERRORS:
             return {};
         case CLEAR_LISTINGS_ERROR:
-            let idx = initialState.errors.listings.indexOf(action.payload)
-            return {...initialState, errors: initialState.errors.listings.splice(action.payload, 1)}
+            let tmp = {...initialState}
+            delete tmp[action.payload]
+            return {...tmp}
         default:
             return initialState
     }
@@ -121,7 +135,6 @@ const listingsReducer = (state = initialState, action) => {
             const listing = action.payload
             return {...state, [listing.id]: listing};
             case SET_LISTINGS:
-            // debugger
             return action.payload;
         case REMOVE_LISTING:
             let newState = {...state}

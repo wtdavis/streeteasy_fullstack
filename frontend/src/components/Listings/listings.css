@@ -163,6 +163,10 @@
     text-indent: 10px;
 }
 
+.listingformerror {
+    color: red
+}
+
 #photoupload {
     margin-top: 5px
 }
