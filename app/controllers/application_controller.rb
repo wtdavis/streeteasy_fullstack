@@ -40,6 +40,7 @@ class ApplicationController < ActionController::API
 
     def find
         @user = User.find_by(email: params[:credential])
+        debugger
         if @user
           render json: {user_exists: true}
         else

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :destroy]
     resources :listings, only: [:create, :destroy, :show, :index, :update]
     resource :session, only: [:show, :create, :destroy]
+    resources :favorites, only: [:show, :create, :destroy]
   end
   get 'api/user/find/:credential', to: 'application#find'
   
