@@ -1,11 +1,43 @@
-#favoriteButton {
-    background-color: white;
+#favoritebutton {
+    /* border-radius: 50%; */
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .25s
+}
+
+#favoriteButton:hover {
+    
+}
+
+.favoritetext {
+    font-size: 20px
+}
+
+.fa-heart {
+    color: green;
+    /* position: absolute; */
+    /* align-self: right; */
+    transition-property: color;
+    transition-duration: .25s
 }
 
 .favoritebuttonhighlightlight {
-    background-color: lightblue
+    background-color: darkgrey;
+    /* color: red */
 }
 
 .favoritebuttonhighlightdark {
-    background-color: darkblue
+    background-color: darkblue;
+    /* color: red */
+}
+
+.favhearticonlight {
+    color: lightblue
+}
+
+.favhearticondark {
+    color: red
 }

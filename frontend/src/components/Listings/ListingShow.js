@@ -4,6 +4,7 @@ import * as listingsActions from "../../store/listings"
 import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
 import "./listings.css"
+import Favorite from "../Favorites/Favorite"
 // debugger
 function ListingShow () {
     
@@ -19,7 +20,14 @@ function ListingShow () {
 
     
     useEffect(() => {
-        dispatch(listingsActions.fetchListings())
+        debugger
+        dispatch(listingsActions.addCurrentListing(listing));
+        return (
+           () => {
+            dispatch(listingsActions.clearCurrentListing())
+            dispatch(listingsActions.fetchListings())
+           }
+        )
     }, [dispatch] 
     )
 
@@ -93,7 +101,7 @@ if (listing) {
                         </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingUpdate} </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingDelete} </div>
-
+                        <Favorite listing={listing}/>
                     </div>
             </div>
 

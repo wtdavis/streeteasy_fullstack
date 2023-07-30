@@ -27,6 +27,7 @@ class ApplicationController < ActionController::API
     end
 
     def require_logged_in 
+        debugger
         unless logged_in?
             render json: {message: 'Unauthorized'}, status: :unauthorized
         end
@@ -40,7 +41,6 @@ class ApplicationController < ActionController::API
 
     def find
         @user = User.find_by(email: params[:credential])
-        debugger
         if @user
           render json: {user_exists: true}
         else

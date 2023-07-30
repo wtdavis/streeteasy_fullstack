@@ -10,6 +10,9 @@ const ADD_LISTINGS_ERRORS = "listings/addListingsErrors"
 const CLEAR_LISTINGS_ERRORS = "listings/clearListingsErrors"
 const CLEAR_LISTINGS_ERROR = "listings/clearListingsError"
 
+const ADD_CURRENT_LISTING = "listings/addCurrentListing"
+const CLEAR_CURRENT_LISTING = "listings/clearCurrentListing"
+
 export const addListing = (listing) => {
     return {
         type: ADD_LISTING,
@@ -55,6 +58,18 @@ export const clearListingsError = (error) => {
         payload: error
     }
     
+}
+
+export const addCurrentListing = (listing) => {
+    return {
+        type: ADD_CURRENT_LISTING,
+        payload: listing
+    }
+}
+export const clearCurrentListing = () => {
+    return {
+        type: CLEAR_CURRENT_LISTING
+    }
 }
 
 export const fetchListings = () => async (dispatch) => {
@@ -106,12 +121,12 @@ export const deleteListing = (listingId) => async (dispatch) => {
     let res = await csrfFetch(`/api/listings/${listingId}`, {
         method: 'DELETE'
     })
-    
+    if (res.ok){
     dispatch(removeListing(listingId))
-    
+    }
 }
 
-export const listingserrorsreducer = (initialState = {} , action) => {
+export const listingsErrorsReducer = (initialState = {} , action) => {
     switch (action.type) {
         case ADD_LISTINGS_ERRORS:
             return {...initialState, ...action.payload };
@@ -128,22 +143,35 @@ export const listingserrorsreducer = (initialState = {} , action) => {
 
 
 const initialState = {}
+
 const listingsReducer = (state = initialState, action) => {
-    
+    let newState = {...state}
     switch(action.type) {
         case ADD_LISTING:
+            debugger
             const listing = action.payload
-            return {...state, [listing.id]: listing};
-            case SET_LISTINGS:
-            return action.payload;
+            return {...newState, [listing.id]: listing, current: listing};
+        case SET_LISTINGS:
+            const listings = {}
+            let values = Object.values(action.payload)
+            for (let i=0; i<values.length;i++) {
+                listings[values[i].id] = values[i]
+            }
+            return {...listings}
         case REMOVE_LISTING:
-            let newState = {...state}
             delete newState[action.payload]
             return newState;
         case CLEAR_LISTINGS:
-            return {}
+            return {};
+        case ADD_CURRENT_LISTING:
+            let temp = {...newState, current: action.payload}
+            debugger
+            return {...temp}
+        case CLEAR_CURRENT_LISTING:
+            delete newState.current
+            return {...newState};
         default:
-            return state
+            return newState
     }
 }
 

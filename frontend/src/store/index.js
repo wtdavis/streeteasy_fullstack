@@ -6,12 +6,14 @@ import listingsReducer from './listings';
 import buildingsReducer from './buildings';
 import searchReducer from './search';
 import errorsReducer from './errors';
+import favoritesReducer from './favorites';
 
 const rootReducer = combineReducers({
 session: sessionReducer,
 // user: userReducer,
 modal: modalReducer,
 listings: listingsReducer,
+favorites: favoritesReducer,
 search: searchReducer,
 errors: errorsReducer
 // buildings: buildingsReducer
