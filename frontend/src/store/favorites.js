@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf";
-
+import * as sessionsActions from "./session"
 
 
 
@@ -49,6 +49,7 @@ export const addFavoriteThunk = (favorite) => async (dispatch) => {
             listingId: favorite.id
         })
     })
+    debugger
     if (res.errors) { 
         // add favorites error handling!
     } else {
@@ -56,6 +57,21 @@ export const addFavoriteThunk = (favorite) => async (dispatch) => {
         dispatch(addFavorite(data))
         return data
     }
+}
+
+export const deleteFavoriteThunk = (favorite) => async (dispatch) => {
+    let res = await csrfFetch(`/api/favorites/${favorite.id}`, {
+        method: 'DELETE'
+    })
+
+    let data = await res.json()
+    dispatch(deleteFavorite(favorite))
+    if (!data.errors) {
+        console.log(data.errors)
+    } else {
+        console.log("cant delete this favorite right now")
+    }
+    return data
 }
 
 const favoritesReducer = (initialState = {}, action) => {
@@ -67,9 +83,11 @@ const favoritesReducer = (initialState = {}, action) => {
         case ADD_FAVORITES: 
             return {...newState, ...payload}
         case DELETE_FAVORITE:
-            delete newState.payload
+            delete newState[payload.listingId]
             // does this work? test
             return {...newState}
+        case sessionsActions.REMOVE_CURRENT_USER:
+            return {}
         default:
             return {...initialState}
 

@@ -19,8 +19,9 @@ function ListingsIndex () {
     // debugger
     useEffect( ()=>{
         if (currentUser)
-        dispatch(fetchFavorites(currentUser))
-    }, [currentUser, dispatch])
+        // dispatch(fetchFavorites(currentUser))
+        console.log(currentUser)
+    }, [currentUser])
     return (
         <div id="listingsindex">
             <div id="spacer"></div>

@@ -8,10 +8,18 @@ import "./listings.css"
 function ListingList () {
     
     const dispatch = useDispatch()
-    useEffect(() => {dispatch(listingsActions.fetchListings())}, [dispatch])
     const listings = useSelector(state => Object.values(state.listings))
-    const favorites =  []
-    // useSelector(state =>  Object.keys(state.favorites))
+    const favorites = useSelector(state => state.favorites)
+    const currentUser = useSelector(state => state.session.user)
+
+    useEffect(() => {
+        dispatch(listingsActions.fetchListings());
+        if (currentUser) {
+            dispatch(favoritesActions.fetchFavorites(currentUser))
+        }
+    }
+    , [dispatch])
+
     return (
         <div id="listinglist">
         {listings.map((listing) => (<Link key={listing.id} className="listingtile" to={`listings/${listing.id}`}>

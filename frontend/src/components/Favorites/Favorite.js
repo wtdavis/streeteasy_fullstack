@@ -10,28 +10,34 @@ function Favorite(props) {
     let [favButtonText, setFavButtonText] = useState("SAVE")
     let [favHighlighted, setFavHighlighted] = useState(false)
     let favorites = useSelector(state => state.favorites)
-    
     let listing = props.listing
+    let favorite = useSelector(state => state.favorites[listing?.id])
 
     debugger
     
-    let isFavoritedInitially = () => {
-        if ((Object.keys(favorites)).includes(listing?.id)) {
+    let isFavorited = () => {
+        debugger
+        if (favorite) {
+        // if ((Object.keys(favorites)).includes(`${listing?.id}`)) 
             setFavHighlighted(true)
         }
     }
 
-    let handleClick = (e) => {
+    let handleClick = async (e) => {
         if (favHighlighted) {
-            dispatch(favoritesActions.deleteFavorite(listing))
+            let res = dispatch(favoritesActions.deleteFavoriteThunk(favorite))
+            setFavHighlighted(false);
+            handleIconClassName()
         } else {
-            dispatch(favoritesActions.addFavoriteThunk(listing))
-        }
+            let res = dispatch(favoritesActions.addFavoriteThunk(listing))
+            setFavHighlighted(true); handleIconClassName()
+        }}
 
-    }
+    
 
 
     let toggleHighlight = () => {
+        debugger
         if (favHighlighted){
             setFavHighlighted(false)
         } else {
@@ -52,12 +58,14 @@ function Favorite(props) {
             setFavButtonText("SAVE")
         }
     }
-    
-    useEffect(function () {
-        isFavoritedInitially()
-        handleIconClassName()
+    useEffect(() => {
+        isFavorited()
 
-    }, [toggleHighlight])
+    },[])
+
+    useEffect(function () {
+        handleIconClassName()
+    }, [favHighlighted, favorites, isFavorited])
 
 
 
