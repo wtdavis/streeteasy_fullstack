@@ -149,7 +149,7 @@ const listingsReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_LISTING:
             debugger
-            const listing = action.payload
+            const listing = action.payload.listing
             return {...newState, [listing.id]: listing, current: listing};
         case SET_LISTINGS:
             const listings = {}
@@ -164,8 +164,8 @@ const listingsReducer = (state = initialState, action) => {
         case CLEAR_LISTINGS:
             return {};
         case ADD_CURRENT_LISTING:
-            let temp = {...newState, current: action.payload}
             debugger
+            let temp = {...newState, current: {...action.payload}}
             return {...temp}
         case CLEAR_CURRENT_LISTING:
             delete newState.current

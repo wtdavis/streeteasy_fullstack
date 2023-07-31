@@ -13,6 +13,7 @@ function Favorite(props) {
     
     let listing = props.listing
 
+    debugger
     
     let isFavoritedInitially = () => {
         if ((Object.keys(favorites)).includes(listing?.id)) {

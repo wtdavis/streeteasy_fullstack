@@ -90,6 +90,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         dispatch(listingsActions.createListing(formData)).then(res => {
             if (!res.errors) {
                 handleHide()
+                dispatch(listingsActions.addCurrentListing(res.listing))
                 history.push(`/listings/${res.listing.id}`)
                 }
             }

@@ -20,7 +20,6 @@ function ListingShow () {
 
     
     useEffect(() => {
-        debugger
         dispatch(listingsActions.addCurrentListing(listing));
         return (
            () => {

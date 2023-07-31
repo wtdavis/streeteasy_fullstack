@@ -20,7 +20,7 @@ function ListingsIndex () {
     useEffect( ()=>{
         if (currentUser)
         dispatch(fetchFavorites(currentUser))
-    })
+    }, [currentUser, dispatch])
     return (
         <div id="listingsindex">
             <div id="spacer"></div>

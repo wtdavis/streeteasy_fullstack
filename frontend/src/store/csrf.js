@@ -35,10 +35,10 @@ async function csrfFetch (url, options = {}) {
 async function getCSRFToken () {
     let res = await fetch('/api/session')
     let token = res.headers.get('X-CSRF-Token')
-    // console.log('fetched token is', token)
+    console.log('fetched token is', token)
     sessionStorage.setItem('X-CSRF-Token', token)
     let storedToken = sessionStorage.getItem('X-CSRF-Token')
-    // console.log("the csrf token in session storage is", storedToken)
+    console.log("the csrf token in session storage is", storedToken)
 
 }
 // export  function storeCSRFToken(response) {

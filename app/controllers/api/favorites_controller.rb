@@ -1,14 +1,15 @@
 class Api::FavoritesController < ApplicationController
 
     def show
+        # debugger
         if current_user
             @user = current_user
-            @favorites = Favorite.find_by(user_id: @user.id)
+            @favorites = Favorite.where("user_id = ?", @user.id)
         else
             return
         end
         if @favorites
-            render json: {favorites: @favorites}
+            render 'api/favorites/index'
         else
             render json: {errors: @favorites.errors.full_messages}
         end
@@ -16,14 +17,14 @@ class Api::FavoritesController < ApplicationController
 
     def create
         if current_user
+            # debugger
             @user = current_user 
             @listing_id = params[:listing_id] 
             @favorite = Favorite.new()
             @favorite.user_id = @user.id
             @favorite.listing_id = @listing_id
-            
             if @favorite.save!
-                render json: @favorite
+                render 'api/favorites/show'
             else
                 render json: {errors: @favorite.errors.full_messages}
             end

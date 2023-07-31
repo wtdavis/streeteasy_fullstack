@@ -32,30 +32,28 @@ export const deleteFavorite = (favorite) => {
 
 
 export const fetchFavorites = (user) => async (dispatch) => {
+    let res = await csrfFetch(`/api/favorites/${user.id}`)
     debugger
-    let res = csrfFetch(`/api/favorites/${user.id}`)
-    let data = await res
-    debugger
-    if (data.ok) {
-        dispatch(addFavorites(data))
+    let data = await res.json()
+    if (!data.errors) {
+        dispatch(addFavorites(data.favorites))
         return data
     }
     return data
 }
 
 export const addFavoriteThunk = (favorite) => async (dispatch) => {
-    let res = csrfFetch('/api/favorites', {
+    let res = await csrfFetch('/api/favorites', {
         method: 'POST',
         body: JSON.stringify({
             listingId: favorite.id
         })
     })
-    
     if (res.errors) { 
         // add favorites error handling!
     } else {
-        let data = (await res).json()
-        dispatch(addFavorite(data.favorite))
+        let data = await res.json()
+        dispatch(addFavorite(data))
         return data
     }
 }
