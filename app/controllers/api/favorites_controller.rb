@@ -25,6 +25,8 @@ class Api::FavoritesController < ApplicationController
             @favorite.user_id = @user.id
             @favorite.listing_id = @listing_id
             if @favorite.save!
+                # debugger
+                # render json: {favorite: {**@favorite, listing: {**@favorite.listing, photoUrl: 'https://photos.zillowstatic.com/fp/b3e4b53140327158749bcc621824b660-se_large_800_400.webp'}}}
                 render 'api/favorites/show'
             else
                 render json: {errors: @favorite.errors.full_messages}

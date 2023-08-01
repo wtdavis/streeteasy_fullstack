@@ -1,0 +1,14 @@
+=> [32m#<Listing:0x00007f6e86ded9f0[0m
+ id: [1;34m1[0m,
+ location: [31m[1;31m"[0m[31m70.0055, -101.112[1;31m"[0m[31m[0m,
+ address: [31m[1;31m"[0m[31m451 Caton Avenue[1;31m"[0m[31m[0m,
+ description:
+  [31m[1;31m"[0m[31mWith over 400 dogs-in-residence, this apartment is crowded but cozy. Boasts wall-to-wall shag carpet and views of the international space station. Perfect for any young billionaire's first second apartment[1;31m"[0m[31m[0m,
+ lister_id: [1;34m1[0m,
+ price: [1;34m12400[0m,
+ num_bedrooms: [1;34m0[0m,
+ num_baths: [1;34m1[0m,
+ borough: [31m[1;31m"[0m[31mBrooklyn[1;31m"[0m[31m[0m,
+ rental: [1;36mfalse[0m,
+ building_id: [1;34m1[0m,
+ unit: [31m[1;31m"[0m[31m4D[1;31m"[0m[31m[0m[32m>[0m
