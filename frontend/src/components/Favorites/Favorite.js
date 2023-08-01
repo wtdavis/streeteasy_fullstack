@@ -13,10 +13,8 @@ function Favorite(props) {
     let listing = props.listing
     let favorite = useSelector(state => state.favorites[listing?.id])
 
-    debugger
     
     let isFavorited = () => {
-        debugger
         if (favorite) {
         // if ((Object.keys(favorites)).includes(`${listing?.id}`)) 
             setFavHighlighted(true)

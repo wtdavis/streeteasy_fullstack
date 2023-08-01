@@ -7,8 +7,11 @@ import { Link, Redirect } from "react-router-dom"
 import ListingForm from "../Listings/ListingForm"
 import { useState } from "react"
 import ListingTile from "../Listings/ListingTile"
+import * as favoritesActions from "../../store/favorites"
+import { useEffect } from "react"
 
 function UserShow () {
+
     const dispatch = useDispatch()
     const [listingForm, setListingForm] = useState("listingformhidden")
     const currentUser = useSelector((state) => {return state.session.user})
@@ -28,9 +31,15 @@ function UserShow () {
     } else {
         setListingForm("listingformhidden")
         }
-
     }
 
+
+    useEffect(
+    () => {
+        debugger
+        dispatch(favoritesActions.fetchFavorites(currentUser))
+    }, [dispatch]    
+    )
     return (
         <div id="userShowPage">
             <div id="spacer"></div>

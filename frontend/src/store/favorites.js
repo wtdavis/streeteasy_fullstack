@@ -17,6 +17,7 @@ export const addFavorite = (favorite) => {
 }
 
 export const addFavorites = function (favorites) {
+    debugger
     return ({
         type: ADD_FAVORITES,
         payload: favorites
@@ -49,11 +50,12 @@ export const addFavoriteThunk = (favorite) => async (dispatch) => {
             listingId: favorite.id
         })
     })
+    let data =await res.json()
+
     debugger
-    if (res.errors) { 
+    if (data.errors) { 
         // add favorites error handling!
     } else {
-        let data = await res.json()
         dispatch(addFavorite(data))
         return data
     }
@@ -79,6 +81,7 @@ const favoritesReducer = (initialState = {}, action) => {
     let payload = action.payload;
     switch(action.type) {
         case ADD_FAVORITE:
+            debugger
             return {...newState, ...payload}
         case ADD_FAVORITES: 
             return {...newState, ...payload}
@@ -90,9 +93,7 @@ const favoritesReducer = (initialState = {}, action) => {
             return {}
         default:
             return {...initialState}
-
     }
-
 }
 
 export default favoritesReducer

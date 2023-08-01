@@ -1,6 +1,6 @@
 function ListingTile ({listing}) {
+    debugger
     const {price, address, borough, numBedrooms, numBaths, photoUrl} = listing
-// debugger
     return (
         <div className="listingTile">
             <img className="listingTileImage" src={photoUrl}></img>
