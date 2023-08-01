@@ -6,17 +6,21 @@ import csrfFetch from "../../store/csrf"
 import { Link, Redirect } from "react-router-dom"
 import ListingForm from "../Listings/ListingForm"
 import { useState } from "react"
+import ListingTile from "../Listings/ListingTile"
 
 function UserShow () {
-    const [listingForm, setListingForm] = useState("listingformhidden")
     const dispatch = useDispatch()
+    const [listingForm, setListingForm] = useState("listingformhidden")
     const currentUser = useSelector((state) => {return state.session.user})
+    const favorites = useSelector(state => state.favorites)
 
     const deleteUser = async () => {
         let res = await csrfFetch(`api/users/${currentUser.id}`, {method: 'DELETE'})
             dispatch(sessionActions.logout());
             <Redirect to="/"/>
     }
+
+    
 
     const handleFormDisplay = () => {
         if (listingForm === "listingformhidden")
@@ -34,7 +38,11 @@ function UserShow () {
                 <div className="usershowitem" id="useremail"> <p className="usershowitemheader">Your Current Email: </p> {currentUser.email} </div>
                 <div className="usershowitem" id="userfavorites">
                     <p className="usershowitemheader"> Your Favorites: </p>
-                    
+                    <ul className="usershowfavoriteslist">
+                        {favorites&& Object.values(favorites).map(favorite => {return (
+                        <li> <ListingTile listing={favorite.listing}/> </li>)
+                        })}
+                    </ul>
                 </div>
                 <div className="listingformtoggle usershowitem" onClick={handleFormDisplay}>
                     <p> Rent or Sell your property! </p>

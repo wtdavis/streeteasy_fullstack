@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Redirect, useParams } from "react-router-dom"
 import * as listingsActions from "../../store/listings"
+import * as favoritesActions from "../../store/favorites"
 import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
 import "./listings.css"
 import Favorite from "../Favorites/Favorite"
 // debugger
 function ListingShow () {
-    
+    debugger
 
     // const listings = useSelector(state => Object.values(state.listings))
     // dispatch(listingsActions.fetchListings())
@@ -18,7 +19,14 @@ function ListingShow () {
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings[listingId])
 
-    
+    useEffect(() => {
+
+        if (!listing) {
+            dispatch(listingsActions.fetchListings());
+            dispatch(favoritesActions.fetchFavorites(currentUser))
+        }
+    }, [])
+
     useEffect(() => {
         dispatch(listingsActions.addCurrentListing(listing));
         return (

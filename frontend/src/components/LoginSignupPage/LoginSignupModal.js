@@ -18,8 +18,8 @@ function LoginSignupModal () {
     const demoUser = async () => {
         // setCredential("demo@demo.com")
         // setPassword("password")
-        dispatch(sessionActions.signup({credential: "demo@demo.com", password: "password"}))
         dispatch(sessionActions.login({credential: "demo@demo.com", password: "password"}))
+        // dispatch(sessionActions.signup({credential: "demo@demo.com", password: "password"}))
         dispatch(modalActions.removeModals())
     }
 

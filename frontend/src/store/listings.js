@@ -103,10 +103,11 @@ export const createListing = (formData) => async (dispatch) => {
     let res = await csrfFetch('/api/listings', {
         method: 'POST',
         body: formData
+        // headers: {"Content-Type" : "multipart/form-data"}
     })
     let data = await res.json()
     
-
+    debugger
     if (!data.errors){
         dispatch(addListing(data))
         return data

@@ -6,7 +6,9 @@ json.favorites do
             json.extract! favorite,
                             :user_id,
                             :listing_id,
-                            :id
+                            :id,
+                            :listing
+                            
         end
     end
 end

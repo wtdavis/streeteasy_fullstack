@@ -51,8 +51,9 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         }
     }, [dispatch, updateStatus])
 
-    const handlePhotoFile = (currentTarget ) => {
-        const file = currentTarget.files[0];
+    const handlePhotoFile = (e)  => {
+        debugger
+        const file = e.target.files[0];
         setPhotoFile(file)
     }
 
@@ -88,6 +89,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         )
         } else {
         dispatch(listingsActions.createListing(formData)).then(res => {
+            debugger
             if (!res.errors) {
                 handleHide()
                 dispatch(listingsActions.addCurrentListing(res.listing))
@@ -216,7 +218,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     id="photoupload"
                     className="listingforminput"
                     type="file"
-                    onChange={e => handlePhotoFile(e.target.value)} />
+                    onChange={e => handlePhotoFile(e)} />
 
                 <input
                     id="listingformsubmitbutton" 

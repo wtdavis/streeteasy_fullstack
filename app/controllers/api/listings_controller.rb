@@ -14,9 +14,10 @@ class Api::ListingsController < ApplicationController
   end
 
   def create
+    debugger
     @listing = Listing.new(listing_params)
     
-    if @listing.save
+    if @listing.save!
       render 'api/listings/show'
     else
       errors = @listing.errors.messages

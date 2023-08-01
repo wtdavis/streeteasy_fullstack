@@ -4,9 +4,10 @@ class Api::FavoritesController < ApplicationController
         # debugger
         if current_user
             @user = current_user
-            @favorites = Favorite.where("user_id = ?", @user.id)
+            @favorites = Favorite.where("user_id = ?", @user.id).includes(:listing)
+            # debugger
         else
-            return
+            return  
         end
         if @favorites
             render 'api/favorites/index'
