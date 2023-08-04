@@ -5,7 +5,7 @@ json.set! @favorite.listing_id do
                     :listing_id,
                     :id
         json.listing do
-             json.partial! 'api/listings/listing', listing: favorite.listing
+             json.partial! 'api/listings/listing', listing: @favorite.listing
         end
     
         

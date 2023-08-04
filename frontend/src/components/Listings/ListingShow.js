@@ -6,6 +6,8 @@ import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
 import "./listings.css"
 import Favorite from "../Favorites/Favorite"
+import { Wrapper } from "@googlemaps/react-wrapper"
+import Map from "../Maps/Map"
 // debugger
 function ListingShow () {
     debugger
@@ -101,7 +103,6 @@ if (listing) {
                         <p className="listinginfoitem" id="listingprice"> ${listing.price}</p>
                         {type}
                         </div>
-
                         <div id="listingshowbedbathrow" className="listinginfoitem">
                         <p className="listinginfoitem" id="listingshowbeds"> {listing.numBedrooms} Bedrooms</p>
                         <p className="listinginfoitem" id="listingshowbaths"> {listing.numBaths} Baths</p>
@@ -109,6 +110,7 @@ if (listing) {
                         <div className="listinginfoitem" id="favoritebutton"> {listingUpdate} </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingDelete} </div>
                         <Favorite listing={listing}/>
+                        <Map/>  
                     </div>
             </div>
 

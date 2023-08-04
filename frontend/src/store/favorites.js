@@ -50,7 +50,7 @@ export const addFavoriteThunk = (favorite) => async (dispatch) => {
             listingId: favorite.id
         })
     })
-    let data =await res.json()
+    let data = await res.json()
 
     debugger
     if (data.errors) { 
