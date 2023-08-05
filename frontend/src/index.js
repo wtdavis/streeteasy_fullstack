@@ -15,13 +15,11 @@ import {Wrapper} from "@googlemaps/react-wrapper"
 const store = configureStore()
 
 if (process.env.NODE_ENV !== 'production') {
-  debugger
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.modalActions = modalActions
 }
-debugger
 function Root() {
   return (
     <Provider store={store}>
@@ -33,10 +31,12 @@ function Root() {
 }
 
 const renderApp = () => {
+  let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+  debugger
   return(
 ReactDOM.render(
   <React.StrictMode>
-    <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+    <Wrapper apiKey={key}>
     <Root />
         </Wrapper>
   </React.StrictMode>,
