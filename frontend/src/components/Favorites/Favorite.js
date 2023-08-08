@@ -35,7 +35,6 @@ function Favorite(props) {
 
 
     let toggleHighlight = () => {
-        debugger
         if (favHighlighted){
             setFavHighlighted(false)
         } else {

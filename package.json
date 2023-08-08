@@ -22,5 +22,8 @@
   "homepage": "https://github.com/wtdavis/streeteasy_fullstack#readme",
   "engines": {
     "node": "16.19.1"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2"
   }
 }

@@ -1,5 +1,4 @@
 function ListingTile ({listing}) {
-    debugger
     const {price, address, borough, numBedrooms, numBaths, photoUrl} = listing
     return (
         <div className="listingTile">

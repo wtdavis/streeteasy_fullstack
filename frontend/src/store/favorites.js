@@ -8,7 +8,6 @@ const ADD_FAVORITES = "favorites/addFavorites"
 const DELETE_FAVORITE = "favorites/deleteFavorite"
 
 export const addFavorite = (favorite) => {
-    debugger
     return ({
         type: ADD_FAVORITE,
         payload: favorite
@@ -17,7 +16,6 @@ export const addFavorite = (favorite) => {
 }
 
 export const addFavorites = function (favorites) {
-    debugger
     return ({
         type: ADD_FAVORITES,
         payload: favorites
@@ -34,7 +32,6 @@ export const deleteFavorite = (favorite) => {
 
 export const fetchFavorites = (user) => async (dispatch) => {
     let res = await csrfFetch(`/api/favorites/${user.id}`)
-    debugger
     let data = await res.json()
     if (!data.errors) {
         dispatch(addFavorites(data.favorites))
@@ -52,7 +49,6 @@ export const addFavoriteThunk = (favorite) => async (dispatch) => {
     })
     let data = await res.json()
 
-    debugger
     if (data.errors) { 
         // add favorites error handling!
     } else {
@@ -81,7 +77,6 @@ const favoritesReducer = (initialState = {}, action) => {
     let payload = action.payload;
     switch(action.type) {
         case ADD_FAVORITE:
-            debugger
             return {...newState, ...payload}
         case ADD_FAVORITES: 
             return {...newState, ...payload}

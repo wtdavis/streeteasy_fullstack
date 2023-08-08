@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ListingShow from "./components/Listings/ListingShow";
 import Search from "./components/SearchShowPage/SearchShowPage";
+import Places from "./components/Maps/Places";
 function App() {
   
   // const 
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/listings/:listingId">
           <ListingShow />
+        </Route>
+        <Route path="/places">
+          <Places/>
         </Route>
       </Switch>
     {/* <LoginSignupPage/> */}

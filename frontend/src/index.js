@@ -10,7 +10,7 @@ import * as sessionActions from './store/session'
 import * as modalActions from './store/modal'
 import * as listingsActions from './store/listings'
 import './index.css'
-import {Wrapper} from "@googlemaps/react-wrapper"
+// import {Wrapper} from "@googlemaps/react-wrapper"
 
 const store = configureStore()
 
@@ -31,14 +31,12 @@ function Root() {
 }
 
 const renderApp = () => {
-  let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-  debugger
   return(
 ReactDOM.render(
   <React.StrictMode>
-    <Wrapper apiKey={key}>
+    {/* <Wrapper apiKey={key}> */}
     <Root />
-        </Wrapper>
+        {/* </Wrapper> */}
   </React.StrictMode>,
   document.getElementById('root'))
 );

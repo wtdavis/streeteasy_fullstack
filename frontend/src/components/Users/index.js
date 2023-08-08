@@ -36,7 +36,6 @@ function UserShow () {
 
     useEffect(
     () => {
-        debugger
         dispatch(favoritesActions.fetchFavorites(currentUser))
     }, [dispatch]    
     )

@@ -1,29 +1,50 @@
 import React, { useEffect, useState } from "react"
 import { useRef } from "react"
-function Map () {
+import {Loader} from "@googlemaps/js-api-loader"
+import "./maps.css"
+import { useSelector } from "react-redux"
+
+ function Map (props) {
+    // let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+    // let stupid = process.env.REACT_APP_STUPID_KEY
+    const coordinates = props.coordinates
+    const loader = new Loader({
+        apiKey : process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        version: "weekly",
+        libraries: ["places"]
+    })
+
+   
+    useEffect(() => {
+        loader.importLibrary("maps").then(({Map}) => {
+                new Map(document.getElementById("listingmap"), {
+                center: {...coordinates},
+                zoom: 6
+            })
+        })
     
-    const ref = useRef(null)
-    const [map, setMap] = useState("")   
+    }, [])
+
+    // const ref = useRef(null)
+    // // const [map, setMap] = useState("")   
     
-    // let map = new window.google.maps.Map(ref.current, {
+    // new window.google.maps.Map(ref.current, {
     //     center: {lat: 0, lng: 0},
     //     zoom: 4
     // })
-    useEffect(() => {
-        let newMap = new window.google.maps.Map(ref.current, {
-            center: {lat: 0, lng: 0}, 
-            zoom: 4,
-        }); 
-        setMap(newMap)
-    }, [])
 
-    debugger
+    // useEffect(() => {
+    //     let newMap = new window.google.maps.Map(ref.current, {
+    //         center: {lat: 0, lng: 0}, 
+    //         zoom: 4,
+    //     }); 
+    //     setMap(newMap)
+    // }, [])
+
     return (
-        <>
-            <div ref={ref} id="map" value={map}/>
-            <div>P</div>
-        </> 
-        
+        <div id="listingmap" >
+            Map should go here
+        </div>        
     )
 }
 export default Map

@@ -229,6 +229,21 @@ ApplicationRecord.transaction do
     
     ])
 
+
+    
+
+    location: "70.0055, -101.112",
+        address: "501 Browning St",
+        description: "Voted best seat in the city, this luxury public bathroom can be yours at a low cost thanks to the slow decline of the economy.",
+        lister_id: 3,
+        building_id: 2,
+        unit: "0Q",
+        rental: true,
+        price: 420690,
+        num_bedrooms: 1,
+        num_baths: 100,
+        borough: "Staten Island"
+
     puts "created listings!"
     puts "done"
 end

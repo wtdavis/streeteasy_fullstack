@@ -6,11 +6,10 @@ import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
 import "./listings.css"
 import Favorite from "../Favorites/Favorite"
-import { Wrapper } from "@googlemaps/react-wrapper"
+// import { Wrapper } from "@googlemaps/react-wrapper"
 import Map from "../Maps/Map"
 // debugger
 function ListingShow () {
-    debugger
 
     // const listings = useSelector(state => Object.values(state.listings))
     // dispatch(listingsActions.fetchListings())
@@ -20,9 +19,9 @@ function ListingShow () {
     const [listingForm, setListingForm] = useState("listingformhidden")
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings[listingId])
-
+    const coordinates = listing?.location
+debugger
     useEffect(() => {
-
         if (!listing) {
             dispatch(listingsActions.fetchListings());
             dispatch(favoritesActions.fetchFavorites(currentUser))
@@ -56,7 +55,6 @@ function ListingShow () {
 
     
 
-// debugger
 
 if (listing) {
     
@@ -110,7 +108,7 @@ if (listing) {
                         <div className="listinginfoitem" id="favoritebutton"> {listingUpdate} </div>
                         <div className="listinginfoitem" id="favoritebutton"> {listingDelete} </div>
                         <Favorite listing={listing}/>
-                        <Map/>  
+                        {coordinates&& <Map coordinates={coordinates} /> } 
                     </div>
             </div>
 

@@ -107,7 +107,6 @@ export const createListing = (formData) => async (dispatch) => {
     })
     let data = await res.json()
     
-    debugger
     if (!data.errors){
         dispatch(addListing(data))
         return data
@@ -149,14 +148,19 @@ const listingsReducer = (state = initialState, action) => {
     let newState = {...state}
     switch(action.type) {
         case ADD_LISTING:
-            debugger
             const listing = action.payload.listing
             return {...newState, [listing.id]: listing, current: listing};
         case SET_LISTINGS:
             const listings = {}
             let values = Object.values(action.payload)
             for (let i=0; i<values.length;i++) {
-                listings[values[i].id] = values[i]
+                let listing = values[i]
+                let locationArr = listing.location.split(",")
+                let locationObj = {}
+                locationObj["lat"] = Number(locationArr[0])
+                locationObj["lng"] = Number(locationArr[1])
+                listing.location = locationObj
+                listings[values[i].id] = listing
             }
             return {...listings}
         case REMOVE_LISTING:
@@ -165,7 +169,6 @@ const listingsReducer = (state = initialState, action) => {
         case CLEAR_LISTINGS:
             return {};
         case ADD_CURRENT_LISTING:
-            debugger
             let temp = {...newState, current: {...action.payload}}
             return {...temp}
         case CLEAR_CURRENT_LISTING:

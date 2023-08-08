@@ -14,7 +14,6 @@ class Api::ListingsController < ApplicationController
   end
 
   def create
-    debugger
     @listing = Listing.new(listing_params)
     
     if @listing.save!
