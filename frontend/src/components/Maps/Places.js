@@ -8,7 +8,7 @@ function Places () {
     const [data, setData] = useState(null)
     const [inputText, setInputText] = useState("")
     const [service, setService] = useState(null)
-    const [request, setRequest] = useState({query: inputText, fields: ['formatted_address'], key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
+    const [request, setRequest] = useState({query: inputText, fields: ['formatted_address', 'geometry.location'], key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     const [places, setPlaces] = useState()
     const [maps, setMaps] = useState()
 
@@ -88,14 +88,15 @@ function Places () {
         debugger
 
         let placesService
-        let myRequest = request
+        let myRequest =  {query: inputText, fields: ['formatted_address', 'geometry.location'] }
 
         placesService = new places.PlacesService(document.createElement('p'))
-        placesService.findPlaceFromQuery({query: myRequest, fields: ['formatted_address', 'geometry.location']}, myCallback)        
+        placesService.findPlaceFromQuery(myRequest, myCallback)        
     }
         
     
     const myCallback = (results, status) => {
+        debugger
         console.log(results)
         console.log(status)   
     }
