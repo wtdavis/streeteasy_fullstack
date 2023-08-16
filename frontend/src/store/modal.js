@@ -67,7 +67,6 @@ const modalReducer = (state = initialState, action) => {
 }
 
 export const removeModals = () => async (dispatch) => {
-    debugger
    return(
     dispatch(removeCredentialModal()),
     dispatch(removePasswordModal()),

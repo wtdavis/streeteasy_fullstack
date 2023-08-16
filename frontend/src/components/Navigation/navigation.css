@@ -18,6 +18,7 @@
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 15% 0 15%
 }
 
@@ -83,14 +84,14 @@
 
 #loginsignupbutton {
     box-sizing: border-box;
-    margin-left: 50%;
+    /* margin-left: 50%; */
     margin-top: auto;
     margin-bottom: auto;
 }
 #accountbutton {
     position: relative;
     box-sizing: border-box;
-    margin-left: 50%;
+    /* margin-left: 50%; */
     margin-top: auto;
     margin-bottom: auto;
 }
