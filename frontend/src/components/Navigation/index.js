@@ -10,21 +10,31 @@ import LoginSignupPage from "../LoginSignupPage";
 import LogoutButton from "./LogoutButton";
 import AccountDropdown from "./AccountDropdown";
 import SocialLinks from "./SocialLinks";
+import BannerLinks from "./BannerLinks";
 
 function Navigation (navClass) {
     const sessionUser = useSelector(state => state.session.user)
 return (
     <div id="header" className={navClass}>
-            <LoginSignupPage/>
-        <div id="banner">            
+
+        <header className="navbanner">
             <ProfileButton/>
+            <BannerLinks/>
+            
+        </header>
+
+        <header className="navlinkbar">
+            <NavBar/>
+        </header>
+
+        {/* <div id="banner">            
+            <LoginSignupPage/>
             {!sessionUser && <LoginSignupButton/>}
             {sessionUser&& <AccountDropdown/>}
             <SocialLinks/>
             </div>
         <div id="navcontainer" className={navClass}>
-            <NavBar/>
-        </div>
+        </div> */}
         
     </div>
     

@@ -88,7 +88,7 @@ function Places () {
         debugger
 
         let placesService
-        let myRequest =  {query: inputText, fields: ['formatted_address', 'geometry.location'] }
+        let myRequest =  {query: inputText, fields: ['formatted_address', 'geometry'] }
 
         placesService = new places.PlacesService(document.createElement('p'))
         placesService.findPlaceFromQuery(myRequest, myCallback)        

@@ -17,36 +17,37 @@ import { useDispatch, useSelector } from "react-redux";
 import ListingShow from "./components/Listings/ListingShow";
 import Search from "./components/SearchShowPage/SearchShowPage";
 import Places from "./components/Maps/Places";
+import * as modalActions from "./store/modal"
 function App() {
+  const dispatch = useDispatch()
+  const modal = useSelector(state => state.modal)
   
   // const 
   return (
     <div id="main">
-      <Navigation navClass={"mainpage"}/>  
-      <Switch>
-        <Route exact path="/"  >
-          <SplashPage/>
-        </Route>
-        <Route path="/profile">
-          <UserShow/>
-        </Route>
-        <Route path="/search">
-          <Search/>
-        </Route>
-        <Route exact path="/listings">
-          <ListingsIndex/>
-        </Route>
-        <Route path="/listings/:listingId">
-          <ListingShow />
-        </Route>
-        <Route path="/places">
-          <Places/>
-        </Route>
-      </Switch>
-    {/* <LoginSignupPage/> */}
-    {/* <SplashSectionMain/>
-    <SplashSubSections/> */}
-    </div>
+
+        <Navigation navClass={"mainpage"}/>  
+        <Switch>
+          <Route exact path="/"  >
+            <SplashPage/>
+          </Route>
+          <Route path="/profile">
+            <UserShow/>
+          </Route>
+          <Route path="/search">
+            <Search/>
+          </Route>
+          <Route exact path="/listings">
+            <ListingsIndex/>
+          </Route>
+          <Route path="/listings/:listingId">
+            <ListingShow />
+          </Route>
+          <Route path="/places">
+            <Places/>
+          </Route>
+        </Switch>
+      </div>
   );
 }
 

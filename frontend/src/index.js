@@ -34,9 +34,7 @@ const renderApp = () => {
   return(
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Wrapper apiKey={key}> */}
     <Root />
-        {/* </Wrapper> */}
   </React.StrictMode>,
   document.getElementById('root'))
 );
@@ -49,13 +47,7 @@ if (  sessionStorage.getItem("currentUser") === null ||
 {
   store.dispatch(sessionActions.restoreSession()).then(res => {
     renderApp()
-    // console.log(res)
   })
 } else {
   renderApp()
-  // console.log("rendering")
 }
-
-// while (sessionStorage.getItem('X-CSRF-Token') === null) {
-//   sessionActions.restoreSession()
-// }

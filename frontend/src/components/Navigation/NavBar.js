@@ -4,7 +4,7 @@ import * as modalActions from '../../store/modal'
 function NavBar () {
     const dispatch = useDispatch()
     return (
-        <div id="navbar" onClick={() => dispatch(modalActions.removeModals())}>
+        <div id="navlinks" onClick={() => dispatch(modalActions.removeModals())}>
             <div id="buy" className="navbutton">
                 Buy
             </div>
@@ -16,7 +16,7 @@ function NavBar () {
             </div>
             <div id="buildings" className="navbutton">
                 Buildings
-            <DropDown/>
+            {/* <DropDown/> */}
             </div>
         </div>
     )

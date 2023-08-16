@@ -41,7 +41,6 @@ function UserShow () {
     )
     return (
         <div id="userShowPage">
-            <div id="spacer"></div>
             <div id="userShow">
                 <div className="usershowitem" id="useremail"> <p className="usershowitemheader">Your Current Email: </p> {currentUser.email} </div>
                 <div className="usershowitem" id="userfavorites">

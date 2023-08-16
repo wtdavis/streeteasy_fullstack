@@ -17,7 +17,9 @@ export const fetchPlaceInfo = async (query) => {
         return result
     }
 
+    debugger
     let queryString = JSON.stringify(query)
+    queryString = URLize(queryString)
     // queryString = queryString.concat(`query=${URLize(query.query)}&`)
     // queryString = queryString.concat(`fields=${URLize(query.fields)}&`)
     // queryString = queryString.concat(`key=${URLize(query.key)}`)

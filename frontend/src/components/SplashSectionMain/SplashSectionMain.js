@@ -2,7 +2,7 @@
 function SplashSectionMain () {
     return(
          <>
-            <div id="spacer"></div>
+            {/* <div id="spacer"></div> */}
             <div id="splashmain" className="splashsection">
                 <p id="motto">The rent is too damn low $$$</p>
             </div>
