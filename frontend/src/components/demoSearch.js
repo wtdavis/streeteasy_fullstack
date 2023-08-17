@@ -20,7 +20,7 @@ const SearchBar = () => {
     function handleSearchSubmit(e) {
         e.preventDefault();
         if (searchText.length > 0) {
-            history.push(`/search/listings?listings=${searchText}`)
+            history.push(`api/listings/search?listings=${searchText}`)
         }
 
     }

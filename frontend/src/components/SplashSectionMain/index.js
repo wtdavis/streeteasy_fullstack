@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import SearchBar from '../search'
+import SearchBar from '../demoSearch'
 import SplashSectionMain from './SplashSectionMain'
 import SplashSubSection1 from './SplashSub1'
 import SplashSubSection2 from './SplashSub2'
