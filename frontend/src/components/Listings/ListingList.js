@@ -8,7 +8,7 @@ import "./listings.css"
 function ListingList () {
     
     const dispatch = useDispatch()
-    const listings = useSelector(state => Object.values(state.listings))
+    const listings = useSelector(state => Object.values(state.search))
     const favorites = useSelector(state => state.favorites)
     const currentUser = useSelector(state => state.session.user)
 
