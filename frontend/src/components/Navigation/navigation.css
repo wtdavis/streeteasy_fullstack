@@ -19,7 +19,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15% 0 15%
+    padding: 0 var(--edgepadding) 0 var(--edgepadding);
+        
 }
 
 .navlinkbar {
@@ -28,8 +29,10 @@
     background-color: white;
     display: flex;
     align-items: center;
-    padding: 0 15% 0 15%;
-    line-height: 45px
+    padding: 0 var(--edgepadding) 0 var(--edgepadding);
+    line-height: 45px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    box-shadow:  0px  1px 1px rgb(201, 200, 200)
 }
 
 /* Elements in header ----------------------- */
@@ -63,7 +66,6 @@
 
 #logo {
     display: flex;
-    /* margin-left: 15%; */
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -116,7 +118,6 @@
     /* color: rgb(5, 5, 110); */
     text-decoration: underline;
     cursor: pointer;
-
 }
 
 
@@ -134,21 +135,73 @@
     flex-direction: column;
 } */
 
+
+
+/* Drop down links list ------------------------ */
+
+
  #dropdown {
+    position: absolute;
     width: 100%;
-    background-color: black;
+    height: 250px;
+    top: 100px;
+    background-color: white;
     display: none;
-    position: relative;
+    padding: 15px 0 15px 0;
+    z-index: 1500;
+    box-shadow: 0px 2px 2px  rgb(148, 148, 148);
+    padding-left: 15%;
+    transition-duration: .25s;
+    opacity: 1;
+
 }
 
-.navbutton:hover #dropdown {
-    display: block;
-    box-sizing: border-box;
+.navlinkbar:hover ~ #dropdown {
+    display: flex;
 }
 
-#dropdownlist {
-    margin-left: 15%;
+#dropdown:hover {
+    display:flex;
+    /* box-shadow: 10px 10px 10px  black; */
 }
+
+.dropdowncontentcontainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.dropdownboroughlistcontainer, .dropdownneighborhoodlistcontainer {
+    padding-right: 90px
+}
+
+.dropdownboroughlistheader, .dropdownneighborhoodlistheader {
+    padding: 10px 0 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(53, 52, 52)
+}
+
+.dropdownboroughlistitem, .dropdownneighborhoodlistitem {
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:  9px 0 9px 0; 
+    padding: none; 
+
+
+}
+
+.dropdownboroughlist, .dropdownneighborhoodlist {
+    font-size: 11px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* ------------------------------------------ */
+
 
 #main {
     display: block;

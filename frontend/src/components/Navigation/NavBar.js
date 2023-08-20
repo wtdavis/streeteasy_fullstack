@@ -3,8 +3,13 @@ import DropDown from "./DropDown"
 import * as modalActions from '../../store/modal'
 function NavBar () {
     const dispatch = useDispatch()
+
+
+
+
     return (
-        <div id="navlinks" onClick={() => dispatch(modalActions.removeModals())}>
+        <>
+        <div id="navlinks" >
             <div id="buy" className="navbutton">
                 Buy
             </div>
@@ -16,9 +21,10 @@ function NavBar () {
             </div>
             <div id="buildings" className="navbutton">
                 Buildings
-            {/* <DropDown/> */}
             </div>
         </div>
+        </>
+
     )
 }
 export default NavBar

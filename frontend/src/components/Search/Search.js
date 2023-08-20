@@ -29,8 +29,18 @@ function Search () {
     }
 
     const handleSearchSubmit =  () => {
-        dispatch(fetchSearchResults(searchText))
+
+        let searchQuery = {
+            location: searchText,
+            minPrice: minPrice, 
+            maxPrice: maxPrice, 
+            rent: rent
+        }
+
+        dispatch(fetchSearchResults(searchQuery))
+        
         history.push("/listings")
+
     }
 
     // const [buy, setBuy] = useState(true)

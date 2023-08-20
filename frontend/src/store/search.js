@@ -14,7 +14,11 @@ export const clearSearchResults = () => {
 
 export const fetchSearchResults = (query) => async (dispatch) => {
     dispatch(clearSearchResults())
-    const res = await fetch(`/api/listings/search?q=${query}` );
+    
+    let jsonQuery = JSON.stringify(query)
+    let encodedQuery = encodeURIComponent(jsonQuery)
+    debugger
+    const res = await fetch(`/api/listings/search?q=${encodedQuery}` );
 
     const searchResults = await res.json()
 debugger

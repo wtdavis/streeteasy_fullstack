@@ -40,10 +40,14 @@ class Api::ListingsController < ApplicationController
 
 
   def search 
-    debugger
-    @listings = Listing.where("lower(borough) LIKE ?", "%#{params[:q]}%")
+    # debugger
+    parsed_params = JSON.parse(params[:q])
+    # params[:location], params[:min_price], params[:max_price], params[:rent]
+    @listings = Listing.where("lower(borough) LIKE :location AND price > :min_price AND price < :max_price AND rental = :rent", location: "%#{parsed_params["location"].downcase}%", min_price: parsed_params["minPrice"].to_i, max_price: parsed_params["maxPrice"].to_i, rent: parsed_params["rent"])
     render :search
   end
+
+  
   private
 
   def listing_params
