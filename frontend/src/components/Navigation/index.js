@@ -11,12 +11,18 @@ import LogoutButton from "./LogoutButton";
 import AccountDropdown from "./AccountDropdown";
 import SocialLinks from "./SocialLinks";
 import BannerLinks from "./BannerLinks";
+import { useState } from "react";
 
 function Navigation (navClass) {
     const sessionUser = useSelector(state => state.session.user)
+    // const [mouseoverValue, setMouseoverValue] = useState()
+
 return (
+    
+    
     <div id="header" className={navClass}>
 
+    
         <header className="navbanner">
             <ProfileButton/>
             <BannerLinks/>
@@ -24,9 +30,9 @@ return (
         </header>
 
         <header className="navlinkbar">
-            <NavBar/>
+            <NavBar />
         </header>
-        <DropDown/>
+        <DropDown />
 
         {/* <div id="banner">            
             <LoginSignupPage/>

@@ -6,6 +6,8 @@ const ADD_PASSWORD_MODAL = 'modal/addPasswordModal'
 const REMOVE_PASSWORD_MODAL = 'modal/removePasswordModal'
 const ADD_SIGNUP_MODAL = 'modal/addSignupModal'
 const REMOVE_SIGNUP_MODAL = 'modal/removeSignupModal'
+const CHANGE_HOVER_VALUE = 'modal/changeHoverValue'
+
 
 export const addCredentialModal = () => {
     return {
@@ -45,7 +47,14 @@ export const removeSignupModal = () => {
     }
 }
 
-const initialState = {}
+
+export const changeHoverValue = (value) => {
+    return {
+        type: CHANGE_HOVER_VALUE,
+        payload: value
+    }
+}
+const initialState = {hover: "rent"}
 
 const modalReducer = (state = initialState, action) => {
     switch(action.type){
@@ -61,6 +70,8 @@ const modalReducer = (state = initialState, action) => {
             return {...state, signup: true};
         case REMOVE_SIGNUP_MODAL:
             return {...state, signup: false}
+        case CHANGE_HOVER_VALUE: 
+            return {...state, hover: action.payload}
             default: 
             return state
     }

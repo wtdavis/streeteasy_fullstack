@@ -26,6 +26,9 @@ text-decoration: none;
 color: rgb(118, 113, 113);
 }
 
+
+
+
 .usershowitem {
     display: block;
     width: 200px;
@@ -53,4 +56,18 @@ color: rgb(118, 113, 113);
     cursor: pointer;;
     background-color: rgb(65, 63, 63);
     vertical-align: center;
+}
+
+/* --------------------- */
+
+
+.profilepage {
+    width: 100%;
+    margin: 0 var(--edgepadding) 0 var(--edgepadding);
+}
+
+.profilepagefavoritesbar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 }

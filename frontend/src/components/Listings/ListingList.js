@@ -22,7 +22,7 @@ function ListingList () {
 
     return (
         <div id="listinglist">
-        {listings.map((listing) => (<Link key={listing.id} className="listingtile" to={`listings/${listing.id}`}>
+        {listings.map((listing) => (<Link key={listing.id}  to={`listings/${listing.id}`}>
         <ListingTile key={listing.id}  listing={listing}/>
         </Link>
         ))}

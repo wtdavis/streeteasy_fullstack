@@ -20,7 +20,6 @@ function ListingShow () {
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings[listingId])
     const coordinates = listing?.location
-debugger
     useEffect(() => {
         if (!listing) {
             dispatch(listingsActions.fetchListings());

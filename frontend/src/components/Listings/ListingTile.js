@@ -1,14 +1,15 @@
 function ListingTile ({listing}) {
     const {price, address, borough, numBedrooms, numBaths, photoUrl} = listing
     return (
-        <div className="listingTile">
+        <div className="listingtile">
+
+
             <img className="listingTileImage" src={photoUrl}></img>
 
-            <div className="listingTileInfo">
-                <p className="listingtileinfoitem" id="listingTileAddress"> {address}</p>
-                <p className="listingtileinfoitem" id="listingTileBorough"> {borough} </p>
-                <p className="listingtileinfoitem" id="listingTilePrice">${price} </p>
-            </div>
+            <div className="listingtileinfo">
+                <p className="listingtileinfoitem" id="listingtileaddress"> {address}</p>
+                <p className="listingtileinfoitem" id="listingtileborough"> {borough} </p>
+                <p className="listingtileinfoitem" id="listingtileprice">${price} </p>
             <div className="listingTileBedsBaths">
                 <div className="numBeds bedsBaths">
                    Beds: {numBedrooms}
@@ -17,6 +18,8 @@ function ListingTile ({listing}) {
                     Baths: {numBaths}
                 </div>
             </div>
+            </div>
+
 
         </div>
     )

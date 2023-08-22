@@ -5,6 +5,7 @@ import "./maps.css"
 import { useSelector } from "react-redux"
 
  function Map (props) {
+    const [mapsObject, setMapsObject] = useState()
     // let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     // let stupid = process.env.REACT_APP_STUPID_KEY
     const coordinates = props.coordinates
@@ -14,14 +15,30 @@ import { useSelector } from "react-redux"
         libraries: ["places"]
     })
 
-   
-    useEffect(() => {
-        loader.importLibrary("maps").then(({Map}) => {
-                new Map(document.getElementById("listingmap"), {
-                center: {...coordinates},
-                zoom: 6
+    let mapsObj;
+
+    useEffect(  function () {
+
+        
+        const google = loader.load().then(google => {
+
+            
+            let myMap =  new google.maps.Map(
+                document.getElementById("listingmap"), {
+                    center: {...coordinates},
+                    zoom: 12
+                })
+                
+                let myMarker = new google.maps.Marker({
+                    position: {...coordinates},
+                    map: myMap,
+                    title: "My first marker"
+                })
+                
             })
-        })
+                
+        
+        
     
     }, [])
 
@@ -40,6 +57,7 @@ import { useSelector } from "react-redux"
     //     }); 
     //     setMap(newMap)
     // }, [])
+
 
     return (
         <div id="listingmap" >

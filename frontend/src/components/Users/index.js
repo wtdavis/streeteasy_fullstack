@@ -9,13 +9,22 @@ import { useState } from "react"
 import ListingTile from "../Listings/ListingTile"
 import * as favoritesActions from "../../store/favorites"
 import { useEffect } from "react"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { fetchListings } from "../../store/listings"
 
 function UserShow () {
 
     const dispatch = useDispatch()
     const [listingForm, setListingForm] = useState("listingformhidden")
-    const currentUser = useSelector((state) => {return state.session.user})
+    const currentUser = useSelector(state => state.session.user)
     const favorites = useSelector(state => state.favorites)
+    const listings = useSelector(state => state.listings)
+    const history = useHistory()
+
+
+    const myListings = Object.values(listings).filter(listing => listing.listerId === currentUser.id)
+
+    debugger
 
     const deleteUser = async () => {
         let res = await csrfFetch(`api/users/${currentUser.id}`, {method: 'DELETE'})
@@ -34,11 +43,42 @@ function UserShow () {
     }
 
 
-    useEffect(
-    () => {
+    useEffect( () => {
+        dispatch(fetchListings())
         dispatch(favoritesActions.fetchFavorites(currentUser))
-    }, [dispatch]    
+    }, [dispatch])
+
+    debugger
+
+    return (
+        <div className="profilepage"> 
+        <h2> Welcome Back, {currentUser.name}</h2>
+        <h4> Your Favorites:</h4>
+            <ul className="profilepagefavoritesbar">
+                {favorites&& Object.values(favorites).map(favorite => {
+                    return (
+                        <li className="profilefavoritetile" onClick={e => history.push(`/listings/${favorite.listing.id}`)}>
+                            <ListingTile listing={favorite.listing}/>
+                        </li>
+                    )
+                })}
+        </ul>
+        <h4> Your Listings:</h4>
+        <ul className="profilepagefavoritesbar">
+                {myListings&& myListings.map(listing => {
+                    return (
+                        <li className="profilefavoritetile" onClick={e => history.push(`/listings/${listing.id}`)}>
+                            <ListingTile listing={listing}/>
+                        </li>
+                    )
+                })}
+        </ul>
+        
+        
+        </div>
     )
+
+
     return (
         <div id="userShowPage">
             <div id="userShow">
@@ -62,6 +102,12 @@ function UserShow () {
         </div>
 
     )
+
+
+
+
 }
+
+
 
 export default UserShow
