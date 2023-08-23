@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import SearchBar from '../demoSearch'
 import SplashSectionMain from './SplashSectionMain'
 import SplashSubSection1 from './SplashSub1'
@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 function SplashPage () {
     let dispatch = useDispatch()
     let csrfToken; 
+    const [number, setNumber] = useState()
 
 //     const ensureCSRF = () => {
 //     if (!csrfToken) {
@@ -22,6 +23,7 @@ function SplashPage () {
 //     }
 // }
     // ensureCSRF()
+
     return <div id="splashpage">
 
         <SplashSectionMain/>

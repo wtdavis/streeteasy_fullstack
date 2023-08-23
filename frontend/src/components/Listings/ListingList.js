@@ -21,7 +21,7 @@ function ListingList () {
     , [dispatch])
 
     return (
-        <div id="listinglist">
+        <div className="listinglist">
         {listings.map((listing) => (<Link key={listing.id}  to={`listings/${listing.id}`}>
         <ListingTile key={listing.id}  listing={listing}/>
         </Link>

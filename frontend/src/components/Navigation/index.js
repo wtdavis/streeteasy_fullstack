@@ -13,20 +13,20 @@ import SocialLinks from "./SocialLinks";
 import BannerLinks from "./BannerLinks";
 import { useState } from "react";
 
-function Navigation (navClass) {
+function Navigation (props) {
     const sessionUser = useSelector(state => state.session.user)
     // const [mouseoverValue, setMouseoverValue] = useState()
+    const customClass = props.navId
 
 return (
     
     
-    <div id="header" className={navClass}>
+    <div id="header" className={customClass}>
 
     
         <header className="navbanner">
-            <ProfileButton/>
+            <ProfileButton />
             <BannerLinks/>
-            
         </header>
 
         <header className="navlinkbar">

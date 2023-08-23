@@ -5,7 +5,7 @@
 }
 
 #userShow {
-    margin-left: 15%;
+    margin-left: 3%;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -63,11 +63,19 @@ color: rgb(118, 113, 113);
 
 .profilepage {
     width: 100%;
-    margin: 0 var(--edgepadding) 0 var(--edgepadding);
+    margin-left: 3%
 }
+
 
 .profilepagefavoritesbar {
     display: flex;
     flex-direction: row;
     list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profilefavoritetile {
+    margin: none;
+    padding: none;
 }

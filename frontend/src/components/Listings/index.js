@@ -8,28 +8,36 @@ import * as listingsActions from "../../store/listings"
 import './listings.css'
 import { Route, useParams } from "react-router-dom"
 import { fetchFavorites } from "../../store/favorites"
-function ListingsIndex () {
-    const {listingId} = useParams()
+import { Loader } from "@googlemaps/js-api-loader"
+import Map from "../Maps/Map"
+import { changeLeftMargin } from "../../store/modal"
+import { handleChangeMargin } from "../utils"
+
+function ListingsIndex (props) {
+
     const dispatch = useDispatch()
+   
+    const setNavId = props.setNavId
+    const {listingId} = useParams()
     const currentUser = useSelector(state => state.session.user)
-    // const listings = useSelector(state => Object.values(state.listings))
-    // console.log(listings)
-    // useEffect( ()=> {dispatch(listingsActions.fetchListings())}, [dispatch])
-    // dispatch(listingsActions.fetchListings())
-    // debugger
+    
     useEffect( ()=>{
-        if (currentUser)
-        // dispatch(fetchFavorites(currentUser))
-        console.log(currentUser)
-    }, [currentUser])
+        
+        if (currentUser){
+            dispatch(fetchFavorites(currentUser))
+        };
+        handleChangeMargin(3)
+    }, [currentUser] )
+  
     return (
-        <div id="listingsindex">
-            <div id="spacer"></div>
-            
-            <div id="listingsdiv">
+
+        <div className="listingsindex">
+            <div className="listingslistcontainer">
                  <ListingList/>
             </div>   
-                     
+            <div className="listingsindexmapcontainer">
+                <Map className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
+            </div>
         </div>
     )
 

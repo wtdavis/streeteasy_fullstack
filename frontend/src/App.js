@@ -1,5 +1,5 @@
 import LoginFormPage from "./components/LoginFormPage";
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignupFormPage from './components/SignupFormPage'
 import Navigation from "./components/Navigation";
@@ -21,12 +21,12 @@ import * as modalActions from "./store/modal"
 function App() {
   const dispatch = useDispatch()
   const modal = useSelector(state => state.modal)
-  
+  const [navId, setNavId] = useState("navcenter")
   // const 
   return (
     <div id="main">
 
-        <Navigation navClass={"mainpage"}/>  
+        <Navigation navId={navId}/>  
         <Switch>
           <Route exact path="/"  >
             <SplashPage/>
@@ -38,7 +38,7 @@ function App() {
             <Search/>
           </Route>
           <Route exact path="/listings">
-            <ListingsIndex/>
+            <ListingsIndex setNavId={setNavId}/>
           </Route>
           <Route path="/listings/:listingId">
             <ListingShow />

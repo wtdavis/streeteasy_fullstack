@@ -1,6 +1,11 @@
+import { useEffect } from "react"
 import Search from "../Search/Search"
+import { handleChangeMargin } from "../utils"
 
 function SplashSectionMain () {
+    useEffect(()=> {
+        handleChangeMargin(15)
+    })
     return(
          <>
             {/* <div id="spacer"></div> */}

@@ -7,7 +7,7 @@ const REMOVE_PASSWORD_MODAL = 'modal/removePasswordModal'
 const ADD_SIGNUP_MODAL = 'modal/addSignupModal'
 const REMOVE_SIGNUP_MODAL = 'modal/removeSignupModal'
 const CHANGE_HOVER_VALUE = 'modal/changeHoverValue'
-
+const CHANGE_LEFT_MARGIN = 'modal/changeLeftMargin'
 
 export const addCredentialModal = () => {
     return {
@@ -54,7 +54,15 @@ export const changeHoverValue = (value) => {
         payload: value
     }
 }
-const initialState = {hover: "rent"}
+
+export const changeLeftMargin = (value) => {
+    return {
+        type: CHANGE_LEFT_MARGIN,
+        payload: value
+    }
+}
+
+const initialState = {hover: "rent", leftMargin: 0}
 
 const modalReducer = (state = initialState, action) => {
     switch(action.type){
@@ -72,6 +80,8 @@ const modalReducer = (state = initialState, action) => {
             return {...state, signup: false}
         case CHANGE_HOVER_VALUE: 
             return {...state, hover: action.payload}
+        case CHANGE_LEFT_MARGIN: 
+            return {...state, leftMargin: action.payload}
             default: 
             return state
     }

@@ -11,6 +11,7 @@ import * as favoritesActions from "../../store/favorites"
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { fetchListings } from "../../store/listings"
+import { handleChangeMargin } from "../utils"
 
 function UserShow () {
 
@@ -46,6 +47,7 @@ function UserShow () {
     useEffect( () => {
         dispatch(fetchListings())
         dispatch(favoritesActions.fetchFavorites(currentUser))
+        handleChangeMargin(3)
     }, [dispatch])
 
     debugger
