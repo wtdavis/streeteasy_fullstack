@@ -17,6 +17,7 @@ function ListingsIndex (props) {
 
     const dispatch = useDispatch()
    
+    const listings = useSelector(state => state.search)
     const setNavId = props.setNavId
     const {listingId} = useParams()
     const currentUser = useSelector(state => state.session.user)
@@ -28,16 +29,48 @@ function ListingsIndex (props) {
         };
         handleChangeMargin(3)
     }, [currentUser] )
-  
+    
     return (
 
         <div className="listingsindex">
+            {/* <div className="box1">box1
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+                <div className="insidebox">
+                    insidebox
+                </div>
+            </div>
+            <div className="box2">box2</div> */}
+            
             <div className="listingslistcontainer">
                  <ListingList/>
             </div>   
             <div className="listingsindexmapcontainer">
-                <Map className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
+                <Map listings={listings} mapClass={"bigmap"} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
             </div>
+
         </div>
     )
 

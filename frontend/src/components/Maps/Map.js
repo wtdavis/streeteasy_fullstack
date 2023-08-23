@@ -5,7 +5,7 @@ import "./maps.css"
 import { useSelector } from "react-redux"
 
  function Map (props) {
-    const [mapsObject, setMapsObject] = useState()
+    const [mapClass, setMapClass] = useState("smallmap")
     // let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     // let stupid = process.env.REACT_APP_STUPID_KEY
     const coordinates = props.coordinates
@@ -18,7 +18,12 @@ import { useSelector } from "react-redux"
     let mapsObj;
 
     useEffect(  function () {
+        if (props.mapClass) {
+            setMapClass(props.mapClass)
+        }
 
+        let listings = Object.values(props.listings).map(listing => listing.location);
+        let addrs = Object.values(props.listings).map(listing => listing.address.split(",")[0])
         
         const google = loader.load().then(google => {
 
@@ -28,19 +33,24 @@ import { useSelector } from "react-redux"
                     center: {...coordinates},
                     zoom: 12
                 })
-                
-                let myMarker = new google.maps.Marker({
-                    position: {...coordinates},
+            
+                for (let i=0;i<listings?.length;i++) {
+                debugger
+                    let coords = listings[i].split(",")
+                    coords = {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])}
+                    new google.maps.Marker({
+                    position: {lat: coords},
                     map: myMap,
-                    title: "My first marker"
+                    title: addrs[i]
                 })
-                
+            }
+            
             })
                 
         
         
     
-    }, [])
+    }, [props])
 
     // const ref = useRef(null)
     // // const [map, setMap] = useState("")   
@@ -60,7 +70,7 @@ import { useSelector } from "react-redux"
 
 
     return (
-        <div id="listingmap" >
+        <div id="listingmap" className={mapClass} >
             Map should go here
         </div>        
     )

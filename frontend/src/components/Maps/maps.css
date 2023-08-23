@@ -1,3 +1,16 @@
-#listingmap {
-    height: 600px
+.smallmap {
+    /* height: 600px */
+    height: 500px;
+    width: 500px
+}
+
+.bigmap {
+    /* height: 87vh; */
+    /* width: 87vw */
+
+    height: calc(100vh - 120px);
+    width: 63vw;
+    /* display: block; */
+    position: sticky;
+
 }

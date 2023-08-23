@@ -88,14 +88,10 @@
     margin: auto;
     height: 2000px;
     width: 70%;
-    /* border: 2px solid white ; */
-    /* background-color: green; */
 }
 
 #listingsplash {
-    
     width: 80%;
-    /* border: 2px solid blue */
 }
 
 #listingShowImage {
@@ -114,25 +110,19 @@
 
 
 .listinginfoitem {
-    /* margin: 4px; */
     size: smaller;
     padding: 5px
 }
 .listinginfoheader {
     font-size: 20px;
     font-weight: bold;
-    /* margin-left: 20px */
 }
-
-
 
 #listingformpage {
     display: block;
     width: 50%;
     margin-left: 15%;
     box-sizing: border-box;
-    /* padding: 20px */
-    /* margin: auto */
 }
 
 #listingform {
@@ -142,7 +132,6 @@
     box-sizing: border-box;
     width: 100%;
     background-color: rgb(83, 83, 85);
-    /* border-bottom: 1px solid grey; */
 }
 
 .listingformheader {
@@ -152,7 +141,6 @@
 
 .listingformsubheader {
     margin-top: 5px
-    
 }
 
 .listingforminput {
@@ -236,34 +224,61 @@
 /* listings index, listings list component------------------------- */
 
 
+/* .box1 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 5300px;
+    width: 210px;
+    background-color: green;    
+}
+
+.box2 {
+    position: sticky;
+    top: 10px;
+    height: 500px;
+    width: 200px;
+    background-color: blue;
+}
+
+.insidebox {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black
+} */
+
 .listingsindex {
+    position: relative;
     display: flex;
     flex-direction: row;
-    margin: 0 3% 0 3% 
+    padding-left: 3%;   
+    width: 100%;
+    box-sizing: border-box;
+    height: 200vh;
+    /* overflow-x: scroll */
 }
 
 .listingslistcontainer {
-    display: block;
-    width: 36%;
-    margin-top: 4px
-    /* height: 100vh; */
+    width: 620px;
+    margin: 0;
+    padding: 0;
+    margin-top: 4px;
+    padding-right: 8px;
+
 }
 
 .listinglist {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 100%
+    /* width: 80% */
 }
 
 .listingsindexmapcontainer {
-    display: inline-block;
-    width: 60vw;
+    position: sticky;
+    top: 112px;
+    width: 62vw;
+    height: calc(100vh - 200px);
     margin: 12px 0
 }
 
-.listingsindexmap {
-    display: inline-block;
-    position: sticky;
-    
-}

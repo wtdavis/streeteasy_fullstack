@@ -16,6 +16,7 @@ body, img, h1, h2, h3, h4, h5, h6, div, p, i, a {
     /* background-color: black; */
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
     display: block;
+    /* overflow-y: hidden; */
     width: 100%;
     background-color: rgb(255, 255, 255);
     --darkblue: rgb(7, 7, 114);
