@@ -6,37 +6,37 @@ import { useEffect, useState } from "react"
 import ListingForm from "./ListingForm"
 import "./listings.css"
 import Favorite from "../Favorites/Favorite"
-// import { Wrapper } from "@googlemaps/react-wrapper"
 import Map from "../Maps/Map"
-// debugger
+import { changeLeftMargin } from "../../store/modal"
+import { handleChangeMargin } from "../utils"
+import "./listingshow.css"
+
 function ListingShow () {
 
-    // const listings = useSelector(state => Object.values(state.listings))
-    // dispatch(listingsActions.fetchListings())
-    
+    let params = useParams()
     const dispatch = useDispatch()
     const {listingId} = useParams()
     const [listingForm, setListingForm] = useState("listingformhidden")
+    const [randVals, setRandVals] = useState({})
+    const [bedsBaths, setBedsBaths] = useState({bed: "Beds", bath: "Baths"})
     const currentUser = useSelector(state => state.session.user)
-    let listing = useSelector(state => state.listings[listingId])
+    let listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
-    useEffect(() => {
-        if (!listing) {
-            dispatch(listingsActions.fetchListings());
-            dispatch(favoritesActions.fetchFavorites(currentUser))
-        }
-    }, [])
+  
 
-    useEffect(() => {
-        dispatch(listingsActions.addCurrentListing(listing));
-        return (
-           () => {
-            dispatch(listingsActions.clearCurrentListing())
-            dispatch(listingsActions.fetchListings())
-           }
-        )
-    }, [dispatch] 
-    )
+    // useEffect(() => {
+
+        
+    //     // dispatch(listingsActions.addCurrentListing(listing));
+    //     // randomValues()
+    //     // return (
+    //     //    () => {
+    //     //     dispatch(listingsActions.clearCurrentListing())
+    //     //     dispatch(listingsActions.fetchListings())
+    //     //    }
+    //     )
+    // }, [dispatch] 
+    // )
 
     
     const handleFormDisplay = () => {
@@ -52,7 +52,48 @@ function ListingShow () {
         
     }
 
-    
+    const randomValues = (obj) => {
+        let rand = () => Math.random()
+        let floor = (i) => Math.floor(i)
+        let res = {}
+
+        res["area"] = floor(rand() * 1000)
+        res["viewers"] = floor(rand() * 100)
+        
+        if (listing) {
+            res["dlrsqft"] = listing?.price / res["area"]
+        } else {
+            res["dlrsqft"] = obj.price / res["area"]
+        }
+
+        res["dlrsqft"] = res["dlrsqft"].toFixed(2)
+        
+        setRandVals(res)
+    }
+
+
+    const handleBedsBaths = () => {
+        if (listing.numBedrooms === 1) {
+            setBedsBaths(state => {return ( {...state, bed: "Bed"})} )
+        }
+
+        if (listing.numBaths === 1) {
+            setBedsBaths(state => ({...state, bath: "Bath"}))
+        }
+    }
+
+    useEffect(() => {
+
+        debugger
+        if (!listing) {
+             dispatch(listingsActions.fetchListing(params["listingId"]))
+            .then(res => {randomValues(res.listing)})
+            // dispatch(listingsActions.fetchListings());
+            // dispatch(favoritesActions.fetchFavorites(currentUser))
+            handleChangeMargin(25)
+            handleBedsBaths()
+        }
+    }, [])
 
 
 if (listing) {
@@ -73,12 +114,58 @@ if (listing) {
     if (currentUser && currentUser.id === listing.listerId) {  
         listingDelete = <Link to="/listings" className="listinginfobutton" id="listingshowdelete" onClick={handleDelete}> Delete Listing </Link>
     }
-    // debugger
+
+    const rentalText = () => {
+        if (listing.rental) {
+            return (
+                "For Rent in "
+            )
+        } else {
+            return (
+                "For Sale in "
+            )
+        }
+    }
+
+    
+
+    // <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
     return (
-        <div>
-            <div id="spacer"> </div>
-            <div id="listingShow">
-                <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
+        <div className="listingshowcontainer">
+
+            <div className="listingshowcentercontainer">
+                <img className="listingshowphoto" src={listing.photoUrl}/>
+            </div>    
+
+            <div className="listingshowrightcontainer">
+                <div className="listingshowaddress">
+                {listing.address}
+                </div>
+                <div className="listingshowborough">
+                    {listing.borough}
+                </div>
+                <div className="listingshowrental">
+                    {rentalText()}{listing.borough}
+                </div>
+                <div className="listingshowbedsbathscontainer">
+                    <div>
+                        {listing.numBedrooms} {bedsBaths["bed"]}
+                    </div>
+                    <div>
+                        {listing.numBaths} {bedsBaths["bath"]}
+                    </div>                
+                </div>
+                <div>
+                   {randVals["dlrsqft"]} $/sq ft
+                   {randVals["area"]} sq ft
+                   {randVals["viewers"]} people saved this listing
+                </div>
+
+                    <Map mapClass="smallmap" listings={[listing]} coordinates={{lat: 40.736180, lng: -73.993867}}/>
+
+            </div>
+            
+            {/* <div id="listingShow">
 
                     <div id="listingsplash">
                         <img id="listingShowImage" src={listing.photoUrl}></img>
@@ -109,7 +196,7 @@ if (listing) {
                         <Favorite listing={listing}/>
                         {coordinates&& <Map coordinates={coordinates} /> } 
                     </div>
-            </div>
+            </div> */}
 
         </div>
     )

@@ -1,0 +1,16 @@
+.listingshowcontainer {
+    margin-left: 25%;
+    margin-top: 50px;
+    display: flex;
+}
+
+.listingshowcentercontainer {
+margin-left: -10px;
+padding: 10px;
+box-sizing: border-box;
+}
+
+.listingshowrightcontainer {
+padding: 10px;
+}
+

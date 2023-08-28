@@ -5,6 +5,7 @@ import "./maps.css"
 import { useSelector } from "react-redux"
 
  function Map (props) {
+
     const [mapClass, setMapClass] = useState("smallmap")
     // let key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     // let stupid = process.env.REACT_APP_STUPID_KEY
@@ -31,15 +32,14 @@ import { useSelector } from "react-redux"
             let myMap =  new google.maps.Map(
                 document.getElementById("listingmap"), {
                     center: {...coordinates},
-                    zoom: 12
+                    zoom: 11
                 })
             
                 for (let i=0;i<listings?.length;i++) {
-                debugger
                     let coords = listings[i].split(",")
                     coords = {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])}
                     new google.maps.Marker({
-                    position: {lat: coords},
+                    position: {...coords},
                     map: myMap,
                     title: addrs[i]
                 })
@@ -51,6 +51,8 @@ import { useSelector } from "react-redux"
         
     
     }, [props])
+
+
 
     // const ref = useRef(null)
     // // const [map, setMap] = useState("")   

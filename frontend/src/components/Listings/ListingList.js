@@ -9,6 +9,7 @@ function ListingList () {
     
     const dispatch = useDispatch()
     const listings = useSelector(state => Object.values(state.search))
+    debugger
     const favorites = useSelector(state => state.favorites)
     const currentUser = useSelector(state => state.session.user)
 
@@ -20,6 +21,7 @@ function ListingList () {
     }
     , [dispatch])
 
+    
     return (
         <div className="listinglist">
         {listings.map((listing) => (<Link key={listing.id}  to={`listings/${listing.id}`}>
