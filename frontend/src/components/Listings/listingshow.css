@@ -8,9 +8,72 @@
 margin-left: -10px;
 padding: 10px;
 box-sizing: border-box;
+width: 600px
 }
 
 .listingshowrightcontainer {
 padding: 10px;
 }
 
+
+.listingshowrightinfoitem {
+    padding: 10px 0 10px 0
+}
+
+.listingshowaddress {
+    font-size: 22px;
+    color: var(--midgrey);
+    font-weight: 100;
+    margin-top: 0;
+    padding-top: 0
+}
+
+.listingshowpricecontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px
+}
+
+.listingshowprice {
+    /* padding: 5px; */
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.listingshownofee {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10px;
+    padding: 5px;
+    background-color: rgba(112, 203, 240, 0.267);
+    border-radius: 10px;
+}
+
+.listingshowbedsbathscontainer {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+    padding: 4px 0 4px 4px;
+    border: 1px solid var(--lightgrey);
+    border-left: none;
+    border-right: none
+}
+
+.bedsbathsinfoitem {
+    border-right: 1px solid var(--lightgrey);
+    padding: 0 8px 0 8px
+}
+
+.bedsbathsinfoitem:first-child  {
+    padding-left: 0
+}
+
+.bedsbathsinfoitem:last-child {
+    border-right: none;
+}
+
+.listingshowrental {
+    font-size: 12px
+}

@@ -18,7 +18,7 @@ function ListingShow () {
     const {listingId} = useParams()
     const [listingForm, setListingForm] = useState("listingformhidden")
     const [randVals, setRandVals] = useState({})
-    const [bedsBaths, setBedsBaths] = useState({bed: "Beds", bath: "Baths"})
+    const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
@@ -72,12 +72,13 @@ function ListingShow () {
     }
 
 
-    const handleBedsBaths = () => {
-        if (listing.numBedrooms === 1) {
-            setBedsBaths(state => {return ( {...state, bed: "Bed"})} )
+    const handleBedsBaths = (lst) => {
+        let bbListing = listing || lst
+        if (bbListing.numBedrooms === 1) {
+            setBedsBaths(state => {return ( {...state, bed: "Room"})} )
         }
 
-        if (listing.numBaths === 1) {
+        if (bbListing.numBaths === 1) {
             setBedsBaths(state => ({...state, bath: "Bath"}))
         }
     }
@@ -87,12 +88,13 @@ function ListingShow () {
         debugger
         if (!listing) {
              dispatch(listingsActions.fetchListing(params["listingId"]))
-            .then(res => {randomValues(res.listing)})
+            .then(res => {randomValues(res.listing); handleBedsBaths(res.listing)})
             // dispatch(listingsActions.fetchListings());
             // dispatch(favoritesActions.fetchFavorites(currentUser))
-            handleChangeMargin(25)
+        } else {
             handleBedsBaths()
         }
+        handleChangeMargin(25)
     }, [])
 
 
@@ -138,30 +140,35 @@ if (listing) {
             </div>    
 
             <div className="listingshowrightcontainer">
-                <div className="listingshowaddress">
-                {listing.address}
+                <div className="listingshowrightinfoitem listingshowaddress">
+                {listing.address.split(",")[0]}
                 </div>
-                <div className="listingshowborough">
-                    {listing.borough}
+                <div className="listingshowrightinfoitem listingshowpricecontainer">
+                    <div className="listingshowprice">
+                    ${listing.price.toLocaleString("en-US")}
+                    </div>
+                    <div className="listingshownofee">
+                        No Fee
+                    </div>
                 </div>
-                <div className="listingshowrental">
-                    {rentalText()}{listing.borough}
-                </div>
-                <div className="listingshowbedsbathscontainer">
-                    <div>
+                <div className="listingshowrightinfoitem listingshowbedsbathscontainer">
+                    <div className="bedsbathsinfoitem">
                         {listing.numBedrooms} {bedsBaths["bed"]}
                     </div>
-                    <div>
+                    <div className="bedsbathsinfoitem">
                         {listing.numBaths} {bedsBaths["bath"]}
                     </div>                
                 </div>
-                <div>
+                <div className="listingshowrightinfoitem listingshowrental">
+                    {rentalText()}{listing.borough}
+                </div>
+                {/* <div className="listingshowrightinfoitem">
                    {randVals["dlrsqft"]} $/sq ft
                    {randVals["area"]} sq ft
-                   {randVals["viewers"]} people saved this listing
-                </div>
+                   {randVals["viewers"]} people like this listing
+                </div> */}
 
-                    <Map mapClass="smallmap" listings={[listing]} coordinates={{lat: 40.736180, lng: -73.993867}}/>
+                <Map mapClass="smallmap" listings={[listing]} coordinates={{lat: 40.736180, lng: -73.993867}}/>
 
             </div>
             

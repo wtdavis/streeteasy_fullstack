@@ -23,6 +23,7 @@ body, img, h1, h2, h3, h4, h5, h6, div, p, i, a {
     --midblue: rgb(25, 25, 235);
     --highblue: rgb(75, 108, 252);
     --lightblue: rgb(127, 166, 240);
+    --lightgrey: rgba(199, 199, 199, 0.774);
     --midgrey: rgb(83, 83, 83);
     --edgepadding: 15%;
 }
