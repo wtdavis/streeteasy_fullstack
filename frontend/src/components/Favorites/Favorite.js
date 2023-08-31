@@ -47,10 +47,10 @@ function Favorite(props) {
     let handleIconClassName = () => {
         if (favHighlighted) {
             setFavClassName("favoritebuttonhighlightdark")
-            setIconClassName("fas fa-heart favhearticondark")
+            setIconClassName("fa-solid fa-heart")
             setFavButtonText("SAVED")
         } else {
-            setIconClassName("fa fa-heart favhearticonlight")
+            setIconClassName("fa fa-heart-o")
             setFavClassName("favoritebuttonhighlightlight")
             setFavButtonText("SAVE")
         }

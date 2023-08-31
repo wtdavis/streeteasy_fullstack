@@ -20,7 +20,7 @@ body, img, h1, h2, h3, h4, h5, h6, div, p, i, a {
     width: 100%;
     background-color: rgb(255, 255, 255);
     --darkblue: rgb(7, 7, 114);
-    --midblue: rgb(25, 25, 235);
+    --midblue: rgb(69, 130, 243);
     --highblue: rgb(75, 108, 252);
     --lightblue: rgb(127, 166, 240);
     --lightgrey: rgba(199, 199, 199, 0.774);

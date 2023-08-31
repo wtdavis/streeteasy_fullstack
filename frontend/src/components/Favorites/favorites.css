@@ -6,36 +6,16 @@
     justify-content: center;
     align-items: center;
     transition-duration: .25s;
-    border: 1px solid var(--lightgrey)
+    font-size: 12px
 }
 
-#favoriteButton:hover {
-    /* box-shadow: 1px 1px 1px 1px black; */
+.fa-heart-o, .fa-heart, .favoritetext {
+    color: var(--midblue);
+    transition-duration: .1s;
+    padding: 3px
 }
 
 .favoritetext {
-    font-size: 14px
+    font-weight: bolder
 }
 
-.fa-heart-o, .fa-heart {
-    color: var(--lightblue);
-    font-weight: 100;
-    /* position: absolute; */
-    /* align-self: right; */
-    transition-duration: .25s
-}
-
-.favoritebuttonhighlightlight {
-}
-
-.favoritebuttonhighlightdark {
-
-}
-
-.favhearticonlight {
-    /* color: lightblue */
-}
-
-.favhearticondark {
-    /* color: red */
-}

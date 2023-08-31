@@ -169,10 +169,16 @@ if (listing) {
                 <div className="listingshowrightinfoitem listingshowrental">
                     {rentalText()}{listing.borough}
                 </div>
-                <div className="favbuttonlistingshowcontainer">
-                    <Favorite listing={listing}/>
+                <div className="favsharebuttonlistingshowcontainer">
+                    <div className="favbuttonlistingshowcontainer">
+                        <Favorite listing={listing}/>
+                    </div>
+                    <div className="sharebuttonlistingshow">
+                        <i className="fa fa-envelope"></i>
+                        <p className="sharebuttontextlistingshow">SHARE</p>
+                    </div>
                 </div>
-                <div className="bedsbathsinfoitem"> 
+                <div className="bedsbathsinfoitem listingshowrandviewers"> 
                     {randVals["viewers"]} people like this listing
                 </div>
 
