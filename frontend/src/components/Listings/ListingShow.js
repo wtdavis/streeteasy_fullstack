@@ -157,16 +157,24 @@ if (listing) {
                     </div>
                     <div className="bedsbathsinfoitem">
                         {listing.numBaths} {bedsBaths["bath"]}
-                    </div>                
-                </div>
+                    </div>   
+                    <div className="bedsbathsinfoitem"> 
+                        {randVals["area"]} sq ft
+                    </div>
+                    <div className="bedsbathsinfoitem"> 
+                        {randVals["dlrsqft"]} $/sq ft
+                    </div>
+                    
+                </div>             
                 <div className="listingshowrightinfoitem listingshowrental">
                     {rentalText()}{listing.borough}
                 </div>
-                {/* <div className="listingshowrightinfoitem">
-                   {randVals["dlrsqft"]} $/sq ft
-                   {randVals["area"]} sq ft
-                   {randVals["viewers"]} people like this listing
-                </div> */}
+                <div className="favbuttonlistingshowcontainer">
+                    <Favorite listing={listing}/>
+                </div>
+                <div className="bedsbathsinfoitem"> 
+                    {randVals["viewers"]} people like this listing
+                </div>
 
                 <Map mapClass="smallmap" listings={[listing]} coordinates={{lat: 40.736180, lng: -73.993867}}/>
 

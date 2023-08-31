@@ -55,11 +55,12 @@ padding: 10px;
     display: flex;
     flex-direction: row;
     margin-top: 12px;
-    padding: 4px 0 4px 4px;
+    padding: 8px 0 8px 4px;
     border: 1px solid var(--lightgrey);
     border-left: none;
     border-right: none
 }
+
 
 .bedsbathsinfoitem {
     border-right: 1px solid var(--lightgrey);
@@ -76,4 +77,13 @@ padding: 10px;
 
 .listingshowrental {
     font-size: 12px
+}
+
+.favbuttonlistingshowcontainer {
+    width: 45%;
+    height: 50px;
+}
+
+.favbuttonlistingshowcontainer:hover {
+    box-shadow: 10px 30px 10px  10px  black
 }
