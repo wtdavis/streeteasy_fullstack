@@ -5,14 +5,20 @@
 }
 
 .listingshowcentercontainer {
-margin-left: -10px;
-padding: 10px;
-box-sizing: border-box;
-width: 600px
+        
+    margin-left: -10px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 600px
+}
+
+.listingshowphoto {
+    width: 100%;
+    object-fit: contain;
 }
 
 .listingshowrightcontainer {
-padding: 10px;
+    padding: 10px;
 }
 
 
@@ -61,7 +67,6 @@ padding: 10px;
     border-right: none
 }
 
-
 .bedsbathsinfoitem {
     border-right: 1px solid var(--lightgrey);
     padding: 0 8px 0 8px
@@ -80,10 +85,12 @@ padding: 10px;
 }
 
 .favbuttonlistingshowcontainer {
+    transition-duration: .1s;
     width: 45%;
     height: 50px;
 }
 
 .favbuttonlistingshowcontainer:hover {
-    box-shadow: 10px 30px 10px  10px  black
+    box-shadow: 1px 1px 10px  1px  rgba(150, 147, 147, 0.425);
+    transition-duration: .1s
 }

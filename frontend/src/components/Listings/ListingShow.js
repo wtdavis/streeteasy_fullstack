@@ -136,7 +136,7 @@ if (listing) {
         <div className="listingshowcontainer">
 
             <div className="listingshowcentercontainer">
-                <img className="listingshowphoto" src={listing.photoUrl}/>
+                <img className="listingshowphoto" id="listingshowphoto" src={listing.photoUrl}/>
             </div>    
 
             <div className="listingshowrightcontainer">

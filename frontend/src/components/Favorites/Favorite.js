@@ -50,7 +50,7 @@ function Favorite(props) {
             setIconClassName("fas fa-heart favhearticondark")
             setFavButtonText("SAVED")
         } else {
-            setIconClassName("fas fa-heart favhearticonlight")
+            setIconClassName("fa fa-heart favhearticonlight")
             setFavClassName("favoritebuttonhighlightlight")
             setFavButtonText("SAVE")
         }
