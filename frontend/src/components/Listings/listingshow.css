@@ -7,10 +7,10 @@
 
 .listingshowcentercontainer {
         
+    width: 70%;
     margin-left: -10px;
     padding: 10px;
     box-sizing: border-box;
-    width: 70%
 }
 
 .listingshowphoto {
