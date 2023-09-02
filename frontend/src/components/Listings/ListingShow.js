@@ -137,7 +137,12 @@ if (listing) {
 
             <div className="listingshowcentercontainer">
                 <img className="listingshowphoto" id="listingshowphoto" src={listing.photoUrl}/>
+                <div className="listingshowamenitiescontainer">Amenites:</div>
+                <div className="listingshowtransportcontainer">Near Public transport:</div>
+
             </div>    
+
+
 
             <div className="listingshowrightcontainer">
                 <div className="listingshowrightinfoitem listingshowaddress">
