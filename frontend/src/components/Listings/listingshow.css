@@ -7,7 +7,7 @@
 
 .listingshowcentercontainer {
         
-    width: 70%;
+    width: 60%;
     margin-left: -10px;
     padding: 10px;
     box-sizing: border-box;
@@ -19,6 +19,7 @@
 
 .listingshowrightcontainer {
     padding: 10px;
+    width: 40%
 }
 
 
@@ -93,15 +94,32 @@
     border: none
 }
 
-.favbuttonlistingshowcontainer {
+.favsharebuttonlistingshowcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.favbuttonlistingshowcontainer, .sharebuttonlistingshow {
     margin-top: 30px;
     border: .5px solid var(--midgrey);
     transition-duration: .1s;
-    width: 200px;
+    width: 180px;
     height: 35px;
 }
 
-.favbuttonlistingshowcontainer:hover {
+.favbuttonlistingshowcontainer:hover, .sharebuttonlistingshow:hover {
     border: 1px solid var(--lightgrey);
     transition-duration: .1s
+}
+
+.sharebuttonlistingshow {
+    /* background-color: blue; */
+    display: flex;  
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 30px */
+    /* height: 30px; */
 }
