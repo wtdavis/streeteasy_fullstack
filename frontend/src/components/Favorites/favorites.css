@@ -1,4 +1,4 @@
-#favoritebutton {
+#favoritebutton, .sharebuttonlistingshow {
     /* border-radius: 50%; */
     height: 100%;
     width: 100%;
@@ -9,13 +9,13 @@
     font-size: 12px
 }
 
-.fa-heart-o, .fa-heart, .favoritetext {
+.fa-heart-o, .fa-heart, .favoritetext, .sharebuttontextlistingshow, .fa-envelope {
     color: var(--midblue);
     transition-duration: .1s;
     padding: 3px
 }
 
-.favoritetext {
+.favoritetext, .sharebuttontextlistingshow {
     font-weight: bolder
 }
 
