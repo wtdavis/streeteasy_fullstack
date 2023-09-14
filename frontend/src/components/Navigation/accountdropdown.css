@@ -1,0 +1,15 @@
+.accountbutton {
+    
+}
+
+.accountdropdown {
+    color: black;
+    display: none;
+    position: absolute
+}
+
+.accountbutton:hover > .accountdropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);   
+}

@@ -1,11 +1,12 @@
 import LogoutButton from "./LogoutButton"
 import UserProfileButton from "./UserProfileButton"
+import "./accountdropdown.css"
 
 function AccountDropdown () {
     return(
-        <div id="accountbutton">
+        <div className="accountbutton">
             My Account
-            <div id="accountdropdown">
+            <div className="accountdropdown">
                 <UserProfileButton/>
                 <LogoutButton/>
             </div>
