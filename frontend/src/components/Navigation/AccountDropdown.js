@@ -5,7 +5,9 @@ import "./accountdropdown.css"
 function AccountDropdown () {
     return(
         <div className="accountbutton">
-            My Account
+            <p className="accountbuttontext">
+             My Account
+            </p>
             <div className="accountdropdown">
                 <UserProfileButton/>
                 <LogoutButton/>
