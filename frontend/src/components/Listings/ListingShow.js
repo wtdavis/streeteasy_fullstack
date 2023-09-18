@@ -70,7 +70,30 @@ function ListingShow () {
         
         setRandVals(res)
     }
+    
+    const amentiesList = () => {
+        let list = ["Doorman", 
+                    "Storage Available", 
+                    "Bike Parking", 
+                    "Parking Garage", 
+                    "Swimming Pool", 
+                    "Fitness Center", 
+                    "Elevator", 
+                    "Live-in Super",
+                    "Full Service Laundry", 
+                    "Roof Deck",
+                    "Private Balcony"
+                ]
 
+        let amenities = []
+        let i = Math.floor(Math.random()*11)
+        for (i;i>0;i--) {
+            let num = Math.floor(Math.random()*11)
+            debugger
+            amenities.push(list[num])
+        }
+        return new Set(amenities)
+    }
 
     const handleBedsBaths = (lst) => {
         let bbListing = listing || lst
@@ -137,7 +160,13 @@ if (listing) {
 
             <div className="listingshowcentercontainer">
                 <img className="listingshowphoto" id="listingshowphoto" src={listing.photoUrl}/>
+                <p className="listingshowsubtitle aboutthislisting">About this Listing:</p>
+                <p className="listingshowdescription"> {listing?.description}</p>
                 <div className="listingshowamenitiescontainer">Amenites:</div>
+                <ul className="listingshowamenitieslist">
+                
+                <p>{amentiesList()}</p>
+                </ul>
                 <div className="listingshowtransportcontainer">Near Public transport:</div>
 
             </div>    
