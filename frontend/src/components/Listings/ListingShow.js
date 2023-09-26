@@ -18,6 +18,7 @@ function ListingShow () {
     const {listingId} = useParams()
     const [listingForm, setListingForm] = useState("listingformhidden")
     const [randVals, setRandVals] = useState({})
+    const [amenities, setAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings.current)
@@ -71,7 +72,7 @@ function ListingShow () {
         setRandVals(res)
     }
     
-    const amentiesList = () => {
+    const amenitiesList = () => {
         let list = ["Doorman", 
                     "Storage Available", 
                     "Bike Parking", 
@@ -89,10 +90,12 @@ function ListingShow () {
         let i = Math.floor(Math.random()*11)
         for (i;i>0;i--) {
             let num = Math.floor(Math.random()*11)
-            debugger
             amenities.push(list[num])
         }
-        return new Set(amenities)
+        let items = new Set(amenities)
+         setAmenities(entries(items))
+        debugger
+
     }
 
     const handleBedsBaths = (lst) => {
@@ -108,22 +111,19 @@ function ListingShow () {
 
     useEffect(() => {
 
-        debugger
         if (!listing) {
              dispatch(listingsActions.fetchListing(params["listingId"]))
             .then(res => {randomValues(res.listing); handleBedsBaths(res.listing)})
-            // dispatch(listingsActions.fetchListings());
-            // dispatch(favoritesActions.fetchFavorites(currentUser))
         } else {
             handleBedsBaths()
         }
         handleChangeMargin(25)
+        amenitiesList()
     }, [])
 
 
 if (listing) {
     
-    // console.log(listing)
     let type; 
     if ( listing && listing.rental ){
         type = <p className="listinginfoitem"> For Rent</p>
@@ -160,13 +160,42 @@ if (listing) {
 
             <div className="listingshowcentercontainer">
                 <img className="listingshowphoto" id="listingshowphoto" src={listing.photoUrl}/>
-                <p className="listingshowsubtitle aboutthislisting">About this Listing:</p>
-                <p className="listingshowdescription"> {listing?.description}</p>
-                <div className="listingshowamenitiescontainer">Amenites:</div>
-                <ul className="listingshowamenitieslist">
-                
-                <p>{amentiesList()}</p>
-                </ul>
+
+                <div className="listingshowavailableinfo">
+                    <div className="listingshowavailablenow listingshowavailableinfoitem">
+                        <p className="listingshowavailableon listingshowavailableinfoitemheader">Available On</p> 
+                        <p className="listingshowavailablenow listingshowavailableinfoitemtext"> Available Now</p>
+                    </div>
+                    <div className="listingshowavailablesince listingshowavailableinfoitem">
+                        <p className="listingshowavailableinfoitemheader"> Days On Market</p>
+                        <p className="listingshowavailableinfoitemtext">
+                            { Math.floor(Math.random() * 100) + 1 }
+                        </p>
+                    </div>
+                    <div className="listingshowavailablepricechange listingshowavailableinfoitem">
+                        <p className="listingshowavailableinfoitemheader">
+                            Last Price Change
+                        </p>
+                        <p className="listingshowavailableinfoitemtext">
+                            <i className="fa-solid fa-arrow-down listingshowavailableinfodownarrow"></i>
+                             {Math.floor(Math.random() * 8) + 1} % ({Math.floor(Math.random() *10) + 1} days ago)
+                        </p>
+                    </div>
+                </div>
+
+                <div className="listingshowinfoitem">
+                    <p className="listingshowsubtitle aboutthislisting">About this Listing:</p>
+                    <p className="listingshowdescription"> {listing?.description}</p>
+                </div>
+
+                <div className="listingshowamenitiescontainer listingshowinfoitem">
+                    <p className="listingshowsubtitle">Amenities:</p>
+                    <ul className="listingshowamenitieslist">
+                    {amenities.map(item => <li>{item}</li>)}
+                    </ul>
+
+                </div>
+
                 <div className="listingshowtransportcontainer">Near Public transport:</div>
 
             </div>    

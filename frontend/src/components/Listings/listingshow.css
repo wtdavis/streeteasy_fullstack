@@ -127,9 +127,60 @@
 .listingshowsubtitle {
     font-size: 24px;
     font-weight: lighter;
+    margin-top: 50px;
+    padding-bottom: 18px
+}
+
+.listingshowinfoitem {
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--lightgrey)
 }
 
 .listingshowdescription {
     font-size: 12px;
 }
 
+.listingshowavailableinfo {
+    margin-top: 20px;
+    border-top: 1px solid var(--lightgrey);
+    border-bottom: 1px solid var(--lightgrey);
+    display: flex;
+    flex-direction: row;
+}
+
+.listingshowavailableinfoitem {
+    padding-left: 8px;
+    border-right: 1px solid var(--lightgrey);
+    width: 32%
+}
+
+.listingshowavailableinfoitem:last-child {
+    border-right: none
+}
+
+.listingshowavailableinfoitem:first-child {
+    padding-left: 0;
+}
+
+.listingshowavailableinfoitemheader {
+    font-size: 12.5px;
+    font-weight: bold;
+    color: var(--midgrey);
+    padding-top: 8px
+}
+
+.listingshowavailableinfoitemtext {
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 8px
+}
+
+.listingshowavailableinfodownarrow {
+    font-size: 10px;
+    font-weight: light;
+}
+
+.listingshowamenitieslist {
+    padding: 0;
+    margin: 0
+}
