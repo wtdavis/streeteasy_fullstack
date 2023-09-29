@@ -137,7 +137,7 @@
 }
 
 .listingshowdescription {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .listingshowavailableinfo {
@@ -166,11 +166,12 @@
     font-size: 12.5px;
     font-weight: bold;
     color: var(--midgrey);
-    padding-top: 8px
+    padding-top: 8px;
+    padding-bottom: 10px
 }
 
 .listingshowavailableinfoitemtext {
-    font-size: 12px;
+    font-size: 13px;
     padding-top: 20px;
     padding-bottom: 8px
 }
@@ -182,5 +183,20 @@
 
 .listingshowamenitieslist {
     padding: 0;
-    margin: 0
+    margin: 0;
+    list-style: none;
+}
+
+.listingshowamenitieslistitem {
+    font-size: 13px;
+    font-weight: lighter;
+    padding-top: 2px;
+}
+
+.listingshowamenitiesinfoitemheader {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--midgrey);
+    padding-top: 20px;
+    padding-bottom: 10px
 }

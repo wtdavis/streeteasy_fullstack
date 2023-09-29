@@ -19,6 +19,7 @@ function ListingShow () {
     const [listingForm, setListingForm] = useState("listingformhidden")
     const [randVals, setRandVals] = useState({})
     const [amenities, setAmenities] = useState()
+    const [listingAmenities, setListingAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const currentUser = useSelector(state => state.session.user)
     let listing = useSelector(state => state.listings.current)
@@ -83,19 +84,49 @@ function ListingShow () {
                     "Live-in Super",
                     "Full Service Laundry", 
                     "Roof Deck",
-                    "Private Balcony"
+                    "Electric Vehicle Charging",
+                    "Yoga Studio",
+                    "Sauna"
                 ]
 
         let amenities = []
-        let i = Math.floor(Math.random()*11)
+        let i = Math.floor(Math.random()*11) + 4
         for (i;i>0;i--) {
             let num = Math.floor(Math.random()*11)
             amenities.push(list[num])
         }
         let items = new Set(amenities)
-         setAmenities(entries(items))
-        debugger
+        let arr = Array.from(items.keys())
+         setAmenities(arr)
 
+    }
+
+    const listingAmenitiesList = () => {
+        let list = [
+            "Hardwood Floors",
+            "Granite Kitchen",
+            "Kitchen Island",
+            "Floor to Ceiling Windows",
+            "Smart Home Integration",
+            "Recessed Lighting",
+            "Jacuzzi Tub",
+            "Waterfall Shower",
+            "Integrated Sound System",
+            "Washer/Dryer",
+            "Fully Furnished",
+            "Balcony",
+            "Electronic Locks"
+        ]
+
+        let amenities = []
+        let i = Math.floor(Math.random()*11) + 4
+        for (i;i>0;i--) {
+            let num = Math.floor(Math.random()*11)
+            amenities.push(list[num])
+        }
+        let items = new Set(amenities)
+        let arr = Array.from(items.keys())
+         setListingAmenities(arr)
     }
 
     const handleBedsBaths = (lst) => {
@@ -119,6 +150,7 @@ function ListingShow () {
         }
         handleChangeMargin(25)
         amenitiesList()
+        listingAmenitiesList()
     }, [])
 
 
@@ -184,16 +216,21 @@ if (listing) {
                 </div>
 
                 <div className="listingshowinfoitem">
-                    <p className="listingshowsubtitle aboutthislisting">About this Listing:</p>
+                    <p className="listingshowsubtitle aboutthislisting">About the Listing:</p>
+                    <p className="listingshowavailableinfoitemheader">Description</p>
                     <p className="listingshowdescription"> {listing?.description}</p>
                 </div>
 
                 <div className="listingshowamenitiescontainer listingshowinfoitem">
                     <p className="listingshowsubtitle">Amenities:</p>
+                    <p className="listingshowamenitiesinfoitemheader">Building Amenities</p>
                     <ul className="listingshowamenitieslist">
-                    {amenities.map(item => <li>{item}</li>)}
+                    {amenities.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
                     </ul>
-
+                    <p className="listingshowamenitiesinfoitemheader">Listing Amenities</p>
+                    <ul className="listingshowamenitieslist">
+                    {listingAmenities.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
+                    </ul>
                 </div>
 
                 <div className="listingshowtransportcontainer">Near Public transport:</div>
