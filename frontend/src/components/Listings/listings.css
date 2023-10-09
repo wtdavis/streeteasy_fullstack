@@ -118,7 +118,9 @@
     font-weight: bold;
 }
 
-#listingformpage {
+/* listing form  */
+/* 
+.listingformpage {
     display: block;
     width: 50%;
     margin-left: 15%;
@@ -175,6 +177,14 @@
     vertical-align: center;
 }
 
+.listingformclosebutton {
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 30px
+}
+ */
+
 #listingShow > #listingformpage {
     width: 100%;
     position: absolute;
@@ -185,12 +195,6 @@
     display: none
 }
 
-.listingformclosebutton {
-    cursor: pointer;
-    position: absolute;
-    right: 30px;
-    top: 30px
-}
 
 #listingshowtyperow {
     display: flex;
@@ -259,7 +263,7 @@
 }
 
 .listingslistcontainer {
-    width: 620px;
+    width: 630px;
     margin: 0;
     padding: 0;
     margin-top: 4px;

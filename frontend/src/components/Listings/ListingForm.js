@@ -3,10 +3,10 @@ import {useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import * as listingsActions from '../../store/listings'
 import { useDispatch } from "react-redux"
-import './listings.css'
+import './listingform.css'
 import Places from "../Maps/Places"
 
-function ListingForm ({listing, formClass, setListingForm, update}) {
+function ListingForm ({listing, formClass, handleFormDisplay, update}) {
     listing ||= 
     update ||= false
     const dispatch = useDispatch()
@@ -82,7 +82,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         if (update) {
         dispatch(listingsActions.updateListing(listing.id, formData)).then(res => {
             if (!res.errors) {
-                handleHide()
+                handleFormDisplay()
                 history.push(`/listings/${res.listing.id}`)
                 }
             }
@@ -90,7 +90,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
         } else {
         dispatch(listingsActions.createListing(formData)).then(res => {
             if (!res.errors) {
-                handleHide()
+                handleFormDisplay()
                 dispatch(listingsActions.addCurrentListing(res.listing))
                 history.push(`/listings/${res.listing.id}`)
                 }
@@ -101,18 +101,35 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
     }
 
     
-        const handleHide = () => {
-            setListingForm("listingformhidden")
-        }
+    // const handleHide = () => {
+    //     setListingForm("listingformhidden")
+    // }
         
+    
 
 
     return (
-        <div className={formClass} id="listingformpage">
+        <div className="listingformpage" >
             
-            <form id="listingform" onSubmit={handleSubmit}>
-                <div className="listingformclosebutton" onClick={handleHide}>X</div>
-                <p className="listingformheader"> Listing Information: </p>
+            <div className="listingformclosebutton" onClick={handleFormDisplay}>
+                <i className="fa-solid fa-x xicon"></i>
+            </div>
+
+            <form className="listingform" onSubmit={handleSubmit}>
+                <p className="listingformheader"> Create Your New Listing: </p>
+
+                <p className="listingformsubheader"> Listing Type: </p>
+
+                <select 
+                    className="listingforminput"
+                    id="rental" value={rental}
+                    onChange={(e) => {setRental(e.target.value); dispatch(listingsActions.clearListingsError("rental"))}}>
+
+                    <option value={null} disabled selected>Select a Listing Type</option>
+                    <option value={true}>For Rent</option>
+                    <option value={false}>For Sale</option>
+                </select>
+                <p className="listingformerror">{errors.rental} </p>
 
                 <p className="listingformsubheader"> Street Address: </p>
 
@@ -124,12 +141,7 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     onChange={(e) => {setAddress(e.target.value); dispatch(listingsActions.clearListingsError("address"))}}/>
                 <p className="listingformerror">{errors.address} </p>
 
-
-
-
                 <p className="listingformsubheader"> Unit: </p>
-
-
 
                 <input 
                     className="listingforminput" 
@@ -139,6 +151,22 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     onChange={(e) => {setUnit(e.target.value); dispatch(listingsActions.clearListingsError("unit"))}}/>
                 <p className="listingformerror">{errors.unit} </p>
 
+                <p className="listingformsubheader"> Borough: </p>
+
+                <select  
+                    className="listingforminput"
+                    id="borough"
+                    value={borough}
+                    onChange={(e) => {setBorough(e.target.value); dispatch(listingsActions.clearListingsError("borough"))}}>
+
+                    <option value="" disabled selected>Select a Borough</option>
+                    <option value="Staten Island" >Staten Island</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Queens">Queens</option>
+                    <option value="Bronx">Bronx</option>
+                    <option value="Manhattan">Manhattan</option>
+                </select>
+                <p className="listingformerror">{errors.borough} </p>
                 <p className="listingformsubheader"> Number of Bedrooms: </p>
 
                 <input  
@@ -183,38 +211,6 @@ function ListingForm ({listing, formClass, setListingForm, update}) {
                     value={price} 
                     onChange={(e) => {setPrice(e.target.value); dispatch(listingsActions.clearListingsError("price"))}}/>
                 <p className="listingformerror">{errors.price} </p>
-
-
-                <p className="listingformsubheader"> Borough: </p>
-
-                <select  
-                    className="listingforminput"
-                    id="borough"
-                    value={borough}
-                    onChange={(e) => {setBorough(e.target.value); dispatch(listingsActions.clearListingsError("borough"))}}>
-
-                    <option value="" disabled selected>Select a Borough</option>
-                    <option value="Staten Island" >Staten Island</option>
-                    <option value="Brooklyn">Brooklyn</option>
-                    <option value="Queens">Queens</option>
-                    <option value="Bronx">Bronx</option>
-                    <option value="Manhattan">Manhattan</option>
-                </select>
-                <p className="listingformerror">{errors.borough} </p>
-            
-                <p className="listingformsubheader"> Listing Type: </p>
-
-                <select 
-                    className="listingforminput"
-                    id="rental" value={rental}
-                    onChange={(e) => {setRental(e.target.value); dispatch(listingsActions.clearListingsError("rental"))}}>
-
-                    <option value={null} disabled selected>Select a Listing Type</option>
-                    <option value={true}>For Rent</option>
-                    <option value={false}>For Sale</option>
-                </select>
-                <p className="listingformerror">{errors.rental} </p>
-
 
                 <p className="listingformsubheader"> Upload a Photo: </p>
 

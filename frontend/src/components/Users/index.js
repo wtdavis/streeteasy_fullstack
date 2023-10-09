@@ -17,6 +17,7 @@ function UserShow () {
 
     const dispatch = useDispatch()
     const [listingForm, setListingForm] = useState("listingformhidden")
+    const [listingformbackground, setListingFormBackground] = useState("listingformbackgroundhidden")
     const currentUser = useSelector(state => state.session.user)
     const favorites = useSelector(state => state.favorites)
     const listings = useSelector(state => state.listings)
@@ -36,10 +37,12 @@ function UserShow () {
     
 
     const handleFormDisplay = () => {
-        if (listingForm === "listingformhidden")
-        {setListingForm("listingformdisplay")
-    } else {
-        setListingForm("listingformhidden")
+        if (listingForm === "listingformhidden") {
+            setListingForm("listingformdisplay");
+            setListingFormBackground("listingformbackgroundshow")
+        } else {
+            setListingForm("listingformhidden")
+            setListingFormBackground("listingformbackgroundhidden")
         }
     }
 
@@ -54,8 +57,17 @@ function UserShow () {
 
     return (
         <div className="profilepage"> 
-        <h2> Welcome Back, {currentUser.name}</h2>
-        <h4> Your Favorites:</h4>
+        <h2 className="profileheader"> Welcome Back, {currentUser.email}</h2>
+        <div className="listingformbutton" onClick={e => handleFormDisplay()}>
+                <p className="listingformbuttontext">
+                List Your Property
+                </p>
+        </div>
+        <div className={listingformbackground} onClick={handleFormDisplay}></div>
+        <div className={listingForm}>
+                <ListingForm update={false} handleFormDisplay={e => handleFormDisplay()}/>
+        </div>
+        <h4 className="profilesubheader"> Your Favorites:</h4>
             <ul className="profilepagefavoritesbar">
                 {favorites&& Object.values(favorites).map(favorite => {
                     return (
@@ -65,7 +77,7 @@ function UserShow () {
                     )
                 })}
         </ul>
-        <h4> Your Listings:</h4>
+        <h4 className="profilesubheader"> Your Listings:</h4>
         <ul className="profilepagefavoritesbar">
                 {myListings&& myListings.map(listing => {
                     return (
@@ -97,9 +109,6 @@ function UserShow () {
                     <p> Rent or Sell your property! </p>
                 </div>
                 <Link to="/" className="usershowitem" id="deleteuserbutton" onClick={deleteUser}> <p>Delete User</p></Link>
-            </div>
-            <div className={listingForm}>
-                    <ListingForm update={false} setListingForm={setListingForm}/>
             </div>
         </div>
 
