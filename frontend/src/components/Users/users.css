@@ -1,4 +1,4 @@
-#userShowPage {
+/* #userShowPage {
     width: 100%;
     position: relative;
     display: block
@@ -9,37 +9,42 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    /* height: 500px; */
+    height: 500px;
     background-color: rgb(76, 76, 80);
     padding: 20px;
     box-sizing: border-box;
-}
+} */
 
 /* #useremail p{
     ;
 } */
 
-#deleteuserbutton {
+/* #deleteuserbutton {
 margin-top: 300px;
 border: 2px solid red;
 text-decoration: none;
 color: rgb(118, 113, 113);
-}
+} */
 
 
 .profileheader {
+    overflow: hidden;
+    width: 100%;
     padding: 30px 0px 30px 0px;
     font-size: 30px;
     font-weight: 200;
+    border-bottom: 1px solid var(--lightgrey)
 }
 
 .profilesubheader {
+    overflow-x: hidden;
     padding: 40px 0 10px 0;
     font-size: 20px;
     font-weight: 200;
 }
 
 .usershowitem {
+    overflow: hidden;
     display: block;
     width: 200px;
     border-bottom: 1px solid rgb(40, 39, 39);
@@ -55,6 +60,7 @@ color: rgb(118, 113, 113);
 .listingformbutton {
     width: 150px;
     padding: 10px;
+    margin-top: 30px;
     background-color: var(--lightblue);
     display: flex;
     align-items: center;
@@ -70,8 +76,9 @@ color: rgb(118, 113, 113);
 
 
 .profilepage {
-    width: 100%;
-    margin-left: 3%
+    overflow: hidden;
+    width: 96vw;
+    padding-left: 3%;
 }
 
 
