@@ -14,6 +14,5 @@ function AccountDropdown () {
             </div>
         </div>
     )
-
 }
 export default AccountDropdown

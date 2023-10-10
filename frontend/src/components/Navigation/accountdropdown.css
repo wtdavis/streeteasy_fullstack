@@ -1,28 +1,47 @@
 .accountbutton {
+    cursor: pointer;
     display: flex;
     height: 50px;
-    /* justify-content: center; */
     align-items: center;
+    color: black;
+    position: relative
 }
 
 .accountbuttontext {
-
+    color: white;
 }
 
 .accountdropdown {
     color: black;
     display: none;
     position: absolute;
+    left: -12px;
     top: 50px;
-    border: 3px solid black
+    width: 100px;
+    border: 1px solid var(--midgrey)
+
 }
 
 .accountdropdown:hover {
-    display: flex
+    display: flex;
 }
 
 .accountbutton:hover > .accountdropdown {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);   
+}
+
+.accountdropdownlink {
+    color: black;
+    padding: 7px 0 7px 12px
+}
+
+.accountdropdownlink:hover {
+    text-decoration: underline;
+    background-color: var(--lightsmoke);
+}
+
+.logoutbutton {
+    border-top: 1px solid var(--lightgrey)
 }

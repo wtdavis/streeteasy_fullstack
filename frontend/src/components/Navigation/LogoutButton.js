@@ -5,7 +5,7 @@ function LogoutButton () {
     const dispatch = useDispatch()
 
     return (
-        <Link  to="/" id="logoutbutton" onClick={(e)=> dispatch(sessionActions.logout())}> Logout </Link>
+        <Link  to="/" className="logoutbutton accountdropdownlink" onClick={(e)=> dispatch(sessionActions.logout())}> Logout </Link>
     )
 }
 
