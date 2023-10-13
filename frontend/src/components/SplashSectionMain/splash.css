@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position-y: bottom;
-    background-color: rgb(33, 59, 79);
+    /* background-color: rgb(33, 59, 79); */
 }
 
 #spacer {
@@ -25,7 +25,7 @@
     align-items: center;
     width: 100%;
     height: 35px;
-    background-color: darkblue;
+    background-color: var(--darkblue);
     text-decoration: none;
 }
 
@@ -51,12 +51,10 @@
 }
 
 #splashsub1 {
-    background-color: rgb(47, 46, 46);
+    background-color: var(--lightsmoke);
+    height: 500px;
 }
 
-#splashsub2 {
-    background-color: rgb(58, 43, 226);
-}
 
 #splashsub3 {
     background-color: rgb(111, 46, 5);
@@ -71,9 +69,10 @@
     align-items: center;
     position: relative;
     width: 22%;
-    height: 250px;
-    background-color: rgb(11, 11, 11);
+    height: 300px;
+    background-color: white;
     margin: 10px;
+    padding-top: 30px;
     border-top: 2px rgb(11, 140, 215) solid
 }
 
@@ -99,9 +98,11 @@
     font-size: 10px;
     border: 1px solid whitesmoke;
     width: 35%;
-    height: 40%;
+    height: 40px;
     /* margin: auto; */
-    background-color: rgb(25, 146, 239); 
+    background-color: var(--midblue);
+    font-weight: bolder;
+    color: white
 }
 
 .splashtilefooter {
@@ -112,7 +113,7 @@
     width: 100%;
     height:35%;
     bottom: 0;
-    background-color: rgb(6, 68, 78); 
+    background-color: var(--bluesmoke); 
 }
 
 #splashsub2 {
@@ -120,8 +121,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(7, 45, 63);
+    background-color: var(--lighterblue);
+    height: 500px;
 }
+
 #minitileheader{
     font-size: 40px;
     padding: 10px;
@@ -161,7 +164,9 @@
 }
 
 .minitiletext {
-    display: inline-block
+    display: inline-block;
+    font-size: 20px;
+    font-weight: lighter;
 }
 
 #minitilebutton {
@@ -170,10 +175,12 @@
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    border: 1px solid whitesmoke;
-    /* height: 50px; */
+    color: white;
+    font-weight: bolder;
+    height: 46px;
     /* margin: auto; */
-    background-color: rgb(25, 146, 239);
+    background-color: var(--midblue);
+    margin-top: 30px;
 }
 #minitilebuttontext {
     padding: 13px 30px 13px 30px 
