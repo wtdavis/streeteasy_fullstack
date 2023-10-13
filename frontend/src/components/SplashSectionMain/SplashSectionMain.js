@@ -9,7 +9,7 @@ function SplashSectionMain () {
     return(
          <>
             {/* <div id="spacer"></div> */}
-            <div id="splashmain" className="splashsection">
+            <div className="splashmain splashsection">
                 <Search/>
             </div>
             <div id="housingrightsbar">

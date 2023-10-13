@@ -1,14 +1,15 @@
-#splashmain {
+.splashmain {
     /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0;
-    height: 520px;
-    background-image: url("https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/assets/homeHero-a74195949baefe336eec1d180ec64942.svg");
+    height: 600px;
+    background-image: url("https://cdn-assets-s3.streeteasy.com/assets/build/media/src/features/home-page-redesign/assets/homeHero-970c6868221982051ce19013e8cb2f14.webp");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    background-position-y: bottom;
     background-color: rgb(33, 59, 79);
 }
 
@@ -43,7 +44,7 @@
 .splashsection {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: teal;
+    /* background-color: teal; */
     display: flex;
     justify-content: center;
     align-items: center;
