@@ -114,8 +114,14 @@
     color: white
 }
 
+.splashbuttonrow {
+    
+}
+
 .splashsub3button {
-    bottom: 40px
+    bottom: 40px;
+    position: absolute;
+
 }
 
 .splashtilefooter {
