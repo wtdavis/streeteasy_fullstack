@@ -1,41 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do 
-    puts 'Destroying Tables'
-
-    User.destroy_all
-
-    puts 'Resetting Primary Keys'
-
-    ApplicationRecord.connection.reset_pk_sequence!('users')
-
-    puts 'Creating Users...'
-
-    
-    User.create!([
-        {email: "demo@demo.com",
-        password: "password"},
-    {
-        email: "monster@monster.com",
-        password: "password"
-        },
-        {
-        email: "john@john.com",
-        password: "password"
-    },
-
-    ])
-
-    Building.destroy_all
-
-    ApplicationRecord.connection.reset_pk_sequence!('buildings')
-
-    Building.create!([
 
         {id: 1,
         location: "40.701534, -73.935887",
@@ -130,17 +92,12 @@ ApplicationRecord.transaction do
         address: "41 Seaver Wy, Queens, NY 11368",
         name: "Citi Field",
         description: "Long gone are the days where treasured cultural landmarks were named for people or teams, like Fenway Park or Yankee Stadium. America is owned by corporations, and nothing reminds us of this more than seeing the New Jersey Redbulls playing in Citi field while drinking a $20 warm Coors. Come drink in the magic of your favorite sports teams in this beautiful modern stadium. Don't forget to grab a chicken bucket!"}
-        ])
     
 
-    puts "done"
 
-    Listing.destroy_all
-    puts "listings destroyed, creating..."
 
-    ApplicationRecord.connection.reset_pk_sequence!('listings')
 
-    Listing.create!([
+  
         
         {location: "40.639035, -73.964566",
         address: "433 Rugby Rd, Brooklyn, NY 11226",
@@ -264,24 +221,8 @@ ApplicationRecord.transaction do
         num_bedrooms: 1,
         borough: "Queens"}
     
-    
-    ])
-
 
     
 
-    # location: "70.0055, -101.112",
-    #     address: "501 Browning St",
-    #     description: "Voted best seat in the city, this luxury public bathroom can be yours at a low cost thanks to the slow decline of the economy.",
-    #     lister_id: 3,
-    #     building_id: 9    #     unit: "0Q",
-    #     rental: true,
-    #     price: 420690,
-    #     num_bedrooms: 1,
-    #     num_baths: 100,
-    #     borough: "Staten Island"
 
-    puts "created listings!"
-    puts "done"
-end
 

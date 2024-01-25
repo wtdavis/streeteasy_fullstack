@@ -6,6 +6,8 @@ function SplashSubSection3 () {
     let a = Math.floor(Math.random() * 45)
     let b = Math.floor(Math.random() * 45)
 
+    
+
     return(
          <>
             <div id="splashsub3" className="splashsection">

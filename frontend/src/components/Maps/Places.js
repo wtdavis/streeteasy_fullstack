@@ -33,10 +33,10 @@ function Places () {
         loader.importLibrary("places").then(res => {setPlaces(res)})
        
        }, [dispatch])
-            
+             
+  
 
-
-
+ 
     // const options = {
     //         key: process.env.REACT_APP_GOOGLE_MAPS_KEY,
     //         location: null,
@@ -52,7 +52,7 @@ function Places () {
     //     setData(data)
     // }
     // ------------------------------
-
+ 
 //     function initMap() {
 // debugger
 //         // var sydney = new maps.LatLng(-33.867, 151.195);
