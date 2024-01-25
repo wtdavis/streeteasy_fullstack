@@ -15,12 +15,15 @@ function SplashSubSection3 () {
                     <SplashTilePets/>
                 </div>
                 <div className="splashbuttonrow">
-                    <div className="splashsub3button">Search {a} Rentals</div>
-                    <div className="splashsub3button">Search {b} Sales</div>
-
+                    <div className="splashsub3button">
+                            <p>SEARCH {a} RENTALS</p>
+                        </div>
+                    <div className="splashsub3button">
+                            <p>SEARCH {b} SALES</p>
+                        </div>
                 </div>
             </div>
-
+ 
   
         </>
     )

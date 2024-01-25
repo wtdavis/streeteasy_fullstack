@@ -5,7 +5,7 @@ import SplashTileSell from "./SplashTiles/SplashTileSell"
 function SplashSubSection1 () {
     return(
          <>
-            <div id="splashsub1" className="splashsection">
+            <div id="splashsub1" className="splashtilerow">
                 {/* <p id="sectiontext">This is a section!</p> */}
                 <SplashTileRent/>
                 <SplashTileBuy/>
