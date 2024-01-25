@@ -27,15 +27,29 @@
         
         location: "40.701534, -73.935887",
         address: "10 Montieth St, Brooklyn, NY 11206",
-        description: ""
-        lister_id: 1,
+        description: "This spacious two-bedroom is for sale in the gorgeous Rheingold building. Overlooking a small park the the south, this apartment comes furnished, having recently been remodeled to update the kitchen, bathrooms, lighting, and appliances."
+        lister_id: 2,
         building_id: 1,
         unit: 8,
-        rental: true,
-        price: 5000,
+        rental: false,
+        price: 3000000,
         num_baths: 2,
         num_bedrooms: 2,
         borough: "Brooklyn"
+
+        location: "40.701534, -73.935887",
+        address: "10 Montieth St, Brooklyn, NY 11206",
+        description: "Find yourself at home in this large 3 bedroom apartment for rent in the luxurious Rhenigold building in the heart of Bushwick. Appointed in white marble and oak, this space has recently been remodeled with new tenants in mind."
+        lister_id: 2,
+        building_id: 1,
+        unit: 6,
+        rental: true,
+        price: 8500,
+        num_baths: 2,
+        num_bedrooms: 3,
+        borough: "Brooklyn"
+
+
 
 
 
@@ -50,6 +64,20 @@
         
         No other building in NYC has as comprehensive an amenity package. Denizen features a swimming pool, outdoor hot tubs, three-lane bowling alley, brewery and chef's kitchen, fitness rooms including boxing, spinning, and yoga studios as well as a rock-climbing wall, game room, arcade, children's playroom, and conference room. The expansive rooftops include grilling areas, mini golf, and a dog run. Parking and bike storage are also available."},
         
+        location: "40.700686, -73.933763",
+        address: "54 Noll St, Brooklyn, NY 11206",
+        description: "This bright, open-plan apartment is perfect for the young-professional family. "
+        lister_id: 2,
+        building_id: 2,
+        unit: "4A",
+        rental: true,
+        price: 8500,
+        num_baths: 2,
+        num_bedrooms: 3,
+        borough: "Brooklyn"
+
+
+
         {
         id: 4,
         location: "40.699439, -73.933427",
