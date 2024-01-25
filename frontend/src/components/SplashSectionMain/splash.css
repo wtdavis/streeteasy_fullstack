@@ -76,6 +76,15 @@
     border-top: 2px rgb(11, 140, 215) solid
 }
 
+.splashtilerow {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .splashtiletitle {
     font-size: 25px;
     /* padding-top: 10px; */
@@ -103,6 +112,10 @@
     background-color: var(--midblue);
     font-weight: bolder;
     color: white
+}
+
+.splashsub3button {
+    bottom: 40px
 }
 
 .splashtilefooter {
@@ -193,15 +206,28 @@
 .splashtilefootersmall {
     height: 50px;
     width: 100%;
-    background-color: black;
+    background-color: slategray;
     position: relative;
     top: -5px;
-    display: flex
+    display: flex;
+    align-items: center;
+
 }
 
 .splashtilecheckbox {
-    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background-color: white;
+    margin: 16px;
+    transition-duration: .3s;
 }
+
+.splashtilecheckbox:checked {
+    background-color: blue;
+    border: 2px solid white
+}
+
 
 .splashtilelarge {
     display: block;
@@ -210,5 +236,5 @@
 }
 
 .footersmalltext {
-   margin: 15px 0px 0px 15px
+    font-size: 18px
 }

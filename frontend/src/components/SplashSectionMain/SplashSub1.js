@@ -10,7 +10,6 @@ function SplashSubSection1 () {
                 <SplashTileRent/>
                 <SplashTileBuy/>
                 <SplashTileSell/>
-
             </div>
             
         </>
