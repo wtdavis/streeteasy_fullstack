@@ -13,6 +13,32 @@
         
         Getting around Brooklyn or into Manhattan is a breeze with the variety of convenient transportation options. Ditch those L train blues with the J/M/Z trains just minutes away at the Myrtle Avenue station. The L train at Morgan Avenue is less than half mile away, the B57 bus stop is right around the corner and there is a Citi Bike station just a few blocks away."},
         
+        location: "40.701534, -73.935887",
+        address: "10 Montieth St, Brooklyn, NY 11206",
+        description: "This penthouse apartment offers the luxury of the recently constructed Rheingold and the best views available in this part of Brooklyn. Packed with Amenities, you may never need to leave the building!"
+        lister_id: 1,
+        building_id: 1,
+        unit: 10,
+        rental: true,
+        price: 5500,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
+        
+        location: "40.701534, -73.935887",
+        address: "10 Montieth St, Brooklyn, NY 11206",
+        description: ""
+        lister_id: 1,
+        building_id: 1,
+        unit: 8,
+        rental: true,
+        price: 5000,
+        num_baths: 2,
+        num_bedrooms: 2,
+        borough: "Brooklyn"
+
+
+
         {
         id: 2,
         location: "40.700686, -73.933763",
