@@ -66,8 +66,8 @@
         
         location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
-        description: "This bright, open-plan apartment is perfect for the young-professional family. "
-        lister_id: 2,
+        description: "This bright, open-plan apartment is perfect for the young-professional family. Featuring a jacuzzi tub and recessed lighting, this spacious home comes fully furnished and is move-in ready!"
+        lister_id: 3,
         building_id: 2,
         unit: "4A",
         rental: true,
@@ -75,10 +75,21 @@
         num_baths: 2,
         num_bedrooms: 3,
         borough: "Brooklyn"
-
-
-
+ 
+        location: "40.700686, -73.933763",
+        address: "54 Noll St, Brooklyn, NY 11206",
+        description: "This large single-bedroom/loft is perfect for the aspiring young professional. Boasting 12' cielings, a jacuzzi, and a full marble kitchen, find yourself at home in this beautiful space."
+        lister_id: 3,
+        building_id: 2,
+        unit: "7G",
+        rental: true,
+        price: 7600,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
+ 
         {
+                
         id: 4,
         location: "40.699439, -73.933427",
         address: "123 Melrose St, Brooklyn, NY 11206",

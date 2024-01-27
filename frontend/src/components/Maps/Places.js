@@ -85,13 +85,13 @@ function Places () {
     
      function findPlace () {
 
-        debugger
-
-        let placesService
-        let myRequest =  {query: inputText, fields: ['formatted_address', 'geometry'] }
-
-        placesService = new places.PlacesService(document.createElement('p'))
-        placesService.findPlaceFromQuery(myRequest, myCallback)        
+         
+         let placesService
+         let myRequest =  {query: inputText, fields: ['formatted_address', 'geometry'] }
+         
+         placesService = new places.PlacesService(document.createElement('p'))
+         placesService.findPlaceFromQuery(myRequest, myCallback)        
+         debugger
     }
         
     
@@ -103,7 +103,6 @@ function Places () {
 
     const fetchPlace = () => {
         let myRequest = {...request, query: inputText}
-        debugger
         fetchPlaceInfo(myRequest)
     }
 
