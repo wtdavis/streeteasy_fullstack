@@ -79,7 +79,7 @@
         location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
         description: "This large single-bedroom apartment is perfect for the aspiring young professional. Boasting 12' ceilings, a jacuzzi, and a full marble kitchen, find yourself at home in this beautiful space."
-        lister_id: 3,
+        lister_id: 1,
         building_id: 2,
         unit: "7G",
         rental: true,
@@ -87,24 +87,62 @@
         num_baths: 1,
         num_bedrooms: 1,
         borough: "Brooklyn"
+
+        location: "40.700686, -73.933763",
+        address: "54 Noll St, Brooklyn, NY 11206",
+        description: "This windowless basement apartment is haunted by no fewer than 13 ghosts, and the apartment number randomly changes. Something nice to discuss with your therapist!"
+        lister_id: 1,
+        building_id: 2,
+        unit: "666",
+        rental: true,
+        price: 6600,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
  
         {
 
 
-        
+
+                
+                
+                
+                
+                
+                id: 4,
+                location: "40.699439, -73.933427",
+                address: "123 Melrose St, Brooklyn, NY 11206",
+                name: "123 Melrose Street",
+                description: "From the moment you enter, Denizen is an exuberant breath of fresh air. Its lobby creates a rich atmosphere with eye-catching art, innovative architecture, and layered vistas of the parks, retail, and recreational environments at your disposal. Spanning two city blocks, this pair of eight-story buildings is a 911-hundred-unit rental community that transcends far beyond the definition of an apartment complex. It is bisected by a picturesque public park and has an abundant variety of upscale amenities and perks.
+                
+                The interior design of apartments at Denizen varies, allowing for diverse spaces that create a sense of both local and international style. An elegant array of finishes makes each space feel bold and original. The unparalleled views of the Manhattan skyline and neighboring Brooklyn are expansive and bright. Units feature contemporary amenities such as stainless-steel appliances, central air, Bluetooth capabilities, in-unit washer/dryers, and in some cases a balcony or terrace.
+                
+                No other building in NYC has as comprehensive an amenity package. Denizen features a swimming pool, outdoor hot tubs, three-lane bowling alley, brewery and chefs kitchen, fitness rooms including boxing, spinning, and yoga studios as well as a rock-climbing wall, game room, arcade, childrens playroom, and conference room. The expansive rooftops include grilling areas, mini golf, and a dog run. Parking and bike storage are also available."
+
+
+ 
+
+                location: "40.699439, -73.933427",
+                address: "123 Melrose St, Brooklyn, NY 11206",
+                description: "This spacious two bedroom apartment, currently owned by an undisclosed A-list film star, can be yours now. Fully furnished and recently remodeled, the space will feel like home the moment step inside."
+                lister_id: 1,
+                building_id: 4,
+                unit: "11",
+                rental: true,
+                price: 9100000,
+                num_baths: 1,
+                num_bedrooms: 2,
+                borough: "Brooklyn"
+
+
+
+
+
+
 
 
 
                 
-        id: 4,
-        location: "40.699439, -73.933427",
-        address: "123 Melrose St, Brooklyn, NY 11206",
-        name: "123 Melrose Street",
-        description: "From the moment you enter, Denizen is an exuberant breath of fresh air. Its lobby creates a rich atmosphere with eye-catching art, innovative architecture, and layered vistas of the parks, retail, and recreational environments at your disposal. Spanning two city blocks, this pair of eight-story buildings is a 911-hundred-unit rental community that transcends far beyond the definition of an apartment complex. It is bisected by a picturesque public park and has an abundant variety of upscale amenities and perks.
-        
-        The interior design of apartments at Denizen varies, allowing for diverse spaces that create a sense of both local and international style. An elegant array of finishes makes each space feel bold and original. The unparalleled views of the Manhattan skyline and neighboring Brooklyn are expansive and bright. Units feature contemporary amenities such as stainless-steel appliances, central air, Bluetooth capabilities, in-unit washer/dryers, and in some cases a balcony or terrace.
-        
-        No other building in NYC has as comprehensive an amenity package. Denizen features a swimming pool, outdoor hot tubs, three-lane bowling alley, brewery and chefs kitchen, fitness rooms including boxing, spinning, and yoga studios as well as a rock-climbing wall, game room, arcade, childrens playroom, and conference room. The expansive rooftops include grilling areas, mini golf, and a dog run. Parking and bike storage are also available."},
         
         {id: 5,
         location: "40.738349, -73.973471",
