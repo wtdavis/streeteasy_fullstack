@@ -78,7 +78,7 @@
  
         location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
-        description: "This large single-bedroom/loft is perfect for the aspiring young professional. Boasting 12' cielings, a jacuzzi, and a full marble kitchen, find yourself at home in this beautiful space."
+        description: "This large single-bedroom apartment is perfect for the aspiring young professional. Boasting 12' ceilings, a jacuzzi, and a full marble kitchen, find yourself at home in this beautiful space."
         lister_id: 3,
         building_id: 2,
         unit: "7G",

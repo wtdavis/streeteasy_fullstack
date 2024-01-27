@@ -23,7 +23,7 @@ export const fetchPlaceInfo = async (query) => {
     // queryString = queryString.concat(`query=${URLize(query.query)}&`)
     // queryString = queryString.concat(`fields=${URLize(query.fields)}&`)
     // queryString = queryString.concat(`key=${URLize(query.key)}`)
-    debugger    
+    debugger
     let res = await fetch(`/api/places/${queryString}`)
     
 }
