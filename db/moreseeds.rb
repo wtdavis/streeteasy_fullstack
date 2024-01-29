@@ -163,7 +163,7 @@
                 num_bedrooms: 1,
                 borough: "Brooklyn"
 
-                
+
                 
         
         {id: 5,
@@ -175,6 +175,19 @@
         
         Waterside is in Midtown East in the center of Manhattan. Offering spacious Studio, 1-, 2-, and 3-bedroom apartments, many with amazing city or water views. Nearby are NYC's best restaurants, shopping, and entertainment options. Waterside is also minutes from Union Square giving you easy access to all of New York City."},
         
+        location: "40.738349, -73.973471",
+        address: "30 Waterside Plaza, New York, NY 10010",
+        description: ""
+        lister_id: 1,
+        building_id: 5,
+        unit: "0",
+        rental: true,
+        price: 8400,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
+
+
         {id: 6,
         location: "40.753593, -74.003564",
         address: "15 Hudson Yards, New York, NY 100001",
