@@ -129,7 +129,7 @@
                 building_id: 4,
                 unit: "11",
                 rental: true,
-                price: 9100000,
+                price: 11000,
                 num_baths: 1,
                 num_bedrooms: 2,
                 borough: "Brooklyn"
@@ -137,11 +137,33 @@
 
 
 
+                location: "40.699439, -73.933427",
+                address: "123 Melrose St, Brooklyn, NY 11206",
+                description: "This enormous penthouse apartment can be yours to own. From the heart of Brooklyn, your rooftop patio breakfast nook overlooks downtown, the river, and the financial district, and boasts floor to cieling glass and all-marble floors."
+                lister_id: 1,
+                building_id: 4,
+                unit: "P",
+                rental: false,
+                price: 9100000,
+                num_baths: 2,
+                num_bedrooms: 3,
+                borough: "Brooklyn"
 
 
 
+                location: "40.699439, -73.933427",
+                address: "123 Melrose St, Brooklyn, NY 11206",
+                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of toxic Gaspartius mold. Wear a mask!"
+                lister_id: 1,
+                building_id: 4,
+                unit: "0",
+                rental: true,
+                price: 9900,
+                num_baths: 1,
+                num_bedrooms: 1,
+                borough: "Brooklyn"
 
-
+                
                 
         
         {id: 5,
