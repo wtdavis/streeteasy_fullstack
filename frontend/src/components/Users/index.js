@@ -52,7 +52,6 @@ function UserShow () {
         handleChangeMargin(3)
     }, [dispatch])
 
-    debugger
 
     return (
         <div className="profilepage"> 

@@ -139,8 +139,12 @@ function DropDown (props) {
         return (
             <div id="dropdown">
                 <div className="dropdowncontentcontainer">
-                    <p onClick={e => handleSellButton()}>Sell your house or apartment</p>
-                    <p onClick={e => handleExpertButton()}>First time seller? Talk to our experts!</p>
+                    <div className="dropdownbutton" onClick={e => handleSellButton()}>
+                        <p >Sell your house or apartment</p>
+                    </div>
+                    <div className="dropdownbutton" onClick={e => handleExpertButton()}>
+                        <p >First time seller? Talk to our experts!</p>
+                    </div>
                 </div>
             </div>
         )
