@@ -26,7 +26,6 @@ function UserShow () {
 
     const myListings = Object.values(listings).filter(listing => listing.listerId === currentUser.id)
 
-    debugger
 
     const deleteUser = async () => {
         let res = await csrfFetch(`api/users/${currentUser.id}`, {method: 'DELETE'})

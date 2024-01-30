@@ -1,10 +1,12 @@
 
 .listingformpage {
     display: flex;
-    /* width: 50%; */
+    position: fixed;
+    z-index: 201;
+    top: 120px;
+    width: 50%;
     /* margin-left: 15%; */
     box-sizing: border-box;
-    position: relative
 }
 
 .listingform {
@@ -69,7 +71,6 @@
 
 .listingformdisplay {
     display: block;
-    position: fixed;
     width: 50%;
     margin-left: 22%;
     z-index: 100

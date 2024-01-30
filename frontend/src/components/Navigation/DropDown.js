@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { fetchSearchResults } from "../../store/search"
+import { addCredentialModal } from "../../store/modal"
 
 function DropDown (props) {
     const dispatch = useDispatch()
@@ -105,10 +106,9 @@ function DropDown (props) {
 
     const handleSellButton = () => {
         if (currentUser) {
-            debugger
             history.push("/profile")
         } else {
-            
+            dispatch(addCredentialModal())
         }
     }
 
