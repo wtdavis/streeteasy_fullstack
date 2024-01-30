@@ -153,27 +153,16 @@
 
                 location: "40.699439, -73.933427",
                 address: "123 Melrose St, Brooklyn, NY 11206",
-                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of the toxic deBlasius strain of mold. Wear a mask!"
+                description: "This elegant apartment is the perfect home for the ambitious young professional. Let the address elevate your reputation while this modern home and luxury building elevate your wellbeing."
                 lister_id: 1,
                 building_id: 4,
-                unit: "0",
+                unit: "",
                 rental: true,
-                price: 9900,
+                price: 8700,
                 num_baths: 1,
                 num_bedrooms: 1,
                 borough: "Brooklyn"
 
-                location: "40.699439, -73.933427",
-                address: "123 Melrose St, Brooklyn, NY 11206",
-                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of the toxic deBlasius strain of mold. Wear a mask!"
-                lister_id: 1,
-                building_id: 4,
-                unit: "0",
-                rental: true,
-                price: 9900,
-                num_baths: 1,
-                num_bedrooms: 1,
-                borough: "Brooklyn"
                 
         
         {id: 5,
@@ -198,6 +187,32 @@
         borough: "Brooklyn"
 
 
+        location: "40.738349, -73.973471",
+        address: "30 Waterside Plaza, New York, NY 10010",
+        description: "In the luxury building nestled in the heart of Brooklyn, in this elegant 3 bedroom home, you will know only peace and quiet. Any amenity not in the unit is available in the building, such that you hardly need to leave."
+        lister_id: 1,
+        building_id: 5,
+        unit: "14",
+        rental: true,
+        price: 12500,
+        num_baths: 2,
+        num_bedrooms: 3,
+        borough: "Brooklyn"
+
+
+        location: "40.738349, -73.973471",
+        address: "30 Waterside Plaza, New York, NY 10010",
+        description: ""
+        lister_id: 1,
+        building_id: 5,
+        unit: "21",
+        rental: true,
+        price: 8400,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
+
+
         {id: 6,
         location: "40.753593, -74.003564",
         address: "15 Hudson Yards, New York, NY 100001",
@@ -210,6 +225,10 @@
         
         The complete offering terms are in an offering plan available from sponsor. File No. CD15-0325. Sponsor: ERY South Residential Tower L.L.C., c/o The Related Companies, L.P., 60 Columbus Circle, New York, New York 10023. Sponsor reserves the right to make changes in accordance with the terms of the Offering Plan. Equal Housing Opportunity."},
         
+
+
+
+
         {id: 7,
         location: "40.707219, -74.012113",
         address: "1 Wall St, New York, NY 10005",
