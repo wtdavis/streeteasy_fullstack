@@ -153,7 +153,7 @@
 
                 location: "40.699439, -73.933427",
                 address: "123 Melrose St, Brooklyn, NY 11206",
-                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of toxic Gaspartius mold. Wear a mask!"
+                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of the toxic deBlasius strain of mold. Wear a mask!"
                 lister_id: 1,
                 building_id: 4,
                 unit: "0",
@@ -163,7 +163,17 @@
                 num_bedrooms: 1,
                 borough: "Brooklyn"
 
-
+                location: "40.699439, -73.933427",
+                address: "123 Melrose St, Brooklyn, NY 11206",
+                description: "The basement! The birthplace of tetanus, this humble living space is also home to New York State's largest colony of the toxic deBlasius strain of mold. Wear a mask!"
+                lister_id: 1,
+                building_id: 4,
+                unit: "0",
+                rental: true,
+                price: 9900,
+                num_baths: 1,
+                num_bedrooms: 1,
+                borough: "Brooklyn"
                 
         
         {id: 5,
@@ -177,10 +187,10 @@
         
         location: "40.738349, -73.973471",
         address: "30 Waterside Plaza, New York, NY 10010",
-        description: ""
+        description: "If you have never lived in a luxury rental, this apartment will make you wonder why. Smart home integration, polished marble, and floor to cieling windows overlooking the East River complement the amenities offered in the building's common areas."
         lister_id: 1,
         building_id: 5,
-        unit: "0",
+        unit: "21",
         rental: true,
         price: 8400,
         num_baths: 1,
