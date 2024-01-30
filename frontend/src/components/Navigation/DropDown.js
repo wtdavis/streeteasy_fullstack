@@ -138,12 +138,12 @@ function DropDown (props) {
     case "sell":
         return (
             <div id="dropdown">
-                <div className="dropdowncontentcontainer">
+                <div className="dropdownbuttoncontainer">
                     <div className="dropdownbutton" onClick={e => handleSellButton()}>
-                        <p >Sell your house or apartment</p>
+                        <p className="dropdownbuttontext" >Sell your house or apartment</p>
                     </div>
                     <div className="dropdownbutton" onClick={e => handleExpertButton()}>
-                        <p >First time seller? Talk to our experts!</p>
+                        <p className="dropdownbuttontext" >First time seller? Talk to our experts!</p>
                     </div>
                 </div>
             </div>

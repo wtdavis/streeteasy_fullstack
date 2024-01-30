@@ -47,8 +47,16 @@
 }
 
 .dropdownbutton {
-    background-color: blue;
+    background-color: var(--lightblue);
     width: 120px;
     height: 40px;
+}
 
+.dropdownbuttontext {
+    font-size: 12px;
+}
+
+.dropdownbuttoncontainer {
+    display: flex;
+    flex-direction: column;
 }
