@@ -107,6 +107,8 @@ function DropDown (props) {
         if (currentUser) {
             debugger
             history.push("/profile")
+        } else {
+            
         }
     }
 
