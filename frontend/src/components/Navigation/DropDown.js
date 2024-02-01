@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { fetchSearchResults } from "../../store/search"
 import { addCredentialModal } from "../../store/modal"
+import * as buildingsActions from "../../store/buildings"
 
 function DropDown (props) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [rent, setRent] = useState(true) 
+    const [rent, setRent] = useState(true)
+    const buildings = useSelector(state => state.buildings)
     const hoverValue = useSelector(state => state.modal.hover)
     const currentUser = useSelector(state => state.session.user)
     // useEffect(() => { 
@@ -19,6 +21,10 @@ function DropDown (props) {
     //         setRent(true)   
     //     }
     //     },[props])
+    useEffect(() => {
+        dispatch(buildingsActions.fetchBuildings())
+        debugger
+    }, [])
 
     useEffect(()=> {
         switch(hoverValue) {
@@ -31,7 +37,7 @@ function DropDown (props) {
         } 
     }, [hoverValue])
 
-    
+
 
 
 
@@ -114,6 +120,8 @@ function DropDown (props) {
     }
 
 
+    const buldingsList = buildings 
+    debugger
     switch (hoverValue) {
         case "buy":
         case "rent":
@@ -154,7 +162,11 @@ function DropDown (props) {
         return (
             <div id="dropdown">
                 <div className="buildingslistcontainer">
-
+                    <ul className="buildingsList">
+                        {buildings.map(building => {
+                            <li key={building.id} className="buildingListItem">building</li>
+                        })}
+                    </ul>
                 </div>
             </div>
         )

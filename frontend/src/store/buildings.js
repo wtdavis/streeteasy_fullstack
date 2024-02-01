@@ -25,10 +25,13 @@ export const removeBuilding = (buildingId) => {
     }
 }
 
-export const fetchBuildings = async (dispatch) => {
-    let res = csrfFetch('/api/buildings')
-    let data = await res
-
+export const fetchBuildings = () => async (dispatch) => {
+    let res = await csrfFetch('/api/buildings')
+    debugger
+    let data = await res.json()
+    debugger
+    dispatch(addBuildings(data))
+    debugger
 
 }
 
