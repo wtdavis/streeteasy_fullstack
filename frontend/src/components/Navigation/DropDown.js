@@ -27,10 +27,11 @@ function DropDown (props) {
             case "rent":
                 return setRent(true)
             default:
-                return setRent(true)
-        }
+                return setRent(false)
+        } 
     }, [hoverValue])
 
+    
 
 
 
@@ -147,9 +148,18 @@ function DropDown (props) {
                     </div>
                 </div>
             </div>
+        );
+
+    case "buildings":
+        return (
+            <div id="dropdown">
+                <div className="buildingslistcontainer">
+
+                </div>
+            </div>
         )
 }
 
 }
 
-export default DropDown
+export default DropDown 
