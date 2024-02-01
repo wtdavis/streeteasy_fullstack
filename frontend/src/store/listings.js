@@ -125,7 +125,6 @@ export const createListing = (formData) => async (dispatch) => {
         dispatch(addListingsErrors(data.errors))
         return data
     } 
-    
 }
 
 export const deleteListing = (listingId) => async (dispatch) => {
