@@ -27,11 +27,8 @@ export const removeBuilding = (buildingId) => {
 
 export const fetchBuildings = () => async (dispatch) => {
     let res = await csrfFetch('/api/buildings')
-    debugger
-    let data = await res.json()
-    debugger
+    let data = await res.json()    
     dispatch(addBuildings(data))
-    debugger
 
 }
 

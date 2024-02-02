@@ -23,8 +23,7 @@ function DropDown (props) {
     //     },[props])
     useEffect(() => {
         dispatch(buildingsActions.fetchBuildings())
-        debugger
-    }, [])
+    }, [dispatch])
 
     useEffect(()=> {
         switch(hoverValue) {

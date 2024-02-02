@@ -15,8 +15,8 @@ modal: modalReducer,
 listings: listingsReducer,
 favorites: favoritesReducer,
 search: searchReducer,
-errors: errorsReducer
-// buildings: buildingsReducer
+errors: errorsReducer,
+buildings: buildingsReducer
 })
 
 let enhancer;
