@@ -36,7 +36,7 @@ const initialState = {}
 const buildingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_BUILDINGS:
-            return action.payload;
+            return action.payload.buildings;
         case ADD_BUILDING:
             const building = action.payload.building
             return {...state, [building.id]: building};

@@ -47,7 +47,6 @@
 }
 
 .dropdownbutton {
-    background-color: var(--lightblue);
     width: 120px;
     height: 40px;
 }
@@ -59,4 +58,32 @@
 .dropdownbuttoncontainer {
     display: flex;
     flex-direction: column;
+}
+
+.buildingsList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-size: 12px;
+    position: relative;
+    left: 161px;
+    margin-top: 12px;
+}
+
+li.buildingsListItem {
+    margin-top: 5px
+}
+
+.dropdownsellcontainer {
+    padding-top: 0;
+    margin-top: 20px;
+    position: relative;
+    left: 108px;
+}
+
+.dropdownmouseoverbutton:hover {
+    background-color: var(--lightsmoke);
 }

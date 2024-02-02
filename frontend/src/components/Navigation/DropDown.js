@@ -131,13 +131,13 @@ function DropDown (props) {
                         <div className="dropdownboroughlistcontainer">
                             <p className="dropdownboroughlistheader" >Boroughs:</p>
                             <ul className="dropdownboroughlist">
-                                {boroughList.map(borough => {return <li className="dropdownboroughlistitem" onClick={e => handleNavSearch(borough)}> {borough}</li>})}
+                                {boroughList.map(borough => {return <li className="dropdownboroughlistitem dropdownmouseoverbutton" onClick={e => handleNavSearch(borough)}> {borough}</li>})}
                             </ul>
                         </div>
                         <div className="dropdownneighborhoodlistcontainer">
                         <p className="dropdownneighborhoodlistheader" >Popular Neighborhoods:</p>
                         <ul className="dropdownneighborhoodlist">
-                            {neighborhoodSlice.map(neighborhood => {return <li className="dropdownneighborhoodlistitem" onClick={e => handleNavSearch(neighborhood)}>{neighborhood}</li>})}
+                            {neighborhoodSlice.map(neighborhood => {return <li className="dropdownneighborhoodlistitem dropdownmouseoverbutton" onClick={e => handleNavSearch(neighborhood)}>{neighborhood}</li>})}
                         </ul>
                         </div>
                 </div>
@@ -146,11 +146,11 @@ function DropDown (props) {
     case "sell":
         return (
             <div id="dropdown">
-                <div className="dropdownbuttoncontainer">
-                    <div className="dropdownbutton" onClick={e => handleSellButton()}>
+                <div className="dropdownsellcontainer">
+                    <div className="dropdownbutton dropdownmouseoverbutton" onClick={e => handleSellButton()}>
                         <p className="dropdownbuttontext" >Sell your house or apartment</p>
                     </div>
-                    <div className="dropdownbutton" onClick={e => handleExpertButton()}>
+                    <div className="dropdownbutton dropdownmouseoverbutton" onClick={e => handleExpertButton()}>
                         <p className="dropdownbuttontext" >First time seller? Talk to our experts!</p>
                     </div>
                 </div>
@@ -158,12 +158,14 @@ function DropDown (props) {
         );
 
     case "buildings":
+        debugger
         return (
             <div id="dropdown">
                 <div className="buildingslistcontainer">
                     <ul className="buildingsList">
-                        {buildings.map(building => {
-                            <li key={building.id} className="buildingListItem">building</li>
+                        {buildings.map(building => { return (
+                            <li key={building.id} className="buildingsListItem dropdownmouseoverbutton" onClick={e => handleBuildingsButton(building.id)}>{building.name}</li>
+                        )
                         })}
                     </ul>
                 </div>
