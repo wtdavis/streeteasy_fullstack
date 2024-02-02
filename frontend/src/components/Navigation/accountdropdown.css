@@ -74,7 +74,9 @@
 }
 
 li.buildingsListItem {
-    margin-top: 5px
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .dropdownsellcontainer {
@@ -82,6 +84,8 @@ li.buildingsListItem {
     margin-top: 20px;
     position: relative;
     left: 108px;
+    font-weight: bold;
+    font-size: 14px
 }
 
 .dropdownmouseoverbutton:hover {
