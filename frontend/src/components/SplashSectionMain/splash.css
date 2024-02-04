@@ -116,7 +116,8 @@
     /* margin: auto; */
     background-color: var(--midblue);
     font-weight: bolder;
-    color: white
+    color: white;
+    cursor: pointer
 }
 
 .splashbuttonrow {
@@ -219,6 +220,7 @@
     /* margin: auto; */
     background-color: var(--midblue);
     margin-top: 30px;
+    cursor: pointer
 }
 #minitilebuttontext {
     padding: 13px 30px 13px 30px 
@@ -236,6 +238,7 @@
     top: -5px;
     display: flex;
     align-items: center;
+    cursor: pointer
 
 }
 
@@ -263,3 +266,8 @@
 .footersmalltext {
     font-size: 18px
 }
+
+.splashsub3button {
+    cursor: pointer
+}
+

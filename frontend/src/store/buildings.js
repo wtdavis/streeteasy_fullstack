@@ -29,7 +29,6 @@ export const fetchBuildings = () => async (dispatch) => {
     let res = await csrfFetch('/api/buildings')
     let data = await res.json()    
     dispatch(addBuildings(data))
-
 }
 
 const initialState = {}
