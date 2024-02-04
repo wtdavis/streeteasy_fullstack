@@ -49,6 +49,7 @@
 .dropdownbutton {
     width: 120px;
     height: 40px;
+    cursor: pointer;
 }
 
 .dropdownbuttontext {
@@ -91,3 +92,8 @@ li.buildingsListItem {
 .dropdownmouseoverbutton:hover {
     background-color: var(--lightsmoke);
 }
+
+.buildingListItem {
+    cursor: pointer;
+}
+
