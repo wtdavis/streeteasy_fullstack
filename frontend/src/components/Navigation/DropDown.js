@@ -119,7 +119,7 @@ function DropDown (props) {
     }
 
     const handleBuildingsButton = () => {
-        dispatch(fetchSearchResults)
+        dispatch(fetchSearchResults())
     }
 
 
