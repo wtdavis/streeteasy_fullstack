@@ -118,6 +118,10 @@ function DropDown (props) {
         }
     }
 
+    const handleBuildingsButton = () => {
+
+    }
+
 
     const buldingsList = buildings 
     debugger
@@ -129,13 +133,13 @@ function DropDown (props) {
                 <div id="dropdown">
                     <div className="dropdowncontentcontainer" >
                         <div className="dropdownboroughlistcontainer">
-                            <p className="dropdownboroughlistheader" >Boroughs:</p>
+                            <p className="dropdownboroughlistheader">Boroughs:</p>
                             <ul className="dropdownboroughlist">
                                 {boroughList.map(borough => {return <li className="dropdownboroughlistitem dropdownmouseoverbutton" onClick={e => handleNavSearch(borough)}> {borough}</li>})}
                             </ul>
                         </div>
                         <div className="dropdownneighborhoodlistcontainer">
-                        <p className="dropdownneighborhoodlistheader" >Popular Neighborhoods:</p>
+                        <p className="dropdownneighborhoodlistheader">Popular Neighborhoods:</p>
                         <ul className="dropdownneighborhoodlist">
                             {neighborhoodSlice.map(neighborhood => {return <li className="dropdownneighborhoodlistitem dropdownmouseoverbutton" onClick={e => handleNavSearch(neighborhood)}>{neighborhood}</li>})}
                         </ul>
