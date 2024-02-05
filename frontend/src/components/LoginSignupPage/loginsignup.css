@@ -22,6 +22,7 @@ p {margin: 0}
 
 
 .loginmodal {
+    color: black;
     position: fixed;
     top: 100px;
     left: 40%;
@@ -30,7 +31,7 @@ p {margin: 0}
     flex-direction: column;
     height: 400px;
     width: 300px;
-    background-color: var(--whitesmoke);
+    background-color: var(--lightsmoke);
     align-items: center;
     justify-content:space-evenly;
     padding: 30px;
