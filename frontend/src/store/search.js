@@ -30,6 +30,7 @@ export const fetchBuildingSearchResults = (query) => async (dispatch) => {
 
     const res = await fetch(`/api/listings/building_search?q=${encodedQuery}`)
     const searchResults = await res.json()
+    debugger
     dispatch(receiveSearchResults(searchResults.listings))
     return searchResults
 }

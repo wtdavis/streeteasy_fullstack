@@ -73,7 +73,7 @@ export const clearCurrentListing = () => {
 }
 
 export const fetchListing = (id) => async (dispatch) => { 
-    debugger
+    // debugger
     let res = await csrfFetch(`/api/listings/${id}`)
     let data = await res.json()
     if (data) {

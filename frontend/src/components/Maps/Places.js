@@ -91,12 +91,12 @@ function Places () {
          
          placesService = new places.PlacesService(document.createElement('p'))
          placesService.findPlaceFromQuery(myRequest, myCallback)        
-         debugger
+        //  debugger
     }
         
     
     const myCallback = (results, status) => {
-        debugger
+        // debugger
         console.log(results)
         console.log(status)   
     }

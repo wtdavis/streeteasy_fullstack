@@ -16,7 +16,7 @@ function Search () {
     const [rent, setRent] = useState(true)
 
     const toggleRent = (value) => {
-        debugger
+        // debugger
         if (value===true || value===false) {
             setRent(value)
         } else {

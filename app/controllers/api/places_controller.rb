@@ -11,7 +11,6 @@ class Api::PlacesController < ApplicationController
         
         query_string = URI(`https://maps.googleapis.com/maps/api/place/textsearch/json?&query=#{@query["query"]}&fields=#{}&key=#{@query["key"]}`)
         Net::HTTP.get(query_string)
-        debugger
     end
 
 end

@@ -9,7 +9,7 @@ function ListingList () {
     
     const dispatch = useDispatch()
     const listings = useSelector(state => Object.values(state.search))
-    debugger
+    // debugger
     const favorites = useSelector(state => state.favorites)
     const currentUser = useSelector(state => state.session.user)
 

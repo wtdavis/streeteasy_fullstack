@@ -126,7 +126,7 @@ function DropDown (props) {
 
 
     const buldingsList = buildings 
-    debugger
+    // debugger
     switch (hoverValue) {
         case "buy":
         case "rent":
@@ -164,7 +164,7 @@ function DropDown (props) {
         );
 
     case "buildings":
-        debugger
+        // debugger
         return (
             <div id="dropdown">
                 <div className="buildingslistcontainer">
