@@ -27,7 +27,7 @@ export const fetchBuildingSearchResults = (query) => async (dispatch) => {
     dispatch(clearSearchResults());
     let jsonQuery = JSON.stringify(query)
     let encodedQuery = encodeURIComponent(jsonQuery)
-
+debugger
     const res = await fetch(`/api/listings/building_search?q=${encodedQuery}`)
     const searchResults = await res.json()
     debugger
