@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { fetchSearchResults } from "../../store/search"
+import { fetchBuildingSearchResults } from "../../store/search"
 import { addCredentialModal } from "../../store/modal"
 import * as buildingsActions from "../../store/buildings"
 
@@ -118,8 +119,9 @@ function DropDown (props) {
         }
     }
 
-    const handleBuildingsButton = () => {
-        dispatch(fetchSearchResults())
+    const handleBuildingsButton = (buildingId) => {
+        dispatch(fetchBuildingSearchResults({building: buildingId}))
+        history.push("/listings")
     }
 
 

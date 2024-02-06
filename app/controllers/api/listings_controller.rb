@@ -47,6 +47,11 @@ class Api::ListingsController < ApplicationController
     render :search
   end
 
+  def building_search
+    parsed_params = JSON.parse(params[:q])
+    @listings = Listing.where("lower(building) LIKE :building")
+  end
+
   
   private
 

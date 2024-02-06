@@ -14,14 +14,22 @@ export const clearSearchResults = () => {
 
 export const fetchSearchResults = (query) => async (dispatch) => {
     dispatch(clearSearchResults())
-    
     let jsonQuery = JSON.stringify(query)
     let encodedQuery = encodeURIComponent(jsonQuery)
-    debugger
     const res = await fetch(`/api/listings/search?q=${encodedQuery}` );
 
     const searchResults = await res.json()
-debugger
+    dispatch(receiveSearchResults(searchResults.listings))
+    return searchResults
+}
+
+export const fetchBuildingSearchResults = (query) => async (dispatch) => {
+    dispatch(clearSearchResults());
+    let jsonQuery = JSON.stringify(query)
+    let encodedQuery = encodeURIComponent(jsonQuery)
+
+    const res = await fetch(`/api/listings/building_search?q=${encodedQuery}`)
+    const searchResults = await res.json()
     dispatch(receiveSearchResults(searchResults.listings))
     return searchResults
 }
