@@ -14,6 +14,11 @@ export const clearSearchResults = () => {
 
 export const fetchSearchResults = (query) => async (dispatch) => {
     dispatch(clearSearchResults())
+    let queryObj = {...query};
+    debugger
+    queryObj.minPrice ||= 0;
+    queryObj.maxPrice ||= 100000000000;
+    
     let jsonQuery = JSON.stringify(query)
     let encodedQuery = encodeURIComponent(jsonQuery)
     const res = await fetch(`/api/listings/search?q=${encodedQuery}` );
@@ -27,10 +32,8 @@ export const fetchBuildingSearchResults = (query) => async (dispatch) => {
     dispatch(clearSearchResults());
     let jsonQuery = JSON.stringify(query)
     let encodedQuery = encodeURIComponent(jsonQuery)
-debugger
     const res = await fetch(`/api/listings/building_search?q=${encodedQuery}`)
     const searchResults = await res.json()
-    debugger
     dispatch(receiveSearchResults(searchResults.listings))
     return searchResults
 }
