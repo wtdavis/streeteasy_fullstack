@@ -3,7 +3,7 @@ import SplashTileDoorman from "./SplashTiles/SplashTileDoorman"
 import SplashTileElevator from "./SplashTiles/SplashTileElevator"
 import SplashTilePets from "./SplashTiles/SplashTilePets"
 import {useHistory} from 'react-router-dom'
-import {fetchSearchResults} from '../../store/search.js'
+import {fetchRentalSearch, fetchSearchResults} from '../../store/search.js'
 
 function SplashSubSection3 () {
     const dispatch = useDispatch()
@@ -11,16 +11,13 @@ function SplashSubSection3 () {
     let a = Math.floor(Math.random() * 45)
     let b = Math.floor(Math.random() * 45)
 
-    const searchObj = {rent: null, minPrice: 0, maxPrice: 100000000, location: "brooklyn manhattan queens bronx staten"}
     
     const handleRentSearch = () => {
-        searchObj.rent = true
-        dispatch(fetchSearchResults(searchObj))
+        dispatch(fetchRentalSearch(true))
         history.push("/listings")
     }
     const handleSalesSearch = () => {
-        searchObj.rent = false
-        dispatch(fetchSearchResults(searchObj))
+        dispatch(fetchRentalSearch(false))
         history.push("/listings")
     }
 

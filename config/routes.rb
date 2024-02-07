@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     get 'listings/search', to: "listings#search"
     get 'listings/building_search', to: "listings#building_search"
+    get 'listings/rental_search', to: "listings#rental_search"
       get 'places/:query', to: 'places#show'
     resources :buildings, only: [:index]
     resources :users, only: [:create, :show, :destroy]
