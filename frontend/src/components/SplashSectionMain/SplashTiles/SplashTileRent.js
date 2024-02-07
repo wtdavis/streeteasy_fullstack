@@ -20,7 +20,6 @@ function SplashTileRent () {
             </div>
         </div>
     )
-
 }
 
 export default SplashTileRent

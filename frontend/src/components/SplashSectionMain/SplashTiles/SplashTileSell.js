@@ -17,6 +17,8 @@ function SplashTileSell () {
         }
     }
 
+    
+
     return (
         <div className="splashtile">
             <p className="splashtiletitle">Sell your home successfully</p>

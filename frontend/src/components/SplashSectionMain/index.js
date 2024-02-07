@@ -30,7 +30,7 @@ function SplashPage () {
         <SplashSubSection1/>
         <SplashSubSection2/>
         <SplashSubSection3/>
-        <SearchBar/>
+        {/* <SearchBar/> */}
 
     </div>
 }

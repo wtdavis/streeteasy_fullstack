@@ -18,6 +18,7 @@ import ListingShow from "./components/Listings/ListingShow";
 import Search from "./components/SearchShowPage/SearchShowPage";
 import Places from "./components/Maps/Places";
 import * as modalActions from "./store/modal"
+import Developer from "./components/Developer/developer";
 function App() {
   const dispatch = useDispatch()
   const modal = useSelector(state => state.modal)
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/places">
             <Places/>
+          </Route>
+          <Route>
+            <Developer/>
           </Route>
         </Switch>
       </div>
