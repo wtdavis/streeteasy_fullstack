@@ -11,13 +11,16 @@ function SplashSubSection3 () {
     let a = Math.floor(Math.random() * 45)
     let b = Math.floor(Math.random() * 45)
 
+    const searchObj = {rent: null, minPrice: 0, maxPrice: 100000000, location: "brooklyn manhattan queens bronx staten"}
     
     const handleRentSearch = () => {
-        dispatch(fetchSearchResults({rent: true}))
+        searchObj.rent = true
+        dispatch(fetchSearchResults(searchObj))
         history.push("/listings")
     }
     const handleSalesSearch = () => {
-        dispatch(fetchSearchResults({rent: false}))
+        searchObj.rent = false
+        dispatch(fetchSearchResults(searchObj))
         history.push("/listings")
     }
 
