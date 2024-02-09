@@ -1,8 +1,9 @@
 import "./developer.css"
 import developerphoto from "../../assets/developerphoto.jpg"
+console.log(developerphoto)
 function Developer () {
+    // const developerphoto = developerphoto;
     return (
-
         <div className="developerBio">
             <p className="developerBioTextItem">
             Hello! Welcome to EliteEasy, a clone of the New York City real-estate website. I created this, my first fullstack project, while shopping for a place to live in the city; the rent is too dang high.
