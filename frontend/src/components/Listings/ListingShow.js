@@ -10,9 +10,10 @@ import Map from "../Maps/Map"
 import { changeLeftMargin } from "../../store/modal"
 import { handleChangeMargin } from "../utils"
 import "./listingshow.css"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 function ListingShow () {
-
+    const history = useHistory()
     let params = useParams()
     const dispatch = useDispatch()
     const {listingId} = useParams()
@@ -184,6 +185,9 @@ if (listing) {
         }
     }
 
+    const handleShareButton = () => {
+        history.push("/developer")
+    }
     
 
     // <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
@@ -275,7 +279,7 @@ if (listing) {
                     </div>
                     <div className="sharebuttonlistingshow">
                         <i className="fa fa-envelope"></i>
-                        <p className="sharebuttontextlistingshow">SHARE</p>
+                        <p className="sharebuttontextlistingshow" onClick={e => handleShareButton()}>SHARE</p>
                     </div>
                 </div>
                 <div className="bedsbathsinfoitem listingshowrandviewers"> 
