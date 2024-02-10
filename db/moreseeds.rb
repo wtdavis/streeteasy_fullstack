@@ -100,6 +100,18 @@
         num_bedrooms: 1,
         borough: "Brooklyn"
  
+
+        location: "40.700686, -73.933763",
+        address: "54 Noll St, Brooklyn, NY 11206",
+        description: "This windowless basement apartment is haunted by no fewer than 13 ghosts, and the apartment number randomly changes. Something nice to discuss with your therapist!"
+        lister_id: 1,
+        building_id: 2,
+        unit: "666",
+        rental: true,
+        price: 6600,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
         {
 
 
