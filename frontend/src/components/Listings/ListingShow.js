@@ -188,6 +188,10 @@ if (listing) {
     const handleShareButton = () => {
         history.push("/developer")
     }
+
+    const handleEdit = () => {
+        
+    }
     
 
     // <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
