@@ -196,6 +196,10 @@ if (listing) {
         else {
             console.log("this.that")
         }
+
+        function teleprompter () {
+            console.log("I am deeply stupid")
+        }
     }
     
 
