@@ -190,7 +190,9 @@ if (listing) {
     }
 
     const handleEdit = () => {
-        
+        if (listing) {
+            listing.delete()
+        }
     }
     
 
