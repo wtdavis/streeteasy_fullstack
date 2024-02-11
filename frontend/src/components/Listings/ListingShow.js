@@ -193,6 +193,9 @@ if (listing) {
         if (listing) {
             listing.delete()
         }
+        else {
+            console.log("this.that")
+        }
     }
     
 
