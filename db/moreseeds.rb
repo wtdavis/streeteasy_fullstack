@@ -118,7 +118,7 @@
 
                 
         location: 
-        address: 
+        address: "101x Street st, Staten Island, NY, 99999"
         description: "This three story "
         lister_id: 1,
         building_id: 2,
