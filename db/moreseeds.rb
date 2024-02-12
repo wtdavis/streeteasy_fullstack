@@ -117,6 +117,17 @@
  
 
                 
+        location: 
+        address: 
+        description: " "
+        lister_id: 1,
+        building_id: 2,
+        unit: "666",
+        rental: true,
+        price: 6600,
+        num_baths: 1,
+        num_bedrooms: 1,
+        borough: "Brooklyn"
                 
                 
                 
