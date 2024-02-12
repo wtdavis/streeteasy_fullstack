@@ -121,10 +121,10 @@
         address: "101x Street st, Staten Island, NY, 99999"
         description: "This three story "
         lister_id: 1,
-        building_id: 2,
-        unit: "",
-        rental: true,
-        price: ,
+        building_id: nil,
+        unit: "1-12",
+        rental: false,
+        price: 7290000,
         num_baths: 1,
         num_bedrooms: 1,
         borough: "Staten Island"
