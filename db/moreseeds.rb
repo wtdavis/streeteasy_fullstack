@@ -119,15 +119,15 @@
                 
         location: 
         address: 
-        description: " "
+        description: "This three story "
         lister_id: 1,
         building_id: 2,
-        unit: "666",
+        unit: "",
         rental: true,
-        price: 6600,
+        price: ,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Brooklyn"
+        borough: "Staten Island"
                 
                 
                 
