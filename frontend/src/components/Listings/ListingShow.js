@@ -22,8 +22,9 @@ function ListingShow () {
     const [amenities, setAmenities] = useState()
     const [listingAmenities, setListingAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
+    const [myListing, setMyListing] = useState(false)
     const currentUser = useSelector(state => state.session.user)
-    let listing = useSelector(state => state.listings.current)
+    const listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
   
 
@@ -149,6 +150,9 @@ function ListingShow () {
         } else {
             handleBedsBaths()
         }
+        if (currentUser.id === listing.listerId) {
+            setMyListing(true)
+        }
         handleChangeMargin(25)
         amenitiesList()
         listingAmenitiesList()
@@ -189,18 +193,21 @@ if (listing) {
         history.push("/developer")
     }
 
-    const handleEdit = () => {
-        if (listing) {
-            listing.delete()
-        }
-        else {
-            console.log("this.that")
-        }
+    const handleListingEditButton = () => {
+        let user = currentUser;
 
-        function teleprompter () {
-            console.log("I am deeply stupid")
-        }
+        // if (listing) {
+        // }
+        // else {
+        //     console.log("this.that")
+        // }
+
+        // function teleprompter () {
+        //     console.log("I am deeply stupid")
+        // }
     }
+
+
 
     
     
@@ -288,6 +295,11 @@ if (listing) {
                 <div className="listingshowrightinfoitem listingshowrental">
                     {rentalText()}{listing.borough}
                 </div>
+                {myListing&& //if logged in, and current user is creator of current listing, show edit button
+                <div className="listingEditButton" onClick={e => handleListingEditButton()}>
+                    This will be an edit button
+                </div>}
+
                 <div className="favsharebuttonlistingshowcontainer">
                     <div className="favbuttonlistingshowcontainer">
                         <Favorite listing={listing}/>
