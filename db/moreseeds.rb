@@ -119,7 +119,7 @@
                 
         location: 
         address: "101x Street st, Staten Island, NY, 99999"
-        description: "This three story "
+        description: "This three story apartment building is for sale in the quiet residential neighborhood of "
         lister_id: 1,
         building_id: nil,
         unit: "1-12",
