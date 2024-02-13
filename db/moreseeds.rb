@@ -117,8 +117,8 @@
  
 
                 
-        location: 
-        address: "101x Street st, Staten Island, NY, 99999"
+        location: "latitudeithink, longitudeprobs"
+        address: "14 Thompson Pl, Staten Island, NY 10305"
         description: "This three story apartment building is for sale in the quiet residential neighborhood of "
         lister_id: 1,
         building_id: nil,
