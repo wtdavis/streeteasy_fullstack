@@ -23,8 +23,9 @@ function ListingShow () {
     const [listingAmenities, setListingAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const [myListing, setMyListing] = useState(false)
+    let myListingTimeoutSignature
     const currentUser = useSelector(state => state.session.user)
-    const listing = useSelector(state => state.listings.current)
+    let listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
   
 
@@ -142,6 +143,32 @@ function ListingShow () {
         }
     }
 
+    const handleMyListing = (val) => {
+        console.log(myListingTimeoutSignature)
+        //check if current user created current listing, and handle myListing(t/f) 
+        // state var to help implement the "edit listing" button
+        if (listing) {
+            debugger
+            if (currentUser.id === listing.listerId) {
+                //if currentUser created current listing, set myListing to true
+                setMyListing(true)
+                if (myListingTimeoutSignature) { 
+                    //if this is not the first time , clear setTimeout 
+                    clearTimeout(myListingTimeoutSignature)
+                }
+            }
+        } else {
+
+            debugger
+            // if listing useSelector hasn't loaded yet, wait 2 seconds
+            // then run whole function again
+            if (myListingTimeoutSignature === undefined) {
+                // myListingTimeoutSignature = 1
+                myListingTimeoutSignature = setTimeout(handleMyListing, 2000)
+            }
+        }
+    }
+
     useEffect(() => {
 
         if (!listing) {
@@ -150,13 +177,14 @@ function ListingShow () {
         } else {
             handleBedsBaths()
         }
-        if (currentUser.id === listing.listerId) {
-            setMyListing(true)
-        }
+
+        handleMyListing()
         handleChangeMargin(25)
         amenitiesList()
         listingAmenitiesList()
     }, [])
+
+
 
 
 if (listing) {
