@@ -28,7 +28,7 @@ function ListingShow () {
     const coordinates = listing?.location
     
     let myListingTimeoutSignature
-// debugger
+
     // useEffect(() => {
 
         
@@ -100,7 +100,6 @@ function ListingShow () {
         let items = new Set(amenities)
         let arr = Array.from(items.keys())
          setAmenities(arr)
-
     }
 
     const listingAmenitiesList = () => {
@@ -120,6 +119,7 @@ function ListingShow () {
             "Electronic Locks"
         ]
 
+        console.log("creating amenities list")
         let amenities = []
         let i = Math.floor(Math.random()*11) + 4
         for (i;i>0;i--) {
@@ -183,17 +183,18 @@ function ListingShow () {
         }
 
         
+        handleMyListing()
         handleChangeMargin(25)
         amenitiesList()
         listingAmenitiesList()
-    }, [])
+    }, [listing])
 
-    useEffect(() => {
-        handleMyListing()
-    }, [])
+  
 
+     
 if (listing) {
     
+
     let type; 
     if ( listing && listing.rental ){
         type = <p className="listinginfoitem"> For Rent</p>
@@ -284,11 +285,11 @@ if (listing) {
                     <p className="listingshowsubtitle">Amenities:</p>
                     <p className="listingshowamenitiesinfoitemheader">Building Amenities</p>
                     <ul className="listingshowamenitieslist">
-                    {amenities.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
+                    {amenities?.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
                     </ul>
                     <p className="listingshowamenitiesinfoitemheader">Listing Amenities</p>
                     <ul className="listingshowamenitieslist">
-                    {listingAmenities.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
+                    {listingAmenities?.map(item => <li className="listingshowamenitieslistitem">{item}</li>)}
                     </ul>
                 </div>
 
