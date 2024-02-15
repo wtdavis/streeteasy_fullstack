@@ -23,11 +23,11 @@ function ListingShow () {
     const [listingAmenities, setListingAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const [myListing, setMyListing] = useState(false)
-    let myListingTimeoutSignature
     const currentUser = useSelector(state => state.session.user)
     const listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
-   
+    
+    let myListingTimeoutSignature
 // debugger
     // useEffect(() => {
 
@@ -54,7 +54,6 @@ function ListingShow () {
 
     const handleDelete = () => {
         dispatch(listingsActions.deleteListing(listing.id));
-        
     }
 
     const randomValues = (obj) => {
@@ -172,7 +171,7 @@ function ListingShow () {
                 myListingTimeoutSignature = setTimeout(handleMyListing, 2000)
             }
         }
-    } 
+    }
 
     useEffect(() => {
 
@@ -183,14 +182,15 @@ function ListingShow () {
             handleBedsBaths()
         }
 
-        handleMyListing()
+        
         handleChangeMargin(25)
         amenitiesList()
         listingAmenitiesList()
     }, [])
 
-
-
+    useEffect(() => {
+        handleMyListing()
+    }, [])
 
 if (listing) {
     
