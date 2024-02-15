@@ -25,10 +25,10 @@ function ListingShow () {
     const [myListing, setMyListing] = useState(false)
     let myListingTimeoutSignature
     const currentUser = useSelector(state => state.session.user)
-    let listing = useSelector(state => state.listings.current)
+    const listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
-  
-
+   
+// debugger
     // useEffect(() => {
 
         
@@ -144,30 +144,35 @@ function ListingShow () {
     }
 
     const handleMyListing = (val) => {
-        console.log(myListingTimeoutSignature)
+        let temp = listing
+        // console.log(myListingTimeoutSignature)
         //check if current user created current listing, and handle myListing(t/f) 
         // state var to help implement the "edit listing" button
-        if (listing) {
+        if (temp) {
+
             debugger
-            if (currentUser.id === listing.listerId) {
+            if (currentUser.id === temp.listerId) {
+                debugger
                 //if currentUser created current listing, set myListing to true
+                console.log("success! myListing === true")
                 setMyListing(true)
                 if (myListingTimeoutSignature) { 
                     //if this is not the first time , clear setTimeout 
+                    console.log(`${myListingTimeoutSignature} timeout cleared`)
                     clearTimeout(myListingTimeoutSignature)
                 }
             }
         } else {
-
             debugger
             // if listing useSelector hasn't loaded yet, wait 2 seconds
             // then run whole function again
             if (myListingTimeoutSignature === undefined) {
-                // myListingTimeoutSignature = 1
+                debugger
+                console.log(`${myListingTimeoutSignature} set`)
                 myListingTimeoutSignature = setTimeout(handleMyListing, 2000)
             }
         }
-    }
+    } 
 
     useEffect(() => {
 
