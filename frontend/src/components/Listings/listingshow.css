@@ -203,11 +203,9 @@
 
 
 .listingEditButton {
-    /* background-color: var(--lightblue); */
-    border-top: 1px solid var(--lightgrey);
-    /* 2px solid black;   */
-    border-bottom: 1px solid var(--lightgrey);
-    /* 2px solid black;  */
+    justify-content: center;
+
+    border: 1px solid black;
     padding: 10px;
     padding-left: 0;
 }
