@@ -331,7 +331,9 @@ if (listing) {
                 </div>
                 {myListing&& //if logged in, and current user is creator of current listing, show edit button
                 <div className="listingEditButton" onClick={e => handleListingEditButton()}>
-                    This will be an edit button
+                    <p> 
+                        This will be an edit button
+                    </p>
                 </div>}
 
                 <div className="favsharebuttonlistingshowcontainer">
