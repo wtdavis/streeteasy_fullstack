@@ -6,7 +6,10 @@
       
       i am not doing as well as i should
       i need to work harder
-      
+
+
+
+      i know i can be a good developer, but i must become disciplined first
       
       {id: 1,
         location: "40.701534, -73.935887",
