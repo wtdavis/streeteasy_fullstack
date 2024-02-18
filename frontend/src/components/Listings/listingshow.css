@@ -203,6 +203,9 @@
 
 
 .listingEditButton {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--midblue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -212,5 +215,5 @@
 }
 
 .listingEditButton:hover {
-    
+    border: 1px solid var(--lightgrey)
 }

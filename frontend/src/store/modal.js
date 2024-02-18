@@ -6,6 +6,8 @@ const ADD_PASSWORD_MODAL = 'modal/addPasswordModal'
 const REMOVE_PASSWORD_MODAL = 'modal/removePasswordModal'
 const ADD_SIGNUP_MODAL = 'modal/addSignupModal'
 const REMOVE_SIGNUP_MODAL = 'modal/removeSignupModal'
+const ADD_LISTING_MODAL = 'modal/addListingModal'
+const REMOVE_LISTING_MODAL = 'modal/removeListingModal'
 const CHANGE_HOVER_VALUE = 'modal/changeHoverValue'
 const CHANGE_LEFT_MARGIN = 'modal/changeLeftMargin'
 
@@ -47,6 +49,17 @@ export const removeSignupModal = () => {
     }
 }
 
+export const addListingModal = () => {
+    return {
+        type: ADD_LISTING_MODAL
+    }
+}
+
+export const removeListingModal = () => {
+    return {
+        type: REMOVE_LISTING_MODAL
+    }
+}
 
 export const changeHoverValue = (value) => {
     return {
@@ -78,6 +91,10 @@ const modalReducer = (state = initialState, action) => {
             return {...state, signup: true};
         case REMOVE_SIGNUP_MODAL:
             return {...state, signup: false}
+        case ADD_LISTING_MODAL:
+            return {...state, listing: true}
+        case REMOVE_LISTING_MODAL:
+            return {...state, listing: false}
         case CHANGE_HOVER_VALUE: 
             return {...state, hover: action.payload}
         case CHANGE_LEFT_MARGIN: 

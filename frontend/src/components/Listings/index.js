@@ -30,6 +30,8 @@ function ListingsIndex (props) {
         handleChangeMargin(3)
     }, [currentUser] )
     
+
+    
     return (
 
         <div className="listingsindex">

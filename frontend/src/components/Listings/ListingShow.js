@@ -7,7 +7,7 @@ import ListingForm from "./ListingForm"
 import "./listings.css"
 import Favorite from "../Favorites/Favorite"
 import Map from "../Maps/Map"
-import { changeLeftMargin } from "../../store/modal"
+import { addListingModal, removeListingModal, changeLeftMargin } from "../../store/modal"
 import { handleChangeMargin } from "../utils"
 import "./listingshow.css"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
@@ -23,6 +23,7 @@ function ListingShow () {
     const [listingAmenities, setListingAmenities] = useState()
     const [bedsBaths, setBedsBaths] = useState({bed: "Rooms", bath: "Baths"})
     const [myListing, setMyListing] = useState(false)
+    const [gearIconClass, setGearIconClass] = useState("fa-solid fa-thin") 
     const currentUser = useSelector(state => state.session.user)
     const listing = useSelector(state => state.listings.current)
     const coordinates = listing?.location
@@ -43,14 +44,23 @@ function ListingShow () {
     // }, [dispatch] 
     // )
 
+
+
     
-    const handleFormDisplay = () => {
+    const handleFormDisplay = (display) => {
+        if (display) {
+            dispatch(addListingModal())
+        } else if (!display) {
+            dispatch(removeListingModal())
+        }
+
         if (listingForm === "listingformhidden")
         {setListingForm("listingformdisplay")
     } else {
         setListingForm("listingformhidden")
     }
     }
+
 
     const handleDelete = () => {
         dispatch(listingsActions.deleteListing(listing.id));
@@ -173,6 +183,11 @@ function ListingShow () {
         }
     }
 
+    
+
+
+
+
     useEffect(() => {
 
         if (!listing) {
@@ -187,13 +202,15 @@ function ListingShow () {
         handleChangeMargin(25)
         amenitiesList()
         listingAmenitiesList()
-    }, [listing])
+
+    }, [listing, gearIconClass])
 
   
 
      
 if (listing) {
     
+    <ListingForm/>
 
     let type; 
     if ( listing && listing.rental ){
@@ -242,6 +259,31 @@ if (listing) {
     }
 
 
+    const handleGearClassName = (lighten) => {
+
+
+
+        let listItem 
+
+        let list = [
+            "thin", 
+            "light", 
+            "regular", 
+            "solid",
+            "duotone"
+        ]
+
+        if (lighten) {
+            for (let i=4; i>=0;i--) {
+                let output = `fa-solid fa-${list[i]}`
+                setGearIconClass(output)
+                console.log(output)
+            }
+        }
+
+        // let output = `fa-solid fa-${listItem}`
+
+    }
 
     
     
@@ -330,10 +372,9 @@ if (listing) {
                     {rentalText()}{listing.borough}
                 </div>
                 {myListing&& //if logged in, and current user is creator of current listing, show edit button
-                <div className="listingEditButton" onClick={e => handleListingEditButton()}>
-                    <p> 
-                        This will be an edit button
-                    </p>
+                <div className="listingEditButton" onClick={e => handleListingEditButton()} onmouseover={e =>handleGearClassName(true)}>
+                    <i className="fa-solid fa-gear"></i>
+                    <p> EDIT YOUR LISTING</p>
                 </div>}
 
                 <div className="favsharebuttonlistingshowcontainer">
