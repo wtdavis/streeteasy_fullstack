@@ -1,15 +1,4 @@
 
-      this is a complement
-      i need it
-      because its midnight
-
-      
-      i am not doing as well as i should
-      i need to work harder
-
-
-
-      i know i can be a good developer, but i must become disciplined first
       
       {id: 1,
         location: "40.701534, -73.935887",
@@ -25,7 +14,7 @@
         
         Getting around Brooklyn or into Manhattan is a breeze with the variety of convenient transportation options. Ditch those L train blues with the J/M/Z trains just minutes away at the Myrtle Avenue station. The L train at Morgan Avenue is less than half mile away, the B57 bus stop is right around the corner and there is a Citi Bike station just a few blocks away."},
         
-        location: "40.701534, -73.935887",
+        {location: "40.701534, -73.935887",
         address: "10 Montieth St, Brooklyn, NY 11206",
         description: "This penthouse apartment offers the luxury of the recently constructed Rheingold and the best views available in this part of Brooklyn. Packed with Amenities, you may never need to leave the building!"
         lister_id: 1,
@@ -35,9 +24,9 @@
         price: 5500,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
         
-        location: "40.701534, -73.935887",
+        {location: "40.701534, -73.935887",
         address: "10 Montieth St, Brooklyn, NY 11206",
         description: "This spacious two-bedroom is for sale in the gorgeous Rheingold building. Overlooking a small park the the south, this apartment comes furnished, having recently been remodeled to update the kitchen, bathrooms, lighting, and appliances."
         lister_id: 2,
@@ -47,9 +36,9 @@
         price: 3000000,
         num_baths: 2,
         num_bedrooms: 2,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
 
-        location: "40.701534, -73.935887",
+        {location: "40.701534, -73.935887",
         address: "10 Montieth St, Brooklyn, NY 11206",
         description: "Find yourself at home in this large 3 bedroom apartment for rent in the luxurious Rhenigold building in the heart of Bushwick. Appointed in white marble and oak, this space has recently been remodeled with new tenants in mind."
         lister_id: 2,
@@ -59,7 +48,7 @@
         price: 8500,
         num_baths: 2,
         num_bedrooms: 3,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
 
 
 
@@ -76,7 +65,7 @@
         
         No other building in NYC has as comprehensive an amenity package. Denizen features a swimming pool, outdoor hot tubs, three-lane bowling alley, brewery and chef's kitchen, fitness rooms including boxing, spinning, and yoga studios as well as a rock-climbing wall, game room, arcade, children's playroom, and conference room. The expansive rooftops include grilling areas, mini golf, and a dog run. Parking and bike storage are also available."},
         
-        location: "40.700686, -73.933763",
+        {location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
         description: "This bright, open-plan apartment is perfect for the young-professional family. Featuring a jacuzzi tub and recessed lighting, this spacious home comes fully furnished and is move-in ready!"
         lister_id: 3,
@@ -86,9 +75,9 @@
         price: 8500,
         num_baths: 2,
         num_bedrooms: 3,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
  
-        location: "40.700686, -73.933763",
+        {location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
         description: "This large single-bedroom apartment is perfect for the aspiring young professional. Boasting 12' ceilings, a jacuzzi, and a full marble kitchen, find yourself at home in this beautiful space."
         lister_id: 1,
@@ -98,9 +87,9 @@
         price: 7600,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
 
-        location: "40.700686, -73.933763",
+        {location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
         description: "This windowless basement apartment is haunted by no fewer than 13 ghosts, and the apartment number randomly changes. Something nice to discuss with your therapist!"
         lister_id: 1,
@@ -110,10 +99,10 @@
         price: 6600,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Brooklyn"
+        borough: "Brooklyn"},
  
 
-        location: "40.700686, -73.933763",
+        {location: "40.700686, -73.933763",
         address: "54 Noll St, Brooklyn, NY 11206",
         description: "This windowless basement apartment is haunted by no fewer than 13 ghosts, and the apartment number randomly changes. Something nice to discuss with your therapist!"
         lister_id: 1,
@@ -123,13 +112,13 @@
         price: 6600,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Brooklyn"
-        {
+        borough: "Brooklyn"},
+        
 
  
 
                 
-        location: "latitudeithink, longitudeprobs"
+        {location: "40.609968447836366, -74.07040613037246"
         address: "14 Thompson Pl, Staten Island, NY 10305"
         description: "This three story apartment building is for sale in the quiet residential neighborhood of "
         lister_id: 1,
@@ -139,7 +128,7 @@
         price: 7290000,
         num_baths: 1,
         num_bedrooms: 1,
-        borough: "Staten Island"
+        borough: "Staten Island"},
                 
                 
                 
