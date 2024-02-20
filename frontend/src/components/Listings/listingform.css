@@ -77,6 +77,14 @@
     z-index: 100
 }
 
+.listingformdisplaycenter {
+    position: fixed;
+    display: block;
+    width: 50%;
+    /* margin-left: 22%; */
+    z-index: 100
+}
+
 .listingformtoggle {
     cursor: pointer;
     background-color: darkgrey;

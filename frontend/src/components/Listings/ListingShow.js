@@ -50,7 +50,7 @@ function ListingShow () {
     const handleFormDisplay = (display) => {
         
         if (listingForm === "listingformhidden")
-        {setListingForm("listingformdisplay")
+        {setListingForm("listingformdisplaycenter")
     } else {
         setListingForm("listingformhidden")
     }
@@ -155,8 +155,7 @@ function ListingShow () {
         if (temp) {
 
             debugger
-            if (currentUser.id === temp.listerId) {
-                debugger
+            if (currentUser?.id === temp.listerId) {
                 //if currentUser created current listing, set myListing to true
                 console.log("success! myListing === true")
                 setMyListing(true)
@@ -167,11 +166,9 @@ function ListingShow () {
                 }
             }
         } else {
-            debugger
             // if listing useSelector hasn't loaded yet, wait 2 seconds
             // then run whole function again
             if (myListingTimeoutSignature === undefined) {
-                debugger
                 console.log(`${myListingTimeoutSignature} set`)
                 myListingTimeoutSignature = setTimeout(handleMyListing, 2000)
             }
@@ -286,7 +283,7 @@ if (listing) {
     return (
         <div className="listingshowcontainer">
         <div className={listingForm}>
-            <ListingForm handleFormDisplay={handleFormDisplay} listing={listing}/>
+            <ListingForm handleFormDisplay={handleFormDisplay} listing={listing} update={true}/>
         </div>
 
             <div className="listingshowcentercontainer">

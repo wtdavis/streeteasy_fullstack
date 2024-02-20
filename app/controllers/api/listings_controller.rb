@@ -27,6 +27,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def update
+    # debugger
     @listing = Listing.find(params[:id])
     @listing.update!(listing_params)
     

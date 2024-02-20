@@ -33,7 +33,7 @@ function ListingForm ({listing, formClass, handleFormDisplay, update}) {
             setPhotoFile(listing.photoUrl)
             setAddress(listing.address);
             setLocation(listing.location);
-            setNumBeds(listing.numBeds);
+            setNumBeds(listing.numBedrooms);
             setNumBaths(listing.numBaths);
             setDescription(listing.description);
             setUnit(listing.unit)
@@ -56,6 +56,7 @@ function ListingForm ({listing, formClass, handleFormDisplay, update}) {
         const file = e.target.files[0];
         setPhotoFile(file)
     }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -80,13 +81,14 @@ function ListingForm ({listing, formClass, handleFormDisplay, update}) {
         dispatch(listingsActions.clearListingsErrors())
 
         if (update) {
-        dispatch(listingsActions.updateListing(listing.id, formData)).then(res => {
-            if (!res.errors) {
-                handleFormDisplay()
-                history.push(`/listings/${res.listing.id}`)
-                }
-            }
-        )
+            handleUpdate(e)
+        // dispatch(listingsActions.updateListing(listing.id, formData)).then(res => {
+        //     if (!res.errors) {
+        //         handleFormDisplay()
+        //         history.push(`/listings/${res.listing.id}`)
+        //         }
+        //     }
+        // )
         } else {
         dispatch(listingsActions.createListing(formData)).then(res => {
             if (!res.errors) {
@@ -100,6 +102,35 @@ function ListingForm ({listing, formClass, handleFormDisplay, update}) {
 
     }
 
+
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('listing[description]', description)
+        formData.append('listing[address]', address)
+        formData.append('listing[location]', location)
+        formData.append('listing[numBedrooms]', numBeds)
+        formData.append('listing[buildingId]', 1)
+        formData.append('listing[numBaths]', numBaths)
+        formData.append('listing[unit]', unit)
+        formData.append('listing[listerId]', listerId)
+        formData.append('listing[price]', price)
+        formData.append('listing[borough]', borough)
+        formData.append('listing[rental]', rental)
+        // dispatch(listingsActions.updateListing(listing.id, formData)).then(res =>
+        //     console.log(res))
+
+
+         dispatch(listingsActions.updateListing(listing.id, formData)).then(res => {
+            if (!res.errors) {
+                handleFormDisplay()
+                history.push(`/listings/${res.listing.id}`)
+                }
+            }
+        )
+
+    }
     
     // const handleHide = () => {
     //     setListingForm("listingformhidden")
