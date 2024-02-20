@@ -48,12 +48,7 @@ function ListingShow () {
 
     
     const handleFormDisplay = (display) => {
-        if (display) {
-            dispatch(addListingModal())
-        } else if (!display) {
-            dispatch(removeListingModal())
-        }
-
+        
         if (listingForm === "listingformhidden")
         {setListingForm("listingformdisplay")
     } else {
@@ -210,7 +205,6 @@ function ListingShow () {
      
 if (listing) {
     
-    <ListingForm/>
 
     let type; 
     if ( listing && listing.rental ){
@@ -246,7 +240,7 @@ if (listing) {
 
     const handleListingEditButton = () => {
         let user = currentUser;
-
+        handleFormDisplay()
         // if (listing) {
         // }
         // else {
@@ -291,6 +285,9 @@ if (listing) {
     // <ListingForm listing={listing} update={true} formClass={listingForm} setListingForm={setListingForm}/>
     return (
         <div className="listingshowcontainer">
+        <div className={listingForm}>
+            <ListingForm handleFormDisplay={handleFormDisplay} listing={listing}/>
+        </div>
 
             <div className="listingshowcentercontainer">
                 <img className="listingshowphoto" id="listingshowphoto" src={listing.photoUrl}/>
