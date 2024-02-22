@@ -35,37 +35,6 @@ function ListingsIndex (props) {
     return (
 
         <div className="listingsindex">
-            {/* <div className="box1">box1
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-                <div className="insidebox">
-                    insidebox
-                </div>
-            </div>
-            <div className="box2">box2</div> */}
-            
             <div className="listingslistcontainer">
                  <ListingList/>
             </div>   

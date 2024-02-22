@@ -14,11 +14,8 @@
     box-shadow: .5px .5px 3px .5px rgb(221, 221, 221);
 }
 
-
-
 .listingtile:hover {
     box-shadow: 1.5px 1.5px 3px 1.5px rgb(221, 221, 221);
-
 }
 
 .listingtileinfo {
@@ -71,14 +68,10 @@
     padding-left: 0
 }
 
-
-
 .listingtilebedsbaths {
     padding: 0 10px 0 10px;
     color: var(--midgrey)
 }
-
-
 /* listing show page ---------------------- */
 
 #listingShow {
@@ -108,7 +101,6 @@
 
 /*  */
 
-
 .listinginfoitem {
     size: smaller;
     padding: 5px
@@ -118,72 +110,7 @@
     font-weight: bold;
 }
 
-/* listing form  */
-/* 
-.listingformpage {
-    display: block;
-    width: 50%;
-    margin-left: 15%;
-    box-sizing: border-box;
-}
 
-#listingform {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    width: 100%;
-    background-color: rgb(83, 83, 85);
-}
-
-.listingformheader {
-    font-size: larger;
-    margin: 10px 0px
-}
-
-.listingformsubheader {
-    margin-top: 5px
-}
-
-.listingforminput {
-    height: 40px;   
-    text-indent: 10px;
-}
-
-.listingformerror {
-    color: red
-}
-
-#photoupload {
-    margin-top: 5px
-}
-
-#listingformsubmitbutton {
-    margin-top: 15px;
-    background-color: rgb(2, 2, 90);
-}
-
-.listingformhidden{
-    display: none
-}
-
-.listingformdisplay {
-    display: block
-}
-
-.listingformtoggle {
-    cursor: pointer;
-    background-color: darkgrey;
-    vertical-align: center;
-}
-
-.listingformclosebutton {
-    cursor: pointer;
-    position: absolute;
-    right: 30px;
-    top: 30px
-}
- */
 
 #listingShow > #listingformpage {
     width: 100%;
@@ -216,7 +143,6 @@
 #listingshowbeds {
     border-right: 1px solid grey;
     border-left: 1px solid grey;
-    
     padding-right: 10px;
 }
 
@@ -224,32 +150,7 @@
     border-bottom: 1px solid grey
 }
 
-
 /* listings index, listings list component------------------------- */
-
-
-/* .box1 {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 5300px;
-    width: 210px;
-    background-color: green;    
-}
-
-.box2 {
-    position: sticky;
-    top: 10px;
-    height: 500px;
-    width: 200px;
-    background-color: blue;
-}
-
-.insidebox {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black
-} */
 
 .listingsindex {
     position: relative;
@@ -275,7 +176,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* width: 80% */
+    width: 630px;
 }
 
 .listingsindexmapcontainer {
@@ -283,6 +184,6 @@
     top: 112px;
     width: 62vw;
     height: calc(100vh - 200px);
-    margin: 12px 0
+    margin: 12px 0;
 }
 
