@@ -159,8 +159,8 @@
     padding-left: 3%;   
     width: 100%;
     box-sizing: border-box;
-    height: 200vh;
-    /* overflow-x: scroll */
+    /* height: 4000px; */
+    overflow-x: hidden
 }
 
 .listingslistcontainer {
@@ -169,7 +169,6 @@
     padding: 0;
     margin-top: 4px;
     padding-right: 8px;
-
 }
 
 .listinglist {
@@ -180,10 +179,14 @@
 }
 
 .listingsindexmapcontainer {
-    position: sticky;
-    top: 112px;
-    width: 62vw;
+    position: static;
+    /* height: 100vh; */
+    /* top: 112px; */
+    /* width: 62vw; */
     height: calc(100vh - 200px);
     margin: 12px 0;
 }
 
+.listingsindexmap {
+    position:static
+}

@@ -23,7 +23,6 @@ function ListingsIndex (props) {
     const currentUser = useSelector(state => state.session.user)
     
     useEffect( ()=>{
-        
         if (currentUser){
             dispatch(fetchFavorites(currentUser))
         };
@@ -33,7 +32,6 @@ function ListingsIndex (props) {
 
     
     return (
-
         <div className="listingsindex">
             <div className="listingslistcontainer">
                  <ListingList/>
@@ -41,10 +39,8 @@ function ListingsIndex (props) {
             <div className="listingsindexmapcontainer">
                 <Map listings={listings} mapClass={"bigmap"} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
             </div>
-
         </div>
     )
-
 }
 
 export default ListingsIndex
