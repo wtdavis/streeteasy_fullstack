@@ -153,7 +153,7 @@
 /* listings index, listings list component------------------------- */
 
 .listingsindex {
-    /* position: relative; */
+    /* position: sticky; */
     display: flex;
     flex-direction: row;
     padding-left: 3%;   
@@ -186,8 +186,11 @@
     /* width: 62vw; */
     /* height: calc(100vh - 200px); */
     /* margin: 12px 0; */
+
+    
 }
 
 .listingsindexmap {
-    /* position: absolute */
+
+    position: sticky;
 }
