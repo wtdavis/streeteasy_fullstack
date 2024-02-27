@@ -40,8 +40,11 @@ function ListingsIndex (props) {
                     </div>   
                 </div >
             </div>
-                    <div className="listingsindexmapcontainer">
+                    {/* <div className="listingsindexmapcontainer">
                         <Map listings={listings} mapClass={"bigmap"} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
+                    </div> */}
+                    <div className="listingsindexmapcontainer">
+                        <Map listings={listings} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
                     </div>
                     {/* <div className="testBox"></div>  */}
         </div>

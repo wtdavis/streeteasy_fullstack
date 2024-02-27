@@ -193,22 +193,23 @@
     height: 100vh;
     /* left: 430px; */
     top: 112px;
-    height: calc(100vh - 200px);
-    /* width: calc(100vw - 800px); */
-    z-index: 2;
+    height: calc(100vh - 90px);
+    width: calc(100vw - 700px);
+    /* z-index: 2; */
     border: 2px solid rgb(226, 10, 10);
 }
 
 .listingsindexmap {
+    /* display: flex; */
     position: sticky;
-    /* z-index: 1000; */
+    /* width: calc(100vw - 630px); */
 }
 
 .testBox {
     position: sticky;
     top: 100px;
     height: 300px;
-    width: 400px;
+    /* width: 400px; */
     background-color: blue;
     border: 3px solid black;
 }
