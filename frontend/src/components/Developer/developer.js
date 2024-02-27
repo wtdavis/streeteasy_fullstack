@@ -1,10 +1,11 @@
 import "./developer.css"
-import developerphoto from "../../assets/developerphoto.jpg"
+import developerphoto from "../../assets/badSelfPortraitWD.jpg"
 console.log(developerphoto)
 function Developer () {
     // const developerphoto = developerphoto;
     return (
         <div className="developerBio">
+            <img className="developerPhoto" src={developerphoto}/>
             <p className="developerBioTextItem">
             Hello! Welcome to EliteEasy, a clone of the New York City real-estate website. I created this, my first fullstack project, while shopping for a place to live in the city; the rent is too dang high.
             </p>
@@ -16,7 +17,6 @@ function Developer () {
             <p className="developerBioTextItem">
             I appreciate the staff of App Academy, and my fellow cohort of new developers, for their guidance and encouragement throughout the process of the site's creation, and for helping me discover the skill that has become my life's work to develop.
             </p>
-            <img src="developerphoto"/>
         </div>
     )
 }
