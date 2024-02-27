@@ -192,17 +192,19 @@
     position: sticky;
     height: 100vh;
     /* left: 430px; */
-    top: 112px;
+    top: 100px;
     height: calc(100vh - 90px);
-    width: calc(100vw - 700px);
+    width: 100%;
     /* z-index: 2; */
     border: 2px solid rgb(226, 10, 10);
 }
 
 .listingsindexmap {
     /* display: flex; */
+    border: 3px dotted green;
     position: sticky;
-    /* width: calc(100vw - 630px); */
+    width: 100%;
+    height: 100%;
 }
 
 .testBox {
