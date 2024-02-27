@@ -32,17 +32,18 @@ function ListingsIndex (props) {
 
     
     return (
-        <div className="listingsindex">
-            <div className="listingsscrollcontainer">
-
-            <div className="listingslistcontainer">
-                 <ListingList/>
-            </div>   
-            <div className="listingsindexmapcontainer">
-                <Map listings={listings} mapClass={"bigmap"} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
+        <div className="listingsindexContainer">
+            <div className="listingsindex">
+                <div className="listingsscrollcontainer">
+                    <div className="listingslistcontainer">
+                        <ListingList/>
+                    </div>   
+                </div >
             </div>
-            </div >
-            
+                    <div className="listingsindexmapcontainer">
+                        <Map listings={listings} mapClass={"bigmap"} className="listingsindexmap" coordinates={{lat: 40.736180, lng: -73.993867}} />
+                    </div>
+                    {/* <div className="testBox"></div>  */}
         </div>
     )
 }

@@ -2,7 +2,6 @@
 /* Listing tile --------------------- */
 
 .listingtile {
-    
     position: relative;
     height: 400px;
     width: 300px;
@@ -152,18 +151,27 @@
 
 /* listings index, listings list component------------------------- */
 
+.listingsindexContainer {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+    overflow-y: clip;
+}
+
 .listingsindex {
+    border: 2px solid orange;
     /* position: sticky; */
     display: flex;
     flex-direction: row;
     padding-left: 3%;   
-    width: 100%;
+    /* width: 100%; */
     box-sizing: border-box;
     /* height: 4000px; */
-    overflow-x: hidden
+    /* overflow-x: hidden; */
 }
-
+ 
 .listingslistcontainer {
+    border: 2px solid purple;
     width: 630px;
     margin: 0;
     padding: 0;
@@ -173,24 +181,34 @@
 
 .listinglist {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     flex-direction: row;
     width: 630px;
+    z-index: 3;
 }
 
 .listingsindexmapcontainer {
     position: sticky;
-    top: 1
-    /* height: 100vh; */
-    /* top: 112px; */
-    /* width: 62vw; */
-    /* height: calc(100vh - 200px); */
-    /* margin: 12px 0; */
-
-    
+    height: 100vh;
+    /* left: 430px; */
+    top: 112px;
+    height: calc(100vh - 200px);
+    /* width: calc(100vw - 800px); */
+    z-index: 2;
+    border: 2px solid rgb(226, 10, 10);
 }
 
 .listingsindexmap {
-
     position: sticky;
+    /* z-index: 1000; */
+}
+
+.testBox {
+    position: sticky;
+    top: 100px;
+    height: 300px;
+    width: 400px;
+    background-color: blue;
+    border: 3px solid black;
 }
