@@ -20,8 +20,10 @@
 }
 
 .developerPhoto {
-    display: none
+    display: none;
+    border: 5px solid green;
 }
+
 
 .developerBio {
     display: none;
