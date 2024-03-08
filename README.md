@@ -190,5 +190,5 @@ Users can create listings, once logged in, from their user profile. Any listing 
 ```
 ### Project Goals
 
-
+This is a project in motion. Each future feature, such as scrolling (multiple) listing photo uploads
 
