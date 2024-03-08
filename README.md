@@ -63,7 +63,7 @@ function UserShow () {
 ### Listing Index
 
 
-Browsing a variety of listings in one place creates a design challenge- an index of listings must balance displaying as many listing tiles and as much information about each as possible, while making each listing large enough to be readable, and while avoiding clutter and crowding. 
+Browsing a variety of listings in one place creates a design challenge- to display enough information to make listing tiles interesting. 
 
 
 
