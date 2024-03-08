@@ -63,7 +63,7 @@ function UserShow () {
 ### Listing Index
 
 
-Browsing a variety of listings in one place creates a design challenge- to display enough information to make listing tiles interesting, while displaying little enough to make the tiles small but the text readable. StreetEasy presents a nice solution to this problem, and their approach to this page has evolved since I began this project
+Browsing a variety of listings in one place creates a design challenge- to display enough information to make listing tiles interesting, while displaying little enough to make the tiles small but the text readable. StreetEasy presents a nice solution to this problem, and their approach to this page has evolved since I began this project: a double stack of listing tiles, next to a map populated with their geolocator pins:
 
 
 
