@@ -190,5 +190,6 @@ Users can create listings, once logged in, from their user profile. Any listing 
 ```
 ### Project Goals
 
-This is a project in motion. Each future feature, such as scrolling (multiple) listing photo uploads
+EliteEasy is a project in motion. Each future feature, such as scrolling (multiple) listing photo uploads and advanced map filtering, will be an opportunity to learn a new API or skill.
+Thank you for looking!
 
